@@ -142,6 +142,7 @@
   \def\ps@headings{%
     \def\@oddfoot{\rm\hfil\thepage\hfil}
     \def\@oddhead{{\slshape\rightmark}\hfil}%
+    \def\@evenfoot{\rm\hfil\thepage\hfil}
     \let\@mkboth\markboth
     \def\chaptermark##1{%
       \markright {\MakeUppercase{%
@@ -228,35 +229,35 @@
 %%% TITLE PAGE %%%%
 %%%%%%%%%%%%%%%%%%%
 \def\maketitle{
-{ \ssp
+{ \smallssp
   \let\footnotesize\small \let\footnoterule\relax
-  \thispagestyle{empty}
+  %\thispagestyle{empty}
   \setcounter{page}{1}
+  \renewcommand{\thepage}{\roman{page}}% Roman numerals for page counter
 
   %\null\vfil
   \begin{center}
+    \vspace{-3.5cm}
     \fmfont {\bfseries {\@title} \par}   % Formatting of the Dissertation title
-    \medskip \vspace{3ex}
+    \smallskip \vspace{2ex}
     By \par
-    \bigskip
-    \bigskip \medskip \MakeUppercase{\@author} \par
+    \smallskip
+    \medskip \MakeUppercase{\@author} \par
     \MakeUppercase{\@report} \par
     \bigskip \par
-    \bigskip \par
     Submitted in partial satisfaction of the requirements for the degree of \par
-    \smallskip \par
     \medskip \MakeUppercase{\@degree} \par
     \smallskip in \par
     \smallskip {\@field} \par
-    \bigskip in the \par
-    \bigskip \par
+    \medskip in the \par
+    \medskip \par
     \MakeUppercase{OFFICE OF GRADUATE STUDIES} \par
     of the \par
     \MakeUppercase{UNIVERSITY OF CALIFORNIA} \par
     \MakeUppercase{\@campus} \par
-    \medskip
-    Approved: \par
     \bigskip \par
+    Approved: \par
+    \medskip \par
     \bigskip \par
     $\:\overline{~~~~ \mbox{\rule{0in}{0.05in} \hspace{3.5in}}}\:$ \\
     {(\@chair)}, Chair \\
@@ -275,15 +276,16 @@
       $\:\overline{~~~~ \mbox{\rule{0in}{0.05in} \hspace{3.5in}}}\:$ \\
       {\@othermemberD} \\ 
       \vskip 2em \fi
-    \bigskip \par
+    \medskip \par
     Committee in charge \par
     \@degreemonth~\@degreeyear
     \end{center}
-  }
-  %\vfil\null \setcounter{footnote}{0}
-  %\if@openright
-  %  \clearpage \thispagestyle{empty} \mbox{} \newpage
-  %\fi
+    }
+  %\renewcommand{\thepage}{\roman{page}}% Roman numerals for page counter
+  % \vfil\null \setcounter{footnote}{0}
+  %  \if@openright
+  %    \clearpage \thispagestyle{empty} \mbox{} \newpage
+  %  \fi
 }
 
 % APPROVALPAGE
@@ -303,7 +305,8 @@
 
 \def\approvalpage{
   \newpage
-  \thispagestyle{empty}
+  \renewcommand{\thepage}{\roman{page}}% Roman numerals for page counter
+  % \thispagestyle{empty}
   \null\vfill
   \begin{center}
     {\fmfont The Dissertation of {\@author} is approved.} \\
@@ -388,23 +391,23 @@
   \ifnum \@draftmark = 1    \ssp \else  \dsp \fi
 }{}
 
-% VITAE
-\newenvironment{vitae}{
-  \if@openright\cleardoublepage \else\clearpage \fi
-  \ssp
-  \begin{center}
-    {\large \bfseries \vitaename} \par
-    {\large \@author}
-  \end{center}
-  \begin{list}{}{\leftmargin 0in \itemsep .2in}
-  }{\end{list}
-}{\par\vfil\null}
-\newcommand{\vitaelabels}[1]{#1 \hfil}
-\newenvironment{vitaesection}[1]{
-  \item {\bf #1}
-  \begin{list}{}{\leftmargin 1.5in \labelwidth 1.3in \labelsep .2in
-  \parsep 0in
-  \let\makelabel\vitaelabels}}{\end{list}}
+% % VITAE
+% \newenvironment{vitae}{
+%   \if@openright\cleardoublepage \else\clearpage \fi
+%   \ssp
+%   \begin{center}
+%     {\large \bfseries \vitaename} \par
+%     {\large \@author}
+%   \end{center}
+%   \begin{list}{}{\leftmargin 0in \itemsep .2in}
+%   }{\end{list}
+% }{\par\vfil\null}
+% \newcommand{\vitaelabels}[1]{#1 \hfil}
+% \newenvironment{vitaesection}[1]{
+%   \item {\bf #1}
+%   \begin{list}{}{\leftmargin 1.5in \labelwidth 1.3in \labelsep .2in
+%   \parsep 0in
+%   \let\makelabel\vitaelabels}}{\end{list}}
 
 % ABSTRACT
 % The ABSTRACT environment allows for multi-page abstracts and needs the
@@ -440,6 +443,7 @@
     \ifnum \@draftmark = 1  \ssp \else  \dsp \fi
     \pagestyle{headings}
     \setcounter{page}{1}
+    % \renewcommand{\thepage}{\arabic{page}}% Roman numerals for page counter
     \pagenumbering{arabic}
 }
 
