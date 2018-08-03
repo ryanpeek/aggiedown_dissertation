@@ -1,6 +1,5 @@
 %%%---PREAMBLE---%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \documentclass[twoside,12pt,final]{ucthesis-CA2012}
-
 % fix for pandoc 1.14
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
@@ -22,7 +21,7 @@
 
 % suppress bottom page numbers on first page of each chapter
 % because they overlap with text
-\patchcmd{\chapter}{plain}{empty}{}{}
+%\patchcmd{\chapter}{plain}{empty}{}{}
 
 %---New Definitions and Commands------------------------------------------------------
 
@@ -89,7 +88,7 @@
 \setcounter{secnumdepth}{0}
 
 %---Set Margins ------------------------------------------------------
-\setlength\oddsidemargin{0.25 in} \setlength\evensidemargin{0.25 in} \setlength\textwidth{6.25 in} \setlength\textheight{8.50 in}
+\setlength\oddsidemargin{0.25 in} \setlength\evensidemargin{0.25 in} \setlength\textwidth{6.25 in} \setlength\textheight{8.5 in} %8.5
 \setlength\footskip{0.25 in} \setlength\topmargin{0 in} \setlength\headheight{0.25 in} \setlength\headsep{0.25 in}
 
 %%%---DOCUMENT---%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -105,9 +104,10 @@
   \title{$title$}
 
   \author{$author$}
-
-  \report{Dissertation} 
-  \degree{Doctor of Philosophy} 
+  \prevdegreeA{$prevdegreeA$}
+  \prevdegreeB{$prevdegreeB$}
+  \report{$report$} 
+  \degree{$degree$} 
   \degreemonth{$month$} \degreeyear{$year$}
   %\defensemonth{$month$} % should be one of the following: March,
   %\defenseyear{$year$}

@@ -17,8 +17,6 @@
 % Defaults are set to 12 point, onesided, final (ie not draft) mode (BBF 10/31/94)
 
 
-% modified by R. Peek 2018-Jul 30 for cover sheet for UC Davis
-
 % ----  Timely loading of specific packages -----------------------------
 %
 \newif\if@natbib      % true if including natbib
@@ -200,6 +198,10 @@
 %\def\defensemonth#1{\gdef\@defensemonth{#1}}% defense month
 %\def\defenseyear#1{\gdef\@defenseyear{#1}}  % defense year
 \def\degree#1{\gdef\@degree{#1}}            % full (unabbreviated) name of the degree
+% All previous degrees: one per line in chronological order
+\def\prevdegreeA#1{\gdef\@prevdegreeA{#1}}
+\def\prevdegreeB#1{\gdef\@prevdegreeB{#1}}
+
 \def\chair#1{\gdef\@chair{#1}}              % committee's chair
 \def\othermemberA#1{\gdef\@othermemberA{#1}}% committe members, one per line
 \def\othermemberB#1{\gdef\@othermemberB{#1}}
@@ -230,7 +232,8 @@
 %%%%%%%%%%%%%%%%%%%
 \def\maketitle{
 { \smallssp
-  \let\footnotesize\small \let\footnoterule\relax
+  \let\footnotesize\small 
+  \let\footnoterule\relax
   %\thispagestyle{empty}
   \setcounter{page}{1}
   \renewcommand{\thepage}{\roman{page}}% Roman numerals for page counter
@@ -243,14 +246,27 @@
     By \par
     \smallskip
     \medskip \MakeUppercase{\@author} \par
+    \smallskip {\@prevdegreeA} \par
+    \smallskip {\@prevdegreeB} \par
+    \vspace*{\fill}
     \MakeUppercase{\@report} \par
-    \bigskip \par
+    \vspace*{\fill}
+    %\bigskip \par
     Submitted in partial satisfaction of the requirements for the degree of \par
-    \medskip \MakeUppercase{\@degree} \par
-    \smallskip in \par
-    \smallskip {\@field} \par
-    \medskip in the \par
-    \medskip \par
+    \vspace*{\fill}
+    {\expandafter\uppercase\expandafter{\@degree}} \par
+    \vspace*{\fill} 
+    in \par
+    \vspace*{\fill} 
+    {\@field}\par
+    \vspace*{\fill} 
+    in the \par
+    \vspace*{\fill} 
+    %\medskip \MakeUppercase{\@degree} \par
+    %\smallskip in \par
+    %\smallskip {\@field} \par
+    %\medskip in the \par
+    %\medskip \par
     \MakeUppercase{OFFICE OF GRADUATE STUDIES} \par
     of the \par
     \MakeUppercase{UNIVERSITY OF CALIFORNIA} \par
@@ -259,21 +275,21 @@
     Approved: \par
     \medskip \par
     \bigskip \par
-    $\:\overline{~~~~ \mbox{\rule{0in}{0.05in} \hspace{3.5in}}}\:$ \\
+    $\:\overline{~~~~ \mbox{\rule{0in}{0.05in} \hspace{3.25in}}}\:$ \\
     {(\@chair)}, Chair \\
     \vskip 2em
-    $\:\overline{~~~~ \mbox{\rule{0in}{0.05in} \hspace{3.5in}}}\:$ \\
+    $\:\overline{~~~~ \mbox{\rule{0in}{0.05in} \hspace{3.25in}}}\:$ \\
     {(\@othermemberA}) \\ 
     \vskip 2em
-    $\:\overline{~~~~ \mbox{\rule{0in}{0.05in} \hspace{3.5in}}}\:$ \\
+    $\:\overline{~~~~ \mbox{\rule{0in}{0.05in} \hspace{3.25in}}}\:$ \\
     {(\@othermemberB}) \\
     \vskip 2em
     \ifnum \@numberofmembers > 3 
-      $\:\overline{~~~~ \mbox{\rule{0in}{0.05in} \hspace{3.5in}}}\:$ \\
+      $\:\overline{~~~~ \mbox{\rule{0in}{0.05in} \hspace{3.25in}}}\:$ \\
       {(\@othermemberC}) \\ 
       \vskip 2em \fi
     \ifnum \@numberofmembers > 4
-      $\:\overline{~~~~ \mbox{\rule{0in}{0.05in} \hspace{3.5in}}}\:$ \\
+      $\:\overline{~~~~ \mbox{\rule{0in}{0.05in} \hspace{3.25in}}}\:$ \\
       {\@othermemberD} \\ 
       \vskip 2em \fi
     \medskip \par
@@ -373,55 +389,48 @@
 % DEDICATION
 \newenvironment{dedication}{
   \if@openright\cleardoublepage \else\clearpage \fi
-}{}
+}
 
 % ACKNOWLEDGEMENTS
 \newenvironment{acknowledgements}{
   \if@openright\cleardoublepage \else\clearpage \fi
   \begin{center} {\large \bfseries \acknowledgename}
   \end{center}
+  %\if@openright\cleardoublepage \else\clearpage \fi
   \ifnum \@draftmark = 1    \ssp \else  \dsp \fi
-}{}
+}
 
 % DISCLAIMER
 \newenvironment{disclaimer}{
   \if@openright\cleardoublepage \else\clearpage \fi
   \begin{center} {\large \bfseries \disclaimername}
   \end{center}
-  \ifnum \@draftmark = 1    \ssp \else  \dsp \fi
-}{}
-
-% % VITAE
-% \newenvironment{vitae}{
-%   \if@openright\cleardoublepage \else\clearpage \fi
-%   \ssp
-%   \begin{center}
-%     {\large \bfseries \vitaename} \par
-%     {\large \@author}
-%   \end{center}
-%   \begin{list}{}{\leftmargin 0in \itemsep .2in}
-%   }{\end{list}
-% }{\par\vfil\null}
-% \newcommand{\vitaelabels}[1]{#1 \hfil}
-% \newenvironment{vitaesection}[1]{
-%   \item {\bf #1}
-%   \begin{list}{}{\leftmargin 1.5in \labelwidth 1.3in \labelsep .2in
-%   \parsep 0in
-%   \let\makelabel\vitaelabels}}{\end{list}}
+  %\ifnum \@draftmark = 1    \ssp \else  \dsp \fi
+  \if@openright\cleardoublepage \else\clearpage \fi
+}
 
 % ABSTRACT
 % The ABSTRACT environment allows for multi-page abstracts and needs the
 % \title and \author macros
 \def\abstract{
     \if@openright\cleardoublepage \else\clearpage \fi
+    \begin{flushright}
+      {
+        \ssp
+        \@author\\
+        \@degreemonth\ \@degreeyear\\
+        \@field\\
+      }
+    \end{flushright}
     \begin{center}
       {\fmfont {\bfseries \abstractname}\par
-      \vspace{.3in} \@title\par
-      \vspace{.1in} by\par
-      \vspace{.1in} \@author\par}
+      % \vspace{.3in} \@title\par
+      % \vspace{.1in} by\par
+      % \vspace{.1in} \@author\par}
 %      \vspace{.5in} \@title\par
 %      \vspace{.1in} by\par
 %      \vspace{.1in} \@author\par}
+      }
     \end{center}
     \ifnum \@draftmark = 1  \ssp \else  \dsp \fi
 }{\par\vfil\null}
