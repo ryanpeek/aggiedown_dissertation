@@ -3,7 +3,7 @@
 title: "Linking watersheds with genomics: Population genetics of the Foothill yellow-legged Frog (*Rana boylii*)"
 author: "Ryan A Peek"
 year: "2018"
-month: "August"
+month: "September"
 program: "Ecology"
 uccampus: "Davis"
 report: "DISSERTATION"
@@ -15,8 +15,8 @@ signature1: "Peter B. Moyle"
 signature2: "Mark W. Schwartz"
 abstract: "The data say 'meh'"
 acknowledgments: "Thanks everyone!"
-dedication: "To Hobbes"
-# End of UCSB thesis fields
+dedication: "To those who love the water"
+# End of UCD thesis fields
 knit: "bookdown::render_book"
 site: bookdown::bookdown_site
 output: 
@@ -25,9 +25,9 @@ output:
 #  huskydown::thesis_gitbook: default
 #  huskydown::thesis_word: default
 #  huskydown::thesis_epub: default
-bibliography: bib/thesis.bib
+bibliography: bib/Phd_refs.bib
 # Download your specific bibliography database file and refer to it in the line above.
-csl: csl/apa.csl
+csl: csl/ecology.csl
 # Download your specific csl file and refer to it in the line above.
 lot: true
 lof: true

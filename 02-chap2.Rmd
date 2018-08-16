@@ -1,4 +1,4 @@
-# Mathematics and Science {#math-sci}
+# Rare hybridization detected between two sympatric Ranid frog species in the northern Sierra Nevada, California {#hybrids}
 
 <!-- Required to number equations in HTML files -->
 <script type="text/x-mathjax-config">
@@ -7,67 +7,18 @@ MathJax.Hub.Config({
 });
 </script>
 
-## Math
+## Introduction
 
-\TeX\ is the best way to typeset mathematics. Donald Knuth designed \TeX\ when he got frustrated at how long it was taking the typesetters to finish his book, which contained a lot of mathematics.  One nice feature of _R Markdown_ is its ability to read LaTeX code directly.
+Landscape changes can influence species demography and migration patterns (Li et al. 2017) by changing rates of gene flow within species. Changing migration rates and population sizes can influence population structure, thus over time, landscape changes can affect significant change in a species. Furthermore, cross-breeding or hybridization between closely related taxa can promote gene flow (introgression) between species, which may be an important evolutionary mechanism for either homogenization (reversing initial divergence between species) or reproductive isolation (potentially leading to speciation)(Mallet 2007, Barrera-Guzmán et al. 2018).
+Hybridization events in vertebrates may be rare, or rarely detected, and thus identifying potential hybridization can be difficult and may be affected by sampling design, timing, and resolution of genetic markers. Therefore, occurrences of hybridization likely remain unknown, particularly in cryptic taxa. Assessing population admixture or detecting potential hybridization has previously been challenging; however,  modern genetic methods provide a powerful approach to assess populations at fine geographic and evolutionary scales(Ali et al. 2016, Prince et al. 2017).
+We investigate the potential for hybridization in two sympatrically occurring endemic frog species in the Sierra Nevada of California, USA. Foothill yellow-legged frogs, Rana boylii, (Baird 1856) historically occurred in lower and mid-elevation (< 1500 m) streams and rivers from Southern Oregon to northern Baja California west of the Sierra-Cascade crest (Stebbins 2003), whereas Sierra Nevada yellow-legged frogs, Rana sierrae, (Camp 1917) typically occur from 1500 m to over 3600 m in lakes and streams (Stebbins 2003). Population declines have been documented across the former range of both of these species; R. sierrae has been extirpated from over 90 percent of its historical range (Drost and Fellers 1996, Vredenburg et al. 2007) while R. boylii has been extirpated from 50 percent of its historical range (Jennings and Hayes 1994, Davidson et al. 2002). Both species are species of conservation concern; in 2014, the U. S. Fish and Wildlife Service (USFWS) listed R. sierrae as endangered under the U. S. Endangered Species Act (ESA)(USFWS 2014), and R. boylii is a state species of special concern and a candidate for listing under state and federal ESA. 
+Unlike other ranid frog species with broad areas of potential intergradation (Shaffer et al. 2004), R. boylii and R. sierrae only rarely occur sympatrically. Zweifel (1955) described one historical location where these two species co-occurred, in Butte County near DeSabla.  Currently the only known locations where both species are found are in several tributaries to the Feather River in the northern Sierra Nevada, California (Figure 1). Hybridization between these species has not previously been successfully documented—breeding experiments by Zwiefel (1955) between R. sierrae (formerly known as R. muscosa) and R. boylii yielded very low viability and high incidences of embryological abnormalities—likely indicating a post-zygotic barrier between the species. However, these experiments only crossed female R. sierrae individuals with male R. boylii, and the individuals were from very different California regions (e.g., Butte and Nevada County vs. Contra Costa County).
+R. boylii and R. sierrae can have very similar morphology and habitat preferences in areas they co-occur, thus assigning individuals to species is difficult and imprecise using field identification methods. This presents a challenge for management because these sympatric species have different conservation status and management objectives.  In cases where hybridization is present, conservation actions must consider whether hybridization may lead to reproductive isolation (Barrera-Guzmán et al. 2018b).
+We employed modern genetic methodology to better understand the evolutionary history of R. sierrae and R. boylii where their ranges overlap.  We investigated three primary questions: 
 
-If you are doing a thesis that will involve lots of math, you will want to read the following section which has been commented out. If you're not going to use math, skip over or delete this next commented section.
-
-
-<!-- MATH and PHYSICS majors: Uncomment the following section -->
-<!--
-$$\sum_{j=1}^n (\delta\theta_j)^2 \leq {{\beta_i^2}\over{\delta_i^2 + \rho_i^2}}
-\left[ 2\rho_i^2 + {\delta_i^2\beta_i^2\over{\delta_i^2 + \rho_i^2}} \right] \equiv \omega_i^2
-$$
-
-From Informational Dynamics, we have the following (Dave Braden):
-
-After _n_ such encounters the posterior density for $\theta$ is
-
-$$
-\pi(\theta|X_1< y_1,\dots,X_n<y_n) \varpropto \pi(\theta) \prod_{i=1}^n\int_{-\infty}^{y_i}
-   \exp\left(-{(x-\theta)^2\over{2\sigma^2}}\right)\ dx
-$$
-
-Another equation:
-
-$$\det\left|\,\begin{matrix}%
-c_0&c_1\hfill&c_2\hfill&\ldots&c_n\hfill\cr
-c_1&c_2\hfill&c_3\hfill&\ldots&c_{n+1}\hfill\cr
-c_2&c_3\hfill&c_4\hfill&\ldots&c_{n+2}\hfill\cr
-\,\vdots\hfill&\,\vdots\hfill&
-  \,\vdots\hfill&&\,\vdots\hfill\cr
-c_n&c_{n+1}\hfill&c_{n+2}\hfill&\ldots&c_{2n}\hfill\cr
-\end{matrix}\right|>0$$
-
-
-Lapidus and Pindar, Numerical Solution of Partial Differential Equations in Science and
-Engineering.  Page 54
-
-$$
-\int_t\left\{\sum_{j=1}^3 T_j \left({d\phi_j\over dt}+k\phi_j\right)-kT_e\right\}w_i(t)\ dt=0,
-   \qquad\quad i=1,2,3.
-$$
-
-L\&P  Galerkin method weighting functions.  Page 55
-
-$$
-\sum_{j=1}^3 T_j\int_0^1\left\{{d\phi_j\over dt} + k\phi_j\right\} \phi_i\ dt
-   = \int_{0}^1k\,T_e\phi_idt, \qquad i=1,2,3 $$
-
-Another L\&P (p145)
-
-$$
-\int_{-1}^1\!\int_{-1}^1\!\int_{-1}^1 f\big(\xi,\eta,\zeta\big)
-   = \sum_{k=1}^n\sum_{j=1}^n\sum_{i=1}^n w_i w_j w_k f\big( \xi,\eta,\zeta\big).
-$$
-
-Another L\&P (p126)
-
-$$
-\int_{A_e} (\,\cdot\,) dx dy = \int_{-1}^1\!\int_{-1}^1 (\,\cdot\,) \det[J] d\xi d\eta.
-$$
--->
+  1.	Can hybridization be detected between two sympatrically occurring threatened and endangered (ESA) frog species in the Sierra Nevada using data generated from genome-wide single nucleotide polymorphisms (SNPs);
+  2.	If hybrids can be detected, do genetic signatures suggest hybrid viability; 
+  3.	Using coalescent modeling, are migration rates between species in sympatrically occurring populations higher than in allopatrically occurring populations in adjacent watersheds?
 
 ## Chemistry 101: Symbols
 
