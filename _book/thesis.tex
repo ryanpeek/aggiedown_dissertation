@@ -16,8 +16,20 @@
 \usepackage{array}
 \usepackage{ifxetex,ifluatex}
 \usepackage{etoolbox}
+
+%% for the per mil symbol
+\usepackage[nointegrals]{wasysym}
+
+%% for more attractive tables
 \usepackage{booktabs}
 \usepackage{longtable}
+\usepackage{lscape}
+\usepackage{tabularx}
+
+\usepackage[nostamp]{draftwatermark}
+% % Use the following to make modification
+\SetWatermarkText{DRAFT}
+\SetWatermarkLightness{0.95}
 
 % suppress bottom page numbers on first page of each chapter
 % because they overlap with text
@@ -133,13 +145,37 @@ yellow-legged Frog (\emph{Rana boylii})}
       \begin{center}
       \begin{Large}
 
-        To those who love the water
+        To those who love the water and listen best when their feet are wet
 
       \end{Large}
       \end{center}
   \end{dedication}
   \begin{acknowledgements}
-    Thanks everyone!
+    For all the curious people who have come before and hopefully after, I
+    want to acknowledge you, and I hope we can do better to inspire and
+    support those voices that may not have had the opportunities or
+    priviledge I have had. Finishing a dissertation requires a community,
+    and this dissertation would not have happened if it wasn't for the
+    amazing community of family, friends, and colleagues who helped me every
+    step of the way. In particular, thank you to Leslie---you are my sun and
+    gravity---you held me together, anchored our family, and made it
+    possible to run this crazy academic marathon. To my dearest little
+    tadpoles, Connor and Genevieve, you inspire me, you make me laugh every
+    day, and you remind me the world still has hope as long as we nourish
+    joy and curiosity. I hope one day you forgive me for the amount of time
+    I've spent staring at a computer. Thanks to my mom for all the support
+    and love over the years, and thanks to my sister, who continues to
+    inspire me. And for all my close friends, bandmates, and officemates
+    (you know who you are), you keep me sane, you motivate me, and you
+    remind me every day that I really love this crazy journey. Thank you for
+    your time, humor, and general levity. And finally, thanks to my Dad, who
+    has cajoled, pestered, and annoyed me for far too long to ``get a PhD''.
+    . . thanks for believing it was possible even when I didn't. Also,
+    please never suggest anything like this again. I also want to
+    acknowledge my committee and my colleagues at the Center for Watershed
+    Sciences for providing feedback, guidance, and support throughout my
+    graduate student career. The Graduate Group in Ecology has been a great
+    place to grow and mature as a scientist and researcher.
   \end{acknowledgements}
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%
   % ABSTRACT %
@@ -221,61 +257,20 @@ yellow-legged Frog (\emph{Rana boylii})}
 \end{ucfrontmatter}
 \begin{ucmainmatter}
 
-\hypertarget{introduction}{%
-\chapter*{Introduction}\label{introduction}}
-\addcontentsline{toc}{chapter}{Introduction}
-
-Welcome to the \emph{R Markdown} thesis template. This template is based
-on (and in many places copied directly from) the UW LaTeX template, but
-hopefully it will provide a nicer interface for those that have never
-used TeX or LaTeX before. Using \emph{R Markdown} will also allow you to
-easily keep track of your analyses in \textbf{R} chunks of code, with
-the resulting plots and output included as well. The hope is this
-\emph{R Markdown} template gets you in the habit of doing reproducible
-research, which benefits you long-term as a researcher, but also will
-greatly help anyone that is trying to reproduce or build onto your
-results down the road.
-
-Hopefully, you won't have much of a learning period to go through and
-you will reap the benefits of a nicely formatted thesis. The use of
-LaTeX in combination with \emph{Markdown} is more consistent than the
-output of a word processor, much less prone to corruption or crashing,
-and the resulting file is smaller than a Word file. While you may have
-never had problems using Word in the past, your thesis is likely going
-to be at least twice as large and complex as anything you've written
-before, taxing Word's capabilities. After working with \emph{Markdown}
-and \textbf{R} together for a few weeks, we are confident this will be
-your reporting style of choice going forward.
-
-\textbf{Why use it?}
-
-\emph{R Markdown} creates a simple and straightforward way to interface
-with the beauty of LaTeX. Packages have been written in \textbf{R} to
-work directly with LaTeX to produce nicely formatting tables and
-paragraphs. In addition to creating a user friendly interface to LaTeX,
-\emph{R Markdown} also allows you to read in your data, to analyze it
-and to visualize it using \textbf{R} functions, and also to provide the
-documentation and commentary on the results of your project. Further, it
-allows for \textbf{R} results to be passed inline to the commentary of
-your results. You'll see more on this later.
-
-\textbf{Who should use it?}
-
-Anyone who needs to use data analysis, math, tables, a lot of figures,
-complex cross-references, or who just cares about the final appearance
-of their document should use \emph{R Markdown}. Of particular use should
-be anyone in the sciences, but the user-friendly nature of
-\emph{Markdown} and its ability to keep track of and easily include
-figures, automatically generate a table of contents, index, references,
-table of figures, etc. should make it of great benefit to nearly anyone
-writing a thesis project.
+\fancypagestyle{plain}{%
+  \renewcommand{\headrulewidth}{0pt}%
+  \fancyhf{}%
+  \fancyfoot[C]{\thepage}
+  \setlength\footskip{28pt}
+}
+\pagestyle{plain}
 
 \hypertarget{reg-health}{%
 \chapter{Flow regulation associated with decreased genetic health of a
 river-breeding frog species}\label{reg-health}}
 
-\hypertarget{introduction-1}{%
-\section{Introduction}\label{introduction-1}}
+\hypertarget{introduction}{%
+\section{Introduction}\label{introduction}}
 
 Rivers simultaneously connect and carve the landscapes through which
 they flow. Rivers provide corridors of connectivity for riparian and
@@ -809,70 +804,76 @@ the end of the article.
 The last two options make the table a little easier-to-read.
 
 \hypertarget{hybrids}{%
-\chapter{Rare hybridization detected between two sympatric Ranid frog
-species in the northern Sierra Nevada, California}\label{hybrids}}
+\chapter{Hybridization between two sympatric ranid frog species in the
+northern Sierra Nevada, California}\label{hybrids}}
 
-\hypertarget{introduction-2}{%
-\section{Introduction}\label{introduction-2}}
+\hypertarget{introduction-1}{%
+\section{Introduction}\label{introduction-1}}
 
 Landscape changes can influence species demography and migration
-patterns (Li et al.~2017) by changing rates of gene flow within species.
-Changing migration rates and population sizes can influence population
-structure, thus over time, landscape changes can affect significant
-change in a species. Furthermore, cross-breeding or hybridization
-between closely related taxa can promote gene flow (introgression)
-between species, which may be an important evolutionary mechanism for
-either homogenization (reversing initial divergence between species) or
-reproductive isolation (potentially leading to speciation)(Mallet 2007,
-Barrera-Guzmán et al.~2018). Hybridization events in vertebrates may be
-rare, or rarely detected, and thus identifying potential hybridization
-can be difficult and may be affected by sampling design, timing, and
-resolution of genetic markers. Therefore, occurrences of hybridization
-likely remain unknown, particularly in cryptic taxa. Assessing
-population admixture or detecting potential hybridization has previously
-been challenging; however, modern genetic methods provide a powerful
-approach to assess populations at fine geographic and evolutionary
-scales(Ali et al.~2016, Prince et al.~2017). We investigate the
-potential for hybridization in two sympatrically occurring endemic frog
-species in the Sierra Nevada of California, USA. Foothill yellow-legged
-frogs, Rana boylii, (Baird 1856) historically occurred in lower and
-mid-elevation (\textless{} 1500 m) streams and rivers from Southern
-Oregon to northern Baja California west of the Sierra-Cascade crest
-(Stebbins 2003), whereas Sierra Nevada yellow-legged frogs, Rana
-sierrae, (Camp 1917) typically occur from 1500 m to over 3600 m in lakes
-and streams (Stebbins 2003). Population declines have been documented
-across the former range of both of these species; R. sierrae has been
-extirpated from over 90 percent of its historical range (Drost and
-Fellers 1996, Vredenburg et al.~2007) while R. boylii has been
+patterns (Li et al. 2017) which can change rates of gene flow within
+species. Changing migration rates and population sizes can influence
+population structure; thus, over time, landscape changes can cause
+significant changes in genetic diversity within a species. Furthermore,
+cross-breeding or hybridization between closely related taxa can promote
+gene flow (introgression) between species, which may be an important
+evolutionary mechanism for either homogenization (reversing initial
+divergence between species), speciation (from reproductive isolation of
+hybrid populations), or adaptation (transfer of adaptive alleles)
+(Mallet 2007, Abbott et al. 2013, Barrera-Guzmán et al. 2018).
+
+Hybridization events in vertebrates may be rare, or rarely detected, and
+thus identifying potential hybridization can be difficult and may be
+affected by sampling design, timing, and resolution of genetic markers.
+Therefore, occurrences of hybridization likely remain unknown,
+particularly in cryptic taxa. Assessing population admixture or
+detecting potential hybridization has previously been challenging;
+however, modern genetic methods provide a powerful approach to assess
+populations at fine geographic and evolutionary scales (Ali et al. 2016,
+Prince et al. 2017).
+
+We investigate the potential for hybridization in two sympatrically
+occurring endemic frog species in the Sierra Nevada of California.
+Foothill yellow-legged frogs, \emph{Rana boylii}, (Baird 1856)
+historically occurred in lower and mid-elevation (\textless{}1500 m)
+streams and rivers from Southern Oregon to northern Baja California west
+of the Sierra-Cascade crest (Stebbins 2003), whereas Sierra Nevada
+yellow-legged frogs, \emph{Rana sierrae}, (Camp 1917) typically occurred
+from 1500 m to over 3600 m in lakes and streams (Stebbins 2003,
+@zweifel\_ecology\_1955). Population declines have been documented
+across the former range of both of these species; \emph{R. sierrae} has
+been extirpated from over 90 percent of its historical range (Drost and
+Fellers 1996) (Vredenburg 2004) while \emph{R. boylii} has been
 extirpated from 50 percent of its historical range (Jennings and Hayes
-1994, Davidson et al.~2002). Both species are species of conservation
-concern; in 2014, the U. S. Fish and Wildlife Service (USFWS) listed R.
-sierrae as endangered under the U. S. Endangered Species Act (ESA)(USFWS
-2014), and R. boylii is a state species of special concern and a
-candidate for listing under state and federal ESA. Unlike other ranid
-frog species with broad areas of potential intergradation (Shaffer et
-al.~2004), R. boylii and R. sierrae only rarely occur sympatrically.
-Zweifel (1955) described one historical location where these two species
-co-occurred, in Butte County near DeSabla. Currently the only known
-locations where both species are found are in several tributaries to the
-Feather River in the northern Sierra Nevada, California (Figure 1).
-Hybridization between these species has not previously been successfully
-documented---breeding experiments by Zwiefel (1955) between R. sierrae
-(formerly known as R. muscosa) and R. boylii yielded very low viability
-and high incidences of embryological abnormalities---likely indicating a
-post-zygotic barrier between the species. However, these experiments
-only crossed female R. sierrae individuals with male R. boylii, and the
-individuals were from very different California regions (e.g., Butte and
-Nevada County vs.~Contra Costa County). R. boylii and R. sierrae can
-have very similar morphology and habitat preferences in areas they
-co-occur, thus assigning individuals to species is difficult and
-imprecise using field identification methods. This presents a challenge
-for management because these sympatric species have different
-conservation status and management objectives. In cases where
-hybridization is present, conservation actions must consider whether
-hybridization may lead to reproductive isolation (Barrera-Guzmán et
-al.~2018b). We employed modern genetic methodology to better understand
-the evolutionary history of R. sierrae and R. boylii where their ranges
+1994, Davidson et al.~2002). Both species are of conservation concern;
+in 2014, the U. S. Fish and Wildlife Service (USFWS) listed \emph{R.
+sierrae} as endangered under the U. S. Endangered Species Act (ESA)
+(USFWS 2014), and \emph{R. boylii} is listed as a species of special
+concern in California and is a candidate for listing under the
+California and federal ESAs.
+
+Unlike other ranid frog species with broad areas of potential
+intergradation (Shaffer et al. 2004), \emph{R. boylii} and \emph{R.
+sierrae} only rarely occur sympatrically. Zweifel (1955) described one
+historical location where these two species co-occurred, in Butte County
+near DeSabla. Currently the only known location where both species are
+found is several tributaries to the Feather River in the northern Sierra
+Nevada, California (Figure 1). Hybridization between these species has
+not previously been documented. Furthermore, breeding experiments by
+Zweifel (1955) between \emph{R. sierrae} (formerly known as \emph{R.
+muscosa}) and \emph{R. boylii} yielded very low viability in
+fertilization and high incidences of embryological
+abnormalities---indicating a post-zygotic barrier between the species.
+However, these experiments only crossed female \emph{R. sierrae} with
+male \emph{R. boylii}, and the individuals were from very different
+California regions (e.g., Butte and Nevada County vs.~Contra Costa
+County). \emph{Rana boylii} and \emph{R. sierrae} species have very
+similar morphology and habitat preferences in areas where they co-occur;
+thus assigning individuals to species is difficult and imprecise using
+field identification methods. This presents a challenge for management
+because these sympatric species have different conservation status and
+management objectives. We employed modern genetic methodology to better
+understand \emph{R. sierrae} and \emph{R. boylii} where their ranges
 overlap. We investigated three primary questions:
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -884,83 +885,345 @@ overlap. We investigated three primary questions:
   (SNPs);
 \item
   If hybrids can be detected, do genetic signatures suggest hybrid
-  viability;
+  viability (i.e., can hybrids reproduce, leading to introgression
+  between species);
 \item
   Using coalescent modeling, are migration rates between species in
   sympatrically occurring populations higher than in allopatrically
   occurring populations in adjacent watersheds?
 \end{enumerate}
-\hypertarget{chemistry-101-symbols}{%
-\section{Chemistry 101: Symbols}\label{chemistry-101-symbols}}
+\hypertarget{materials-and-methods}{%
+\section{Materials and Methods}\label{materials-and-methods}}
 
-Chemical formulas will look best if they are not italicized. Get around
-math mode's automatic italicizing in LaTeX by using the argument
-\texttt{\$\textbackslash{}mathrm\{formula\ here\}\$}, with your formula
-inside the curly brackets. (Notice the use of the backticks here which
-enclose text that acts as code.)
+\hypertarget{sampling-and-dna-extraction}{%
+\subsection{Sampling and DNA
+Extraction}\label{sampling-and-dna-extraction}}
 
-So, \(\mathrm{Fe_2^{2+}Cr_2O_4}\) is written
-\texttt{\$\textbackslash{}mathrm\{Fe\_2\^{}\{2+\}Cr\_2O\_4\}\$}.
+To investigate potential hybridization between \emph{R. sierrae} and
+\emph{R. boylii}, a total of 458 tadpole tail clips, buccal swabs, or
+tissue samples were compiled. Samples were identified to species in the
+field as either \emph{R. boylii}, \emph{R. sierrae}, or ``unknown'',
+which were individuals which could not be visually confirmed as either
+species (Stebbins 2003). The samples were collected between 1992 and
+2016, from three watersheds in the Sierra Nevada (the Feather, Yuba, and
+American) (Table S1). All unknown individuals were from Feather
+watershed localities.
+\begin{landscape}
+\begin{longtable}[t]{l|l|r|l|l|l|l}
+\caption{\label{tab:tableS1}Sample Sites}\\
+\hline
+Locality & River & No. Samples & Lat. & Lon. & Elev (m) & Watershed (HUC8)\\
+\hline
+\endfirsthead
+\caption[]{\label{tab:tableS1}Sample Sites \textit{(continued)}}\\
+\hline
+Locality & River & No. Samples & Lat. & Lon. & Elev (m) & Watershed (HUC8)\\
+\hline
+\endhead
+MFA-AMEC & MFA & 5 & 38.934 & -120.9436 & 240 & American\\
+\hline
+MFA-GASC & MFA & 1 & 38.9665 & -120.9325 & 242 & American\\
+\hline
+MFA-TODC & MFA & 6 & 38.9638 & -120.9216 & 368 & American\\
+\hline
+MFA-US-R & MFA & 1 & 39.0075 & -120.7316 & 360 & American\\
+\hline
+NFA & NFA & 12 & 39.1079 & -120.9227 & 363 & American\\
+\hline
+NFA-BUNC & NFA & 8 & 39.0376 & -120.9103 & 286 & American\\
+\hline
+NFA-EUCHDS & NFA & 3 & 39.1849 & -120.762 & 580 & American\\
+\hline
+NFA-INDC & NFA & 3 & 39.0567 & -120.9085 & 296 & American\\
+\hline
+NFA-LyonsPk & NFA & 11 & 39.2067 & -120.3113 & 2529 & American\\
+\hline
+NFA-POND & NFA & 2 & 38.9999 & -120.9406 & 241 & American\\
+\hline
+NFA-ROBR & NFA & 6 & 39.1045 & -120.9267 & 400 & American\\
+\hline
+NFA-SHIC & NFA & 8 & 39.0417 & -120.9009 & 341 & American\\
+\hline
+NFA-SLAR & NFA & 5 & 39.0987 & -120.9255 & 356 & American\\
+\hline
+NFMFA-SC & NFMFA & 7 & 39.0224 & -120.7369 & 522 & American\\
+\hline
+RUB-HighlandDS & RUB & 18 & 38.9615 & -120.2422 & 2312 & American\\
+\hline
+RUB-HighlandLk & RUB & 29 & 38.9573 & -120.2418 & 2383 & American\\
+\hline
+RUB-LC-US & RUB & 1 & 38.9889 & -120.69 & 415 & American\\
+\hline
+RUB-USPH & RUB & 5 & 38.9993 & -120.7233 & 361 & American\\
+\hline
+RUB-Zitella & RUB & 9 & 38.9595 & -120.227 & 2335 & American\\
+\hline
+RUB-ZitellaLk & RUB & 2 & 38.9604 & -120.2316 & 2337 & American\\
+\hline
+SFA-CAMI & SFA & 2 & 38.8115 & -120.5787 & 725 & American\\
+\hline
+FEA-BeanCk & FEA & 60 & 39.9774 & -121.091 & 1397 & Feather\\
+\hline
+FEA-EBNFF & FEA & 6 & Unknown & Unknown & Unknown & Feather\\
+\hline
+FEA-GoldLk & FEA & 4 & 39.9416 & -121.136 & 1816 & Feather\\
+\hline
+FEA-LoneRockCk & FEA & 3 & 40.2012 & -120.6453 & 1563 & Feather\\
+\hline
+FEA-MillCk & FEA & 4 & 39.9591 & -121.1573 & 1891 & Feather\\
+\hline
+FEA-RockLkBucksCk & FEA & 1 & 39.9403 & -121.1499 & 2102 & Feather\\
+\hline
+FEA-RockLkSilver & FEA & 8 & 39.9409 & -121.1422 & 1902 & Feather\\
+\hline
+FEA-SFRockCk & FEA & 27 & 39.8789 & -121.0022 & 1470 & Feather\\
+\hline
+FEA-SPANISH-BGulch & FEA & 5 & 39.9546 & -121.089 & 1283 & Feather\\
+\hline
+FEA-SPANISH-RockCk & FEA & 1 & 39.9445 & -121.0221 & 1090 & Feather\\
+\hline
+FEA-SPANISH-SilverCk & FEA & 3 & 39.9377 & -121.0849 & 1189 & Feather\\
+\hline
+FEA-SPANISH-Wapaunsie & FEA & 1 & 39.9523 & -121.0373 & 1096 & Feather\\
+\hline
+FEA-SpanishCk & FEA & 26 & 39.9541 & -121.0541 & 1192 & Feather\\
+\hline
+NFF-Poe & NFF & 1 & 39.736 & -121.4702 & 284 & Feather\\
+\hline
+FORD-Mossy-P1 & FORD & 1 & 39.381 & -120.4623 & 2157 & Yuba\\
+\hline
+FORD-Mossy-P2 & FORD & 3 & 39.3852 & -120.4714 & 1998 & Yuba\\
+\hline
+FORD-Mossy-P3 & FORD & 2 & 39.3765 & -120.4603 & 2158 & Yuba\\
+\hline
+FORD-MossyDS & FORD & 19 & 39.3853 & -120.4728 & 1984 & Yuba\\
+\hline
+FORD-MossyPond & FORD & 34 & 39.3781 & -120.4701 & 2106 & Yuba\\
+\hline
+FORD-NorthCkTrib & FORD & 34 & 39.3869 & -120.451 & 2090 & Yuba\\
+\hline
+MFY-OREGCk & MFY & 10 & 39.4419 & -121.0575 & 620 & Yuba\\
+\hline
+MFY-Remmington & MFY & 1 & 39.4137 & -120.9912 & 620 & Yuba\\
+\hline
+MFY-US-OH & MFY & 7 & 39.413 & -120.9903 & 624 & Yuba\\
+\hline
+NFY & NFY & 12 & 39.5119 & -120.9774 & 705 & Yuba\\
+\hline
+NFY-SLATE-CGRav & NFY & 3 & 39.6928 & -120.9258 & 1457 & Yuba\\
+\hline
+NFY-SLATE-Onion & NFY & 3 & 39.6355 & -121.0395 & 1300 & Yuba\\
+\hline
+SFY & SFY & 1 & 39.3539 & -120.7342 & 890 & Yuba\\
+\hline
+SFY-FallCk & SFY & 5 & 39.3553 & -120.7371 & 884 & Yuba\\
+\hline
+SFY-HUMBUG & SFY & 1 & 39.3637 & -120.921 & 877 & Yuba\\
+\hline
+SFY-LOGA & SFY & 3 & 39.3691 & -120.8526 & 1201 & Yuba\\
+\hline
+SFY-MCKI & SFY & 3 & 39.368 & -120.8354 & 1084 & Yuba\\
+\hline
+SFY-MISC & SFY & 7 & 39.361 & -120.8814 & 1095 & Yuba\\
+\hline
+SFY-RockCk & SFY & 3 & 39.3298 & -120.9863 & 594 & Yuba\\
+\hline
+SFY-Scotchman & SFY & 3 & 39.3293 & -120.777 & 1167 & Yuba\\
+\hline
+SFY-ShadyCk & SFY & 9 & 39.3543 & -121.059 & 675 & Yuba\\
+\hline
+\end{longtable}
+\end{landscape}
+The Yuba and American watersheds share a similar Mediterranean climate,
+underlying geology, watershed aspect (west-slope), and vegetative
+communities. The Feather watershed shares a similar climate but has a
+slightly different underlying geology and aspect than that of other
+watersheds in the Sierra Nevada. The Feather watershed lies in the
+transition zone of the northern Sierra Nevada and the Cascades/Basin and
+Range Province, and thus the landscape in the northern portion of the
+watershed is comprised largely of volcanic bedrock while the southern
+portion is largely granitic (Durrell 1988). Field sampling was conducted
+following methods in Heyer et al. (1994) under CDFW SCP Permit \#0006881
+and Federal permit TE-40087B-0 with IACUC protocol \#19327 and
+\#04718-001. Individual post-metamorphic frogs were buccal-swabbed
+following established protocols (Goldberg et al.~2003, Pidancier et
+al.~2003, Broquet et al.~2007). Each post-metamorphic individual was
+comprehensively swabbed underneath tongue and inside of both cheeks for
+approximately 30 sec to one minute. Swabs were air dried for
+approximately five minutes and placed in 1.5 mL microcentrifuge tubes
+while in the field or placed in lysis buffer (Goldberg et al.~2003).
+Dried samples were stored in the laboratory at -80°C until DNA
+extraction. Where possible, tail clips from tadpole larvae were
+collected, and tadpoles greater than 15 mm total length were
+targeted(Wilbur and Semlitsch 1990, Parris et al.~2010). One clip was
+taken per individual tadpole and dried on Whatman filter paper (grade 1)
+and stored at room temperature or in 95\% ethanol. DNA was extracted
+from ethanol-stored samples using Qiagen DNeasy kits following
+manufacturer protocol and stored at -20°C. DNA was extracted from dried
+buccal swabs and tail clips using an Ampure magnetic bead-based protocol
+(Ali et al.~2016) and stored at -20°C.
 
-\noindent Exponent or Superscript: \(\mathrm{O^-}\)
+\hypertarget{rapture-sequencing-1}{%
+\subsection{Rapture Sequencing}\label{rapture-sequencing-1}}
 
-\noindent Subscript: \(\mathrm{CH_4}\)
+To produce a high-quality genomic resource for frog species with large
+genome sizes, we interrogated a significant fraction of the \emph{R.
+boylii} genome using RAD sequencing with SbfI (Miller et al.~2007, Baird
+et al.~2008, Ali et al.~2016). Paired-end sequence data were generated
+using 24 \emph{R. boylii} individuals (Table S2). RAD libraries were
+constructed following the protocol described in (Ali et al.~2016). De
+novo locus discovery and contig extension were carried out as previously
+described (Miller et al.~2012) using the alignment program Novoalign and
+the genome assembler PRICE (Ruby et al.~2013). This resulted in a set of
+77,544 RAD contigs ranging from 300 to 800 bp which served as a de novo
+partial genome reference for all subsequent downstream analyses (File
+S3: de novo). We next removed loci with five or more SNPs, and randomly
+selected 10,000 loci from the remaining subset. Of these 10,000 loci,
+8,533 were successfully designed into 120 bp RAD capture baits by Arbor
+Biosciences (File S4: Baits). Sample libraries were prepared for
+sequencing following RAD Capture (Rapture) methods outlined in Ali et
+al. (2016). These samples were then then used to identify putative
+high-quality SNPs following sequencing.
 
-To stack numbers or letters as in \(\mathrm{Fe_2^{2+}}\), the subscript
-is defined first, and then the superscript is defined.
+Sampled individuals were aligned against the de novo partial genome
+reference using the BWA-MEM algorithm (Li and Durbin 2010, Li 2013), and
+converted to BAM format and filtered for properly paired alignments
+using Samtools (File S1). Next, alignments from three different
+sequencing runs on an Illumina HiSeq were merged together and duplicates
+were removed using Samtools (Li et al.~2009). For all downstream
+analysis, we selected individuals that had greater than 25,000
+alignments (n=311), which provided sufficient data to investigate
+population genetic attributes at broad and fine geographic scales (Table
+S5). To generate SNP (i.e., segregating site) data, a probabilistic
+framework was used for all population genetic analyses as it does not
+require calling genotypes and is suitable for low-coverage sequencing
+data (Korneliussen et al.~2013, Fumagalli et al.~2013). SNP discovery,
+minor allele frequencies (MAF) estimates, and genotype probabilities
+were conducted using ANGSD (Korneliussen et al.~2014). ANGSD analyses
+were conducted following methods from Prince et al. (2017), with a
+minimum mapping quality score (minMapQ) of 10, a minimum base quality
+score (minQ) of 20, the genotype likelihood model (GL 1), specifying the
+RAPTURE bait locations using the -sites flag, and only sites represented
+in at least 50\% of the included samples (minInd) were used.
+Furthermore, genomic sites were designated as polymorphic only if MAFs
+were greater than 0.05 and the probability of the site not being
+polymorphic was less than 1e-6. Using this approach, over 44,000
+polymorphic sites were identified across all \emph{R. boylii} study
+samples.
 
-\noindent Bullet: CuCl \(\bullet\) \(\mathrm{7H_{2}O}\)
+\hypertarget{pca-admixture}{%
+\subsection{PCA \& Admixture}\label{pca-admixture}}
 
-\noindent Delta: \(\Delta\)
+To assess population structure and coancestry, ANGSD was used to
+generate PCA and NGSadmix was used to calculate admixture. Settings used
+in ANGSD for PCA to identify polymorphic sites included a SNP\_pval of
+1e-6, inferring major and minor alleles (doMajorMinor 1), estimating
+genotypic likelihoods (GL 1), estimating allele frequencies (doMaf 2)
+(Kim et al.~2011), retaining SNPs with a minor allele frequency of at
+least 0.05 (minMaf), specifying the RAPTURE bait locations using the
+-sites flag, estimation of genotype posterior probabilities using a
+uniform prior (doPost 2), and the -doIBS 1 and -doCov 1 options.
+Principal components (PC) summarizing population structure were derived
+from classic eigenvalue decomposition and were visualized using the
+ggplot2 package in R (R Core Team 2017). To assess admixture between
+\emph{R. sierrae} and \emph{R. boylii}, genotype likelihood data (-GL 2)
+was generated in ANGSD with the same settings as above, in addition to
+retaining only SNPs that were shared in at least of 50\% of the samples,
+-doPost 2, -doGLF 2, and limiting to higher quality alignment data
+(-minMapQ 10, -minQ 20). We then used NGSadmix (Skotte et al.~2013) to
+infer ancestry proportions in \emph{R. sierrae} and \emph{R. boylii}
+individuals. NGSadmix is a robust admixture method that can be applied
+to low-depth NGS data, and does not require called genotypes, thus
+reducing error associated with potential ascertainment and uncertainty
+in the data (Skotte et al.~2013).
 
-\noindent Reaction Arrows: \(\longrightarrow\) or
-\(\xrightarrow{solution}\)
+\hypertarget{f1-vs-f2-test-with-species-diagnostic-snps}{%
+\subsection{F1 vs F2 Test with Species Diagnostic
+SNPs}\label{f1-vs-f2-test-with-species-diagnostic-snps}}
 
-\noindent Resonance Arrows: \(\leftrightarrow\)
+To test whether hybrids were first generation filial (F1) hybrids or
+progeny from F1 hybrids from subsequent generations (e.g., F2, F3,
+etc.), we identified differentially fixed (i.e., species-specific) SNPs
+and assessed heterozygosity at these loci in hybrid individuals as F1
+vs.~F2 hybrid individuals will have different degrees of heterozygosity
+in these species-diagnostic SNPs. We called genotypes in ANGSD using a
+uniform prior (-doPost 2) and the following settings: -GL 1, -doGeno 13,
+-postCutoff 0.95, -doMaf 1, -doMajorMinor 1, -minInd 2, -SNP\_pval 1e-6,
+-minMapQ 20, -minQ 20, and specifying the RAPTURE bait locations using
+the -sites. The subsequent output (*.geno.gz) was then processed in the
+program R using the dplyr package (Wickham et al.~2018) to manipulate
+and filter to homozygous diagnostic SNPs. Data were filtered to include
+only loci where over 50 non-hybrid individuals from each species had
+called genotypes at a given polymorphism.
 
-\noindent Reversible Reaction Arrows: \(\rightleftharpoons\)
+\hypertarget{demographic-modeling-with-fastsimcoal2}{%
+\subsection{Demographic Modeling with
+fastsimcoal2}\label{demographic-modeling-with-fastsimcoal2}}
 
-\hypertarget{typesetting-reactions}{%
-\subsection{Typesetting reactions}\label{typesetting-reactions}}
+To quantify divergence times and migration rates between \emph{R.
+sierrae} and \emph{R. boylii}, we used coalescent simulations in
+fastsimcoal2 (Excoffier and Foll 2011, Excoffier et al.~2013). This
+maximum-likelihood modeling approach uses simulations to estimate the
+expected site-frequency spectra (SFS) for a demographic model of
+interest to calculate a composite likelihood, and then utilizes a
+maximization procedure to find the maximum-likelihood parameter
+estimates.
 
-You may wish to put your reaction in an equation environment, which
-means that LaTeX will place the reaction where it fits and will number
-the equations for you.
-\begin{equation}
-  \mathrm{C_6H_{12}O_6  + 6O_2} \longrightarrow \mathrm{6CO_2 + 6H_2O}
-  \label{eq:reaction}
-\end{equation}
-We can reference this combustion of glucose reaction via Equation
-\eqref{eq:reaction}.
+We calculated folded joint SFS for each species in each watershed from
+SNP data generated from ANGSD because the ancestral condition is
+unknown. For all models, we assumed the potential for bidirectional gene
+flow and that extant genetic clusters emerged simultaneously from a
+common ancestry. We tested models that allowed for population growth,
+and models with no growth. We used two conservative model scenarios to
+estimate divergence times and migration rates between species in each
+watershed. To estimate migration probabilities per generation between
+species within each watershed, we set the divergence time parameters
+between 1--1.1 billion years ago to create simplified migration-only
+models. To estimate divergence time between species, we used the
+watershed that had the lowest migration rate from the previous
+migration-only models, and generated divergence time estimates assuming
+no migration between species.
 
-\hypertarget{other-examples-of-reactions}{%
-\subsection{Other examples of
-reactions}\label{other-examples-of-reactions}}
+The basic steps taken to obtain final model estimates from fastsimcoal2
+used a set of 10 replicate models, followed by comparison of maximum
+observed and expected likelihoods to select the best-fit model (Akaike
+1973), then simulate new SFS using the best-fit model for parametric
+bootstrapping. Following Excoffier and Foll (2011), we used 1,000
+randomly drawn SNPs from each SFS to generate 100,000 coalescent
+simulations for likelihood calculations (estimation of the expected SFS)
+with a maximum of 40 cycles for the conditional maximization algorithm.
+To select the best-fit model we selected the model replicate that
+minimized the difference between the maximum expected likelihood and the
+maximum observed likelihood. We used parametric bootstrapping to
+generate 95\% confidence intervals for each best-fit model using 100
+bootstraps for each model and selecting the best model from each
+bootstrap based on maximum likelihoods as described above.
 
-\(\mathrm{NH_4Cl_{(s)}}\) \(\rightleftharpoons\)
-\(\mathrm{NH_{3(g)}+HCl_{(g)}}\)
+\hypertarget{results-1}{%
+\section{Results}\label{results-1}}
 
-\noindent \(\mathrm{MeCH_2Br + Mg}\) \(\xrightarrow[below]{above}\)
-\(\mathrm{MeCH_2\bullet Mg \bullet Br}\)
+\hypertarget{rapture-produced-high-quality-genomic-data-for-both-r.-sierrae-and-r.-boylii}{%
+\subsection{\texorpdfstring{Rapture produced high quality genomic data
+for both \emph{R. sierrae} and \emph{R.
+boylii}}{Rapture produced high quality genomic data for both R. sierrae and R. boylii}}\label{rapture-produced-high-quality-genomic-data-for-both-r.-sierrae-and-r.-boylii}}
 
-\hypertarget{physics}{%
-\section{Physics}\label{physics}}
+Individual samples were collected across 56 different sampling
+localities in three different watersheds (Figure 1, Table S1). For
+downstream analysis, we filtered and retained 311 samples from the
+original sequencing data that contained a minimum of 25,000 alignments
+(Table S5). The final merged dataset mean alignments per sample was
+229,485 (Table S5), and the mean number of samples per site was eight.
+These frog species are cryptic, and often occur in low densities, so we
+retained all sites in our analysis, regardless of the number of samples
+(Table S1). We conclude that the sequence data we obtained should be
+appropriate for population genetic analyses across our study area.
 
-Many of the symbols you will need can be found on the math page
-\url{http://web.reed.edu/cis/help/latex/math.html} and the Comprehensive
-LaTeX Symbol Guide
-(\url{http://mirror.utexas.edu/ctan/info/symbols/comprehensive/symbols-letter.pdf}).
 
-\hypertarget{biology}{%
-\section{Biology}\label{biology}}
 
-You will probably find the resources at
-\url{http://www.lecb.ncifcrf.gov/~toms/latex.html} helpful, particularly
-the links to bsts for various journals. You may also be interested in
-TeXShade for nucleotide typesetting
-(\url{http://homepages.uni-tuebingen.de/beitz/txe.html}). Be sure to
-read the proceeding chapter on graphics and tables.
-
+\begin{figure}
+\includegraphics[angle=90, scale=.75]{figure/figure_01_overview_hybrid} \caption{Map of sampling locations in the Feather, Yuba, and
+American watersheds. RABO=\emph{R. boylii}, RASI=\emph{R. sierrae}.}\label{fig:fig1map}
+\end{figure}
 \hypertarget{ref-labels}{%
 \chapter{Tables, Graphics, References, and Labels}\label{ref-labels}}
 
@@ -1210,21 +1473,6 @@ If you'd like to see examples of other things in this template, please
 your suggestions. We love to see people using \emph{R Markdown} for
 their theses, and are happy to help.
 
-\hypertarget{conclusion}{%
-\chapter*{Conclusion}\label{conclusion}}
-\addcontentsline{toc}{chapter}{Conclusion}
-
-If we don't want Conclusion to have a chapter number next to it, we can
-add the \texttt{\{-\}} attribute.
-
-\textbf{More info}
-
-And here's some other random info: the first paragraph after a chapter
-title or section head \emph{shouldn't be} indented, because indents are
-to tell the reader that you're starting a new paragraph. Since that's
-obvious after a chapter or section title, proper typesetting doesn't add
-an indent there.
-
 \appendix
 
 \hypertarget{the-first-appendix}{%
@@ -1248,32 +1496,11 @@ chunk tag) to help with readibility and/or setup.
 \CommentTok{#if(!require(huskydown))}
 \CommentTok{#  devtools::install_github("danovando/gauchodown")}
 \CommentTok{#library(gauchodown)}
+\KeywordTok{library}\NormalTok{(knitr)}
 \end{Highlighting}
 \end{Shaded}
 \textbf{In Chapter \ref{ref-labels}:}
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{# This chunk ensures that the huskydown package is}
-\CommentTok{# installed and loaded. This huskydown package includes}
-\CommentTok{# the template files for the thesis and also two functions}
-\CommentTok{# used for labeling and referencing}
-\ControlFlowTok{if}\NormalTok{(}\OperatorTok{!}\KeywordTok{require}\NormalTok{(devtools))}
-  \KeywordTok{install.packages}\NormalTok{(}\StringTok{"devtools"}\NormalTok{, }\DataTypeTok{repos =} \StringTok{"http://cran.rstudio.com"}\NormalTok{)}
-\ControlFlowTok{if}\NormalTok{(}\OperatorTok{!}\KeywordTok{require}\NormalTok{(dplyr))}
-    \KeywordTok{install.packages}\NormalTok{(}\StringTok{"dplyr"}\NormalTok{, }\DataTypeTok{repos =} \StringTok{"http://cran.rstudio.com"}\NormalTok{)}
-\ControlFlowTok{if}\NormalTok{(}\OperatorTok{!}\KeywordTok{require}\NormalTok{(ggplot2))}
-    \KeywordTok{install.packages}\NormalTok{(}\StringTok{"ggplot2"}\NormalTok{, }\DataTypeTok{repos =} \StringTok{"http://cran.rstudio.com"}\NormalTok{)}
-\ControlFlowTok{if}\NormalTok{(}\OperatorTok{!}\KeywordTok{require}\NormalTok{(ggplot2))}
-    \KeywordTok{install.packages}\NormalTok{(}\StringTok{"bookdown"}\NormalTok{, }\DataTypeTok{repos =} \StringTok{"http://cran.rstudio.com"}\NormalTok{)}
-\ControlFlowTok{if}\NormalTok{(}\OperatorTok{!}\KeywordTok{require}\NormalTok{(huskydown))\{}
-  \KeywordTok{library}\NormalTok{(devtools)}
-\NormalTok{  devtools}\OperatorTok{::}\KeywordTok{install_github}\NormalTok{(}\StringTok{"benmarwick/huskydown"}\NormalTok{)}
-\NormalTok{  \}}
-\KeywordTok{library}\NormalTok{(huskydown)}
-\KeywordTok{library}\NormalTok{(knitr)}
-\NormalTok{flights <-}\StringTok{ }\KeywordTok{read.csv}\NormalTok{(}\StringTok{"data/flights.csv"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
+
 \hypertarget{the-second-appendix-for-fun}{%
 \chapter{The Second Appendix, for
 Fun}\label{the-second-appendix-for-fun}}
@@ -1309,7 +1536,7 @@ been organised into an R package, xxx, which is available at
 \url{https://github.com/xxx/xxx}. A hard copy of the thesis can be found
 in the University of Washington library.
 
-This version of the thesis was generated on 2018-08-30 09:58:55. The
+This version of the thesis was generated on 2018-09-05 00:04:31. The
 repository is currently at this commit:
 
 The computational environment that was used to generate this version is
@@ -1325,63 +1552,83 @@ Session info -------------------------------------------------------------
  language (EN)                        
  collate  en_US.UTF-8                 
  tz       America/Los_Angeles         
- date     2018-08-30                  
+ date     2018-09-05                  
 \end{verbatim}
 \begin{verbatim}
 Packages -----------------------------------------------------------------
 \end{verbatim}
 \begin{verbatim}
- package    * version    date       source                               
- assertthat   0.2.0      2017-04-11 CRAN (R 3.5.0)                       
- backports    1.1.2      2017-12-13 CRAN (R 3.5.0)                       
- base       * 3.5.1      2018-07-05 local                                
- bindr        0.1.1      2018-03-13 CRAN (R 3.5.0)                       
- bindrcpp     0.2.2      2018-03-29 CRAN (R 3.5.0)                       
- bookdown     0.7        2018-02-18 CRAN (R 3.5.0)                       
- colorspace   1.3-2      2016-12-14 CRAN (R 3.5.0)                       
- compiler     3.5.1      2018-07-05 local                                
- crayon       1.3.4      2017-09-16 CRAN (R 3.5.0)                       
- datasets   * 3.5.1      2018-07-05 local                                
- devtools   * 1.13.6     2018-06-27 CRAN (R 3.5.0)                       
- digest       0.6.16     2018-08-22 CRAN (R 3.5.1)                       
- dplyr      * 0.7.6      2018-06-29 CRAN (R 3.5.0)                       
- evaluate     0.11       2018-07-17 CRAN (R 3.5.0)                       
- ggplot2    * 3.0.0.9000 2018-08-29 Github (tidyverse/ggplot2@71cb174)   
- git2r        0.23.0     2018-07-17 CRAN (R 3.5.0)                       
- glue         1.3.0      2018-07-17 CRAN (R 3.5.0)                       
- graphics   * 3.5.1      2018-07-05 local                                
- grDevices  * 3.5.1      2018-07-05 local                                
- grid         3.5.1      2018-07-05 local                                
- gtable       0.2.0      2016-02-26 CRAN (R 3.5.0)                       
- htmltools    0.3.6      2017-04-28 CRAN (R 3.5.0)                       
- huskydown  * 0.0.5      2018-07-30 Github (danovando/gauchodown@5a18965)
- knitr      * 1.20       2018-02-20 CRAN (R 3.5.0)                       
- lazyeval     0.2.1      2017-10-29 CRAN (R 3.5.0)                       
- magrittr     1.5        2014-11-22 CRAN (R 3.5.0)                       
- memoise      1.1.0      2017-04-21 CRAN (R 3.5.0)                       
- methods    * 3.5.1      2018-07-05 local                                
- munsell      0.5.0      2018-06-12 CRAN (R 3.5.0)                       
- pillar       1.3.0      2018-07-14 CRAN (R 3.5.0)                       
- pkgconfig    2.0.2      2018-08-16 CRAN (R 3.5.0)                       
- plyr         1.8.4      2016-06-08 CRAN (R 3.5.0)                       
- purrr        0.2.5      2018-05-29 CRAN (R 3.5.0)                       
- R6           2.2.2      2017-06-17 CRAN (R 3.5.0)                       
- Rcpp         0.12.18    2018-07-23 CRAN (R 3.5.1)                       
- rlang        0.2.2      2018-08-16 CRAN (R 3.5.0)                       
- rmarkdown    1.10       2018-06-11 cran (@1.10)                         
- rprojroot    1.3-2      2018-01-03 CRAN (R 3.5.0)                       
- rstudioapi   0.7        2017-09-07 CRAN (R 3.5.0)                       
- scales       1.0.0.9000 2018-08-29 Github (hadley/scales@0f7a186)       
- stats      * 3.5.1      2018-07-05 local                                
- stringi      1.2.4      2018-07-20 CRAN (R 3.5.0)                       
- stringr      1.3.1      2018-05-10 CRAN (R 3.5.0)                       
- tibble       1.4.2      2018-01-22 CRAN (R 3.5.0)                       
- tidyselect   0.2.4      2018-02-26 CRAN (R 3.5.0)                       
- tools        3.5.1      2018-07-05 local                                
- utils      * 3.5.1      2018-07-05 local                                
- withr        2.1.2      2018-08-29 Github (jimhester/withr@8b9cee2)     
- xfun         0.3        2018-07-06 CRAN (R 3.5.0)                       
- yaml         2.2.0      2018-07-25 CRAN (R 3.5.0)                       
+ package     * version    date       source                               
+ assertthat    0.2.0      2017-04-11 CRAN (R 3.5.0)                       
+ backports     1.1.2      2017-12-13 CRAN (R 3.5.0)                       
+ base        * 3.5.1      2018-07-05 local                                
+ bindr         0.1.1      2018-03-13 CRAN (R 3.5.0)                       
+ bindrcpp      0.2.2      2018-03-29 CRAN (R 3.5.0)                       
+ bookdown    * 0.7        2018-02-18 CRAN (R 3.5.0)                       
+ broom         0.5.0      2018-07-17 CRAN (R 3.5.0)                       
+ cellranger    1.1.0      2016-07-27 CRAN (R 3.5.0)                       
+ cli           1.0.0      2017-11-05 CRAN (R 3.5.0)                       
+ colorspace    1.3-2      2016-12-14 CRAN (R 3.5.0)                       
+ compiler      3.5.1      2018-07-05 local                                
+ crayon        1.3.4      2017-09-16 CRAN (R 3.5.0)                       
+ datasets    * 3.5.1      2018-07-05 local                                
+ devtools    * 1.13.6     2018-06-27 CRAN (R 3.5.0)                       
+ digest        0.6.16     2018-08-22 CRAN (R 3.5.1)                       
+ dplyr       * 0.7.6      2018-06-29 CRAN (R 3.5.0)                       
+ evaluate      0.11       2018-07-17 CRAN (R 3.5.0)                       
+ forcats     * 0.3.0      2018-02-19 CRAN (R 3.5.0)                       
+ ggplot2     * 3.0.0.9000 2018-09-04 Github (tidyverse/ggplot2@6e545dc)   
+ git2r         0.23.0     2018-07-17 CRAN (R 3.5.0)                       
+ glue          1.3.0      2018-07-17 CRAN (R 3.5.0)                       
+ graphics    * 3.5.1      2018-07-05 local                                
+ grDevices   * 3.5.1      2018-07-05 local                                
+ grid          3.5.1      2018-07-05 local                                
+ gtable        0.2.0      2016-02-26 CRAN (R 3.5.0)                       
+ haven         1.1.2      2018-06-27 CRAN (R 3.5.0)                       
+ hms           0.4.2      2018-03-10 CRAN (R 3.5.0)                       
+ htmltools     0.3.6      2017-04-28 CRAN (R 3.5.0)                       
+ httr          1.3.1      2017-08-20 CRAN (R 3.5.0)                       
+ huskydown   * 0.0.5      2018-09-04 Github (benmarwick/huskydown@3ef00c9)
+ jsonlite      1.5        2017-06-01 CRAN (R 3.5.0)                       
+ kableExtra  * 0.9.0      2018-05-21 CRAN (R 3.5.0)                       
+ knitr       * 1.20       2018-02-20 CRAN (R 3.5.0)                       
+ lattice       0.20-35    2017-03-25 CRAN (R 3.5.1)                       
+ lazyeval      0.2.1      2017-10-29 CRAN (R 3.5.0)                       
+ lubridate     1.7.4      2018-04-11 CRAN (R 3.5.0)                       
+ magrittr      1.5        2014-11-22 CRAN (R 3.5.0)                       
+ memoise       1.1.0      2017-04-21 CRAN (R 3.5.0)                       
+ methods     * 3.5.1      2018-07-05 local                                
+ modelr        0.1.2      2018-05-11 CRAN (R 3.5.0)                       
+ munsell       0.5.0      2018-06-12 CRAN (R 3.5.0)                       
+ nlme          3.1-137    2018-04-07 CRAN (R 3.5.1)                       
+ pillar        1.3.0      2018-07-14 CRAN (R 3.5.0)                       
+ pkgconfig     2.0.2      2018-08-16 CRAN (R 3.5.0)                       
+ plyr          1.8.4      2016-06-08 CRAN (R 3.5.0)                       
+ purrr       * 0.2.5      2018-05-29 CRAN (R 3.5.0)                       
+ R6            2.2.2      2017-06-17 CRAN (R 3.5.0)                       
+ Rcpp          0.12.18    2018-07-23 CRAN (R 3.5.1)                       
+ readr       * 1.1.1      2017-05-16 CRAN (R 3.5.0)                       
+ readxl        1.1.0      2018-04-20 CRAN (R 3.5.0)                       
+ rlang         0.2.2      2018-08-16 CRAN (R 3.5.0)                       
+ rmarkdown     1.10       2018-06-11 cran (@1.10)                         
+ rprojroot     1.3-2      2018-01-03 CRAN (R 3.5.0)                       
+ rstudioapi    0.7        2017-09-07 CRAN (R 3.5.0)                       
+ rvest         0.3.2      2016-06-17 CRAN (R 3.5.0)                       
+ scales        1.0.0.9000 2018-08-29 Github (hadley/scales@0f7a186)       
+ stats       * 3.5.1      2018-07-05 local                                
+ stringi       1.2.4      2018-07-20 CRAN (R 3.5.0)                       
+ stringr     * 1.3.1      2018-05-10 CRAN (R 3.5.0)                       
+ tibble      * 1.4.2      2018-01-22 CRAN (R 3.5.0)                       
+ tidyr       * 0.8.1      2018-05-18 CRAN (R 3.5.0)                       
+ tidyselect    0.2.4      2018-02-26 CRAN (R 3.5.0)                       
+ tidyverse   * 1.2.1      2017-11-14 CRAN (R 3.5.0)                       
+ tools         3.5.1      2018-07-05 local                                
+ utils       * 3.5.1      2018-07-05 local                                
+ viridisLite   0.3.0      2018-02-01 CRAN (R 3.5.0)                       
+ withr         2.1.2      2018-08-29 Github (jimhester/withr@8b9cee2)     
+ xfun          0.3        2018-07-06 CRAN (R 3.5.0)                       
+ xml2          1.2.0      2018-01-24 CRAN (R 3.5.0)                       
+ yaml          2.2.0      2018-07-25 CRAN (R 3.5.0)                       
 \end{verbatim}
 \backmatter
 
@@ -1398,10 +1645,43 @@ Packages -----------------------------------------------------------------
 \setlength{\parskip}{8pt}
 
 \hypertarget{refs}{}
+\leavevmode\hypertarget{ref-abbott_hybridization_2013}{}%
+Abbott, R., D. Albach, S. Ansell, J. W. Arntzen, S. J. E. Baird, N.
+Bierne, J. Boughman, A. Brelsford, C. A. Buerkle, R. Buggs, R. K.
+Butlin, U. Dieckmann, F. Eroukhmanoff, A. Grill, S. H. Cahan, J. S.
+Hermansen, G. Hewitt, A. G. Hudson, C. Jiggins, J. Jones, B. Keller, T.
+Marczewski, J. Mallet, P. Martinez-Rodriguez, M. Möst, S. Mullen, R.
+Nichols, A. W. Nolte, C. Parisod, K. Pfennig, A. M. Rice, M. G. Ritchie,
+B. Seifert, C. M. Smadja, R. Stelkens, J. M. Szymura, R. Väinölä, J. B.
+W. Wolf, and D. Zinner. 2013. Hybridization and speciation. Journal of
+evolutionary biology 26:229--246.
+
+\leavevmode\hypertarget{ref-ali_rad_2016}{}%
+Ali, O. A., S. M. O'Rourke, S. J. Amish, M. H. Meek, G. Luikart, C.
+Jeffres, and M. R. Miller. 2016. RAD Capture (Rapture): Flexible and
+Efficient Sequence-Based Genotyping. Genetics 202:389--400.
+
+\leavevmode\hypertarget{ref-baird_descriptions_1856}{}%
+Baird, S. F. 1856. Descriptions of new genera and species of North
+American Frogs. Pages 59--62 \emph{in} Proceedings of the Academy of
+Natural Sciences of Philadelphia. Philadelphia, Academy of Natural
+Sciences of Philadelphia.
+
+\leavevmode\hypertarget{ref-barrera-guzman_hybrid_2018}{}%
+Barrera-Guzmán, A. O., A. Aleixo, M. D. Shawkey, and J. T. Weir. 2018.
+Hybrid speciation leads to novel male secondary sexual ornamentation of
+an Amazonian bird. Proceedings of the National Academy of Sciences of
+the United States of America 115:E218--E225.
+
 \leavevmode\hypertarget{ref-bunn_basic_2002}{}%
 Bunn, S. E., and A. H. Arthington. 2002. Basic principles and ecological
 consequences of altered flow regimes for aquatic biodiversity.
 Environmental management 30:492--507.
+
+\leavevmode\hypertarget{ref-camp_notes_1917}{}%
+Camp, C. L. 1917. Notes on the systematic status of the toads and frogs
+of California. University of California publications in zoology
+17:115--125.
 
 \leavevmode\hypertarget{ref-caze_could_2016}{}%
 Cazé, A. L. R., G. Mäder, T. S. Nunes, L. P. Queiroz, G. de Oliveira, J.
@@ -1410,12 +1690,26 @@ theory and rivers acting as barriers explain the genetic variability
 distribution in the Atlantic Forest? Molecular phylogenetics and
 evolution 101:242--251.
 
+\leavevmode\hypertarget{ref-drost_collapse_1996}{}%
+Drost, C. A., and G. M. Fellers. 1996. Collapse of a Regional Frog Fauna
+in the Yosemite Area of the California Sierra Nevada, USA. Conservation
+biology: the journal of the Society for Conservation Biology
+10:414--425.
+
 \leavevmode\hypertarget{ref-dudgeon_freshwater_2006}{}%
 Dudgeon, D., A. H. Arthington, M. O. Gessner, Z.-I. Kawabata, D. J.
 Knowler, C. Lévêque, R. J. Naiman, A.-H. Prieur-Richard, D. Soto, M. L.
 J. Stiassny, and C. A. Sullivan. 2006. Freshwater biodiversity:
 Importance, threats, status and conservation challenges. Biological
 reviews of the Cambridge Philosophical Society 81:163--182.
+
+\leavevmode\hypertarget{ref-li_ten_2017}{}%
+Li, Y., X.-X. Zhang, R.-L. Mao, J. Yang, C.-Y. Miao, Z. Li, and Y.-X.
+Qiu. 2017. Ten Years of Landscape Genomics: Challenges and
+Opportunities. Frontiers in plant science 8:2136.
+
+\leavevmode\hypertarget{ref-mallet_hybrid_2007}{}%
+Mallet, J. 2007. Hybrid speciation. Nature 446:279--283.
 
 \leavevmode\hypertarget{ref-moyle_rapid_2011}{}%
 Moyle, P. B., J. V. E. Katz, and R. M. Quiñones. 2011. Rapid decline of
@@ -1444,6 +1738,13 @@ Power, M. E., W. E. Dietrich, and J. C. Finlay. 1996. Dams and
 Downstream Aquatic Biodiversity: Potential Food Web Consequences of
 Hydrologic and Geomorphic Change. Environmental management 20:887--895.
 
+\leavevmode\hypertarget{ref-prince_evolutionary_2017}{}%
+Prince, D. J., S. M. O'Rourke, T. Q. Thompson, O. A. Ali, H. S. Lyman,
+I. K. Saglam, T. J. Hotaling, A. P. Spidle, and M. R. Miller. 2017. The
+evolutionary basis of premature migration in Pacific salmon highlights
+the utility of genomics for informing conservation. Science advances
+3:e1603198.
+
 \leavevmode\hypertarget{ref-pringle_what_2003}{}%
 Pringle, C. 2003. What is hydrologic connectivity and why is it
 ecologically important? Hydrological processes 17:2685--2689.
@@ -1458,16 +1759,33 @@ Schick, R. S., and S. T. Lindley. 2007. Directed connectivity among fish
 populations in a riverine network. The Journal of applied ecology
 44:1116--1126.
 
+\leavevmode\hypertarget{ref-shaffer_species_2004}{}%
+Shaffer, H. B., G. M. Fellers, S. R. Voss, J. C. Oliver, and G. B.
+Pauly. 2004. Species boundaries, phylogeography and conservation
+genetics of the red-legged frog (Rana aurora/draytonii) complex.
+Molecular ecology 13:2667--2677.
+
 \leavevmode\hypertarget{ref-shaw_importance_2016}{}%
 Shaw, E. A., E. Lange, J. D. Shucksmith, and D. N. Lerner. 2016.
 Importance of partial barriers and temporal variation in flow when
 modelling connectivity in fragmented river systems. Ecological
 engineering 91:515--528.
 
+\leavevmode\hypertarget{ref-stebbins_field_2003}{}%
+Stebbins, R. C. 2003. A Field Guide to Western Reptiles and Amphibians.
+3rd editions. Houghton Mifflin Harcourt, Boston.
+
 \leavevmode\hypertarget{ref-tonkin_seasonality_2017}{}%
 Tonkin, J. D., M. T. Bogan, N. Bonada, B. Rios-Touma, and D. A. Lytle.
 2017. Seasonality and predictability shape temporal species diversity.
 Ecology 98:1201--1216.
+
+\leavevmode\hypertarget{ref-usfws_endangered_2014}{}%
+USFWS. 2014. Endangered and Threatened Wildlife and Plants; Endangered
+Species Status for Sierra Nevada Yellow-Legged Frog and Northern
+Distinct Population Segment of the Mountain Yellow-Legged Frog, and
+Threatened Species Status for Yosemite Toad. Federal register
+79:24255--24310.
 
 \leavevmode\hypertarget{ref-voelker_river_2013}{}%
 Voelker, G., B. D. Marks, C. Kahindo, U. A'genonga, F. Bapeamoni, L. E.
@@ -1483,12 +1801,17 @@ the water. Freshwater biology 47:501--515.
 Yarnell, S. M., J. H. Viers, and J. F. Mount. 2010. Ecology and
 Management of the Spring Snowmelt Recession. Bioscience 60:114--127.
 
+\leavevmode\hypertarget{ref-zweifel_ecology_1955}{}%
+Zweifel, R. G. 1955. Ecology, distribution, and systematics of frogs of
+the Rana boylei group. University of California publications in zoology
+54:207--291.
+
 \end{ucmainmatter}
 \end{document}
 
 %---Set Headers and Footers ------------------------------------------------------
 \pagestyle{fancy}
-\renewcommand{\chaptermark}[1]{\markboth{{\sf #1 \hspace*{\fill} Chapter~\thechapter}}{} }
+\renewcommand{\chaptermark}[1]{\markboth{{\sf #1 \hspace*{\fill} Chapter~}}{} }
 \renewcommand{\sectionmark}[1]{\markright{ {\sf Section~\thesection \hspace*{\fill} #1 }}}
 \fancyhf{}
 
@@ -1508,6 +1831,7 @@ Management of the Spring Snowmelt Recession. Bioscience 60:114--127.
 \makeatother
 \fancyfoot[c]{\textrm{\textup{\thepage}}} % page number
 \fancyfoot[C]{\thepage}
+\setlength\footskip{-2pt}
 \renewcommand{\headrulewidth}{0.4pt}
 
 \fancypagestyle{plain} { \fancyhf{} \fancyfoot[C]{\thepage}

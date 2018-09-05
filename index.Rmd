@@ -14,8 +14,8 @@ chair: "Michael R. Miller"
 signature1: "Peter B. Moyle"
 signature2: "Mark W. Schwartz"
 abstract: "*Rana boylii* is an imperiled frog species native to CA and OR, and it is currently designated as a species of special concern (CDFW) in the state of CA. It has been petitioned as candidate for federal (USFWS) and state (CDFW) listing. As a lotic breeding amphibian, *R. boylii* is tied closely to the local hydrology within the watersheds it inhabits. It is particularly sensitive to alterations to flow regimes. Future conservation of this species requires several crucial components, including establishing higher resolution watershed-level boundaries for populations across the species range,  delineation of distinct population segments that can be utilized in conservation management, and quantification of relative genomic health of these groups (i.e., genomic diversity,  measures of isolation, connectivity). We provide data on over 700 samples across the range of the species, identify six genomically distinct groups, as well as subdivision at local watershed scales. These data are congruent with other molecular data on *R. boylii*, although we identify and add individuals from the Feather watershed as a distinctive group, at both population and subpopulation scales. Quantification and comparison of genomic variation across populations indicates populations in the southern coast, southern Sierra Nevada, and Northern Sierra/Feather basin in California should have high prioritization in conservation efforts due to patterns of bottlenecking and low genomic diversity.    One major impact on *R. boylii* populations has been river regulation, or the hydrological alteration of flow by dams and diversions. River regulation has been implicated as a cause of fundamental changes to downstream aquatic ecosystems. Regulation changes the natural flow regime which may restrict population connectivity and decrease genetic diversity in some species. Since population connectivity and the maintenance of genetic diversity are fundamental drivers of long-term persistence, understanding the extent that river regulation impacts these critical attributes of genetic health is an important goal. Foothill yellow-legged frog (FYLF; *Rana boylii*) were historically abundant throughout many western rivers but have declined since the onset of regulation. However, the extent to which FYLF populations in regulated rivers are maintaining connectivity and genetic diversity is unknown. Here we use genetic methods to investigate the impacts of river regulation on FYLF to explore their potential for long-term persistence under continued regulation. We found FYLF in regulated rivers showed striking patterns of isolation and trajectories of genetic diversity loss relative to unregulated rivers. For example, river regulation explained the greatest amount of variance in population genetic differentiation compared with other covariates including geographic distance. Importantly, patterns of connectivity and genetic diversity loss were observed regardless of regulation level but were most prominent in locations with the greatest regulation intensity. Although our results do not bode well for long-term persistence of FYLF populations under current flow regulation regimes, they do highlight the power of genetic monitoring for assessing population health in aquatic organisms.    In addition, analyses of data on hybridization between *R. boylii* and *R. sierrae* in a single region of the Sierra Nevada of California is shown. Cross-breeding between species, or hybridization in vertebrates has generally been considered a rare occurrence. Hybridization between species may combine parental genotypes in ways that yield reproductively sterile or isolated lineages, and hybridization events may be short-lived and difficult to detect. Furthermore, cross-breeding or hybridization between closely related taxa can promote gene flow (introgression) between species, which may be an important evolutionary mechanism for either homogenization (reversing initial divergence between species) or reproductive isolation (potentially leading to speciation). Here, we used thousands of genetic markers from nuclear DNA to detect a very rare hybridization event between two co-occurring frog species (*R. boylii* and *R. sierrae*) in the Sierra Nevada of California. Hybridization events are rare but have occurred in the Feather drainage between these two species, however it appears these are terminal events based on PCA, admixture, and tests of heterozygosity in species diagnostic SNPs."
-acknowledgments: "Thanks everyone!"
-dedication: "To those who love the water"
+acknowledgments: "For all the curious people who have come before and hopefully after, I want to acknowledge you, and I hope we can do better to inspire and support those voices that may not have had the opportunities or priviledge I have had. Finishing a dissertation requires a community, and this dissertation would not have happened if it wasn’t for the amazing community of family, friends, and colleagues who helped me every step of the way. In particular, thank you to Leslie—you are my sun and gravity—you held me together, anchored our family, and made it possible to run this crazy academic marathon. To my dearest little tadpoles, Connor and Genevieve, you inspire me, you make me laugh every day, and you remind me the world still has hope as long as we nourish joy and curiosity. I hope one day you forgive me for the amount of time I’ve spent staring at a computer. Thanks to my mom for all the support and love over the years, and thanks to my sister, who continues to inspire me. And for all my close friends, bandmates, and officemates (you know who you are), you keep me sane, you motivate me, and you remind me every day that I really love this crazy journey. Thank you for your time, humor, and general levity. And finally, thanks to my Dad, who has cajoled, pestered, and annoyed me for far too long to “get a PhD”. . . thanks for believing it was possible even when I didn’t. Also, please never suggest anything like this again. I also want to acknowledge my committee and my colleagues at the Center for Watershed Sciences for providing feedback, guidance, and support throughout my graduate student career. The Graduate Group in Ecology has been a great place to grow and mature as a scientist and researcher."
+dedication: "To those who love the water and listen best when their feet are wet"
 # End of UCD thesis fields
 knit: "bookdown::render_book"
 site: bookdown::bookdown_site
@@ -60,24 +60,30 @@ library(huskydown)
 #if(!require(huskydown))
 #  devtools::install_github("danovando/gauchodown")
 #library(gauchodown)
+library(knitr)
 ```
+
+
+<!--- Define Headers and Footers --->
+\fancypagestyle{plain}{%
+  \renewcommand{\headrulewidth}{0pt}%
+  \fancyhf{}%
+  \fancyfoot[C]{\thepage}
+  \setlength\footskip{28pt}
+}
+\pagestyle{plain}
+
 
 <!-- The {.unnumbered} option here means that the introduction will be "Chapter 0." You can also use {-} for no numbers on chapters. -->
 
-# Introduction {.unnumbered}
-
-Welcome to the _R Markdown_ thesis template. This template is based on (and in many places copied directly from) the UW LaTeX template, but hopefully it will provide a nicer interface for those that have never used TeX or LaTeX before. Using _R Markdown_ will also allow you to easily keep track of your analyses in **R** chunks of code, with the resulting plots and output included as well. The hope is this _R Markdown_ template gets you in the habit of doing reproducible research, which benefits you long-term as a researcher, but also will greatly help anyone that is trying to reproduce or build onto your results down the road.
-
-Hopefully, you won't have much of a learning period to go through and you will reap the benefits of a nicely formatted thesis. The use of LaTeX in combination with _Markdown_ is more consistent than the output of a word processor, much less prone to corruption or crashing, and the resulting file is smaller than a Word file. While you may have never had problems using Word in the past, your thesis is likely going to be at least twice as large and complex as anything you've written before, taxing Word's capabilities. After working with _Markdown_ and **R** together for a few weeks, we are confident this will be your reporting style of choice going forward.
-
-<!--  If you're still on the fence about using _R Markdown_, check out the resource for newbies available at <https://ismayc.github.io/rbasics-book/> .  -->
-
-**Why use it?**
-
-_R Markdown_ creates a simple and straightforward way to interface with the beauty of LaTeX.  Packages have been written in **R** to work directly with LaTeX to produce nicely formatting tables and paragraphs. In addition to creating a user friendly interface to LaTeX, _R Markdown_ also allows you to read in your data, to analyze it and to visualize it using **R** functions, and also to provide the documentation and commentary on the results of your project.  Further, it allows for **R** results to be passed inline to the commentary of your results.  You'll see more on this later.  
-
-<!--  Having your code and commentary all together in one place has a plethora of benefits! -->
-
-**Who should use it?**
-
-Anyone who needs to use data analysis, math, tables, a lot of figures, complex cross-references, or who just cares about the final appearance of their document should use _R Markdown_. Of particular use should be anyone in the sciences, but the user-friendly nature of _Markdown_ and its ability to keep track of and easily include figures, automatically generate a table of contents, index, references, table of figures, etc. should make it of great benefit to nearly anyone writing a thesis project.
+<!-- Abstract 
+\newpage
+\pagestyle{fancy}
+\fancyhead[L]{Abstract}
+\fancyfoot[C]{\footnotesize \thepage}
+\setlength\footskip{0pt}
+\chapter*{ABSTRACT}
+\addcontentsline{toc}{section}{Abstract}
+##```{r child = '00_abstract.Rmd'}
+##```
+-->

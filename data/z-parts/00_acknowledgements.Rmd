@@ -1,0 +1,8 @@
+---
+output: pdf_document
+---
+
+For all the curious people who have come before and hopefully after, I want to acknowledge you, and I hope we can do better to inspire and support those voices that may not have had the opportunities or priviledge I have had. Finishing a dissertation requires a community, and this dissertation would not have happened if it wasn’t for the amazing community of family, friends, and colleagues who helped me every step of the way. In particular, thank you to Leslie—you are my sun and gravity—you held me together, anchored our family, and made it possible to run this crazy academic marathon. To my dearest little tadpoles, Connor and Genevieve, you inspire me, you make me laugh every day, and you remind me the world still has hope as long as we nourish joy and curiosity. I hope one day you forgive me for the amount of time I’ve spent staring at a computer. Thanks to my mom for all the support and love over the years, and thanks to my sister, who continues to inspire me. And for all my close friends, bandmates, and officemates (you know who you are), you keep me sane, you motivate me, and you remind me every day that I really love this crazy journey. Thank you for your time, humor, and general levity. And finally, thanks to my Dad, who has cajoled, pestered, and annoyed me for far too long to “get a PhD”. . . thanks for believing it was possible even when I didn’t. Also, please never suggest anything like this again. I also want to acknowledge my committee and my colleagues at the Center for Watershed Sciences for providing feedback, guidance, and support throughout my graduate student career. The Graduate Group in Ecology has been a great place to grow and mature as a scientist and researcher.
+
+
+

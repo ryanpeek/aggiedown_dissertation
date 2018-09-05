@@ -126,14 +126,14 @@
       \markboth {\MakeUppercase{%
         \ifnum \c@secnumdepth >\m@ne
           \if@ucmainmatter
-            \@chapapp\ \thechapter. \ %
+            \thepart \ %
           \fi
         \fi
         ##1}}{}}%
     \def\sectionmark##1{%
       \markright {\MakeUppercase{%
         \ifnum \c@secnumdepth >\z@
-          \thesection. \ %
+          \thechapter. \ %
         \fi
         ##1}}}}
 \else               % If one-sided printing.
@@ -146,7 +146,7 @@
       \markright {\MakeUppercase{%
         \ifnum \c@secnumdepth >\m@ne
           \if@ucmainmatter
-            \@chapapp\ \thechapter. \ %
+            \thechapter. %
           \fi
         \fi
         ##1}}}}
@@ -161,7 +161,7 @@
  \def\@evenhead{\hfil \slshape \leftmark}  %    Left heading.
  \def\@oddhead{{\slshape \rightmark}\hfil} %   Right heading.
  \def\chaptermark##1{\markboth {\uppercase{\ifnum \c@secnumdepth >\m@ne
- \@chapapp\ \thechapter. \ \fi} ##1}{}}%
+   \thechapter. \ \fi} ##1}{}}%
  \def\sectionmark##1{\markright {\uppercase{\ifnum \c@secnumdepth >\z@
    \thesection. \ \fi} ##1}}}
 \else               % If one-sided printing.
@@ -454,6 +454,7 @@
     \setcounter{page}{1}
     % \renewcommand{\thepage}{\arabic{page}}% Roman numerals for page counter
     \pagenumbering{arabic}
+    \setlength\footskip{3pt}
 }
 
 %    ****************************************
@@ -666,6 +667,7 @@
    \def\@chapapp{\protect\@textofChapter}
    \def\Thechapter{\arabic{chapter}}
    \pagenumbering{arabic}
+   \setlength\footskip{3pt}
      \footskip\z@
    }
 
@@ -705,7 +707,7 @@
    {\centering                       % %% added 19 Jan 88
     \interlinepenalty \@M            %% RmS added 11 Nov 91
     \ifnum \c@secnumdepth >-2\relax  % IF secnumdepth > -2
-      \huge\bfseries \partname~\thepart    %   THEN Print '\partname' and
+      \huge\bfseries    %   THEN Print '\partname' and
     \par                             %         number in \huge bold.
     \vskip 20\p@\fi                  %        Add space before title.
     \Huge \bfseries                        % FI
@@ -826,13 +828,11 @@
 \topmargin      0.25in
 \oddsidemargin  0.5in
 \evensidemargin 0.25in
-\textheight     7.75in
+\textheight     7.00in
 \textwidth      5.75in
 \headsep        25pt
 \headheight     12pt
 \marginparsep  12pt
-\marginparwidth    54pt
-\footskip      0.5in
-
-
+\marginparwidth  54pt
+\footskip      0.4in % was 0.5
 \endinput

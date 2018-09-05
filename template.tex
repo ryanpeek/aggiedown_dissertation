@@ -16,8 +16,20 @@
 \usepackage{array}
 \usepackage{ifxetex,ifluatex}
 \usepackage{etoolbox}
+
+%% for the per mil symbol
+\usepackage[nointegrals]{wasysym}
+
+%% for more attractive tables
 \usepackage{booktabs}
 \usepackage{longtable}
+\usepackage{lscape}
+\usepackage{tabularx}
+
+\usepackage[nostamp]{draftwatermark}
+% % Use the following to make modification
+\SetWatermarkText{DRAFT}
+\SetWatermarkLightness{0.95}
 
 % suppress bottom page numbers on first page of each chapter
 % because they overlap with text
@@ -170,7 +182,7 @@ $body$
 
 %---Set Headers and Footers ------------------------------------------------------
 \pagestyle{fancy}
-\renewcommand{\chaptermark}[1]{\markboth{{\sf #1 \hspace*{\fill} Chapter~\thechapter}}{} }
+\renewcommand{\chaptermark}[1]{\markboth{{\sf #1 \hspace*{\fill} Chapter~}}{} }
 \renewcommand{\sectionmark}[1]{\markright{ {\sf Section~\thesection \hspace*{\fill} #1 }}}
 \fancyhf{}
 
@@ -190,6 +202,7 @@ $body$
 \makeatother
 \fancyfoot[c]{\textrm{\textup{\thepage}}} % page number
 \fancyfoot[C]{\thepage}
+\setlength\footskip{-2pt}
 \renewcommand{\headrulewidth}{0.4pt}
 
 \fancypagestyle{plain} { \fancyhf{} \fancyfoot[C]{\thepage}

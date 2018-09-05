@@ -1,74 +1,96 @@
-# Rare hybridization detected between two sympatric Ranid frog species in the northern Sierra Nevada, California {#hybrids}
+```{r include_packages_ch2, include = FALSE}
+# This chunk ensures that the huskydown package is
+# installed and loaded. This huskydown package includes
+# the template files for the thesis and also two functions
+# used for labeling and referencing
+if(!require(devtools))
+  install.packages("devtools", repos = "http://cran.rstudio.com")
+if(!require(tidyverse))
+    install.packages("tidyverse", repos = "http://cran.rstudio.com")
+if(!require(ggplot2))
+    install.packages("ggplot2", repos = "http://cran.rstudio.com")
+if(!require(bookdown))
+    install.packages("bookdown", repos = "http://cran.rstudio.com")
 
-<!-- Required to number equations in HTML files -->
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  TeX: { equationNumbers: { autoNumber: "AMS" } }
-});
-</script>
+library(tidyverse)
+library(knitr)
+library(kableExtra)
+options(knitr.table.format = "latex")
+
+S1 <- read_csv("data/S1_field-sample-sites.csv")
+
+```
+
+
+# Hybridization between two sympatric ranid frog species in the northern Sierra Nevada, California {#hybrids}
 
 ## Introduction
+Landscape changes can influence species demography and migration patterns [@li_ten_2017] which can change rates of gene flow within species. Changing migration rates and population sizes can influence population structure; thus, over time, landscape changes can cause significant changes in genetic diversity within a species. Furthermore, cross-breeding or hybridization between closely related taxa can promote gene flow (introgression) between species, which may be an important evolutionary mechanism for either homogenization (reversing initial divergence between species), speciation (from reproductive isolation of hybrid populations), or adaptation (transfer of adaptive alleles) [@abbott_hybridization_2013; @barrera-guzman_hybrid_2018; @mallet_hybrid_2007].
 
-Landscape changes can influence species demography and migration patterns (Li et al. 2017) by changing rates of gene flow within species. Changing migration rates and population sizes can influence population structure, thus over time, landscape changes can affect significant change in a species. Furthermore, cross-breeding or hybridization between closely related taxa can promote gene flow (introgression) between species, which may be an important evolutionary mechanism for either homogenization (reversing initial divergence between species) or reproductive isolation (potentially leading to speciation)(Mallet 2007, Barrera-Guzmán et al. 2018).
-Hybridization events in vertebrates may be rare, or rarely detected, and thus identifying potential hybridization can be difficult and may be affected by sampling design, timing, and resolution of genetic markers. Therefore, occurrences of hybridization likely remain unknown, particularly in cryptic taxa. Assessing population admixture or detecting potential hybridization has previously been challenging; however,  modern genetic methods provide a powerful approach to assess populations at fine geographic and evolutionary scales(Ali et al. 2016, Prince et al. 2017).
-We investigate the potential for hybridization in two sympatrically occurring endemic frog species in the Sierra Nevada of California, USA. Foothill yellow-legged frogs, Rana boylii, (Baird 1856) historically occurred in lower and mid-elevation (< 1500 m) streams and rivers from Southern Oregon to northern Baja California west of the Sierra-Cascade crest (Stebbins 2003), whereas Sierra Nevada yellow-legged frogs, Rana sierrae, (Camp 1917) typically occur from 1500 m to over 3600 m in lakes and streams (Stebbins 2003). Population declines have been documented across the former range of both of these species; R. sierrae has been extirpated from over 90 percent of its historical range (Drost and Fellers 1996, Vredenburg et al. 2007) while R. boylii has been extirpated from 50 percent of its historical range (Jennings and Hayes 1994, Davidson et al. 2002). Both species are species of conservation concern; in 2014, the U. S. Fish and Wildlife Service (USFWS) listed R. sierrae as endangered under the U. S. Endangered Species Act (ESA)(USFWS 2014), and R. boylii is a state species of special concern and a candidate for listing under state and federal ESA. 
-Unlike other ranid frog species with broad areas of potential intergradation (Shaffer et al. 2004), R. boylii and R. sierrae only rarely occur sympatrically. Zweifel (1955) described one historical location where these two species co-occurred, in Butte County near DeSabla.  Currently the only known locations where both species are found are in several tributaries to the Feather River in the northern Sierra Nevada, California (Figure 1). Hybridization between these species has not previously been successfully documented—breeding experiments by Zwiefel (1955) between R. sierrae (formerly known as R. muscosa) and R. boylii yielded very low viability and high incidences of embryological abnormalities—likely indicating a post-zygotic barrier between the species. However, these experiments only crossed female R. sierrae individuals with male R. boylii, and the individuals were from very different California regions (e.g., Butte and Nevada County vs. Contra Costa County).
-R. boylii and R. sierrae can have very similar morphology and habitat preferences in areas they co-occur, thus assigning individuals to species is difficult and imprecise using field identification methods. This presents a challenge for management because these sympatric species have different conservation status and management objectives.  In cases where hybridization is present, conservation actions must consider whether hybridization may lead to reproductive isolation (Barrera-Guzmán et al. 2018b).
-We employed modern genetic methodology to better understand the evolutionary history of R. sierrae and R. boylii where their ranges overlap.  We investigated three primary questions: 
+Hybridization events in vertebrates may be rare, or rarely detected, and thus identifying potential hybridization can be difficult and may be affected by sampling design, timing, and resolution of genetic markers. Therefore, occurrences of hybridization likely remain unknown, particularly in cryptic taxa. Assessing population admixture or detecting potential hybridization has previously been challenging; however, modern genetic methods provide a powerful approach to assess populations at fine geographic and evolutionary scales [@ali_rad_2016; @prince_evolutionary_2017].
 
-  1.	Can hybridization be detected between two sympatrically occurring threatened and endangered (ESA) frog species in the Sierra Nevada using data generated from genome-wide single nucleotide polymorphisms (SNPs);
-  2.	If hybrids can be detected, do genetic signatures suggest hybrid viability; 
-  3.	Using coalescent modeling, are migration rates between species in sympatrically occurring populations higher than in allopatrically occurring populations in adjacent watersheds?
+We investigate the potential for hybridization in two sympatrically occurring endemic frog species in the Sierra Nevada of California. Foothill yellow-legged frogs, *Rana boylii*, [@baird_descriptions_1856] historically occurred in lower and mid-elevation (<1500 m) streams and rivers from Southern Oregon to northern Baja California west of the Sierra-Cascade crest [@stebbins_field_2003],  whereas Sierra Nevada yellow-legged frogs, *Rana sierrae*, [@camp_notes_1917] typically occurred from 1500 m to over 3600 m in lakes and streams [@stebbins_field_2003, @zweifel_ecology_1955]. Population declines have been documented across the former range of both of these species; *R. sierrae* has been extirpated from over 90 percent of its historical range [@drost_collapse_1996] (Vredenburg 2004) while *R. boylii* has been extirpated from 50 percent of its historical range  (Jennings and Hayes 1994, Davidson et al. 2002). Both species are of conservation concern; in 2014, the U. S. Fish and Wildlife Service (USFWS) listed *R. sierrae* as endangered under the U. S. Endangered Species Act (ESA) [@usfws_endangered_2014], and *R. boylii* is listed as a species of special concern in California and is a candidate for listing under the California and federal ESAs.
 
-## Chemistry 101: Symbols
+Unlike other ranid frog species with broad areas of potential intergradation [@shaffer_species_2004], *R. boylii* and *R. sierrae* only rarely occur sympatrically. Zweifel (1955) described one historical location where these two species co-occurred, in Butte County near DeSabla. Currently the only known location where both species are found is several tributaries to the Feather River in the northern Sierra Nevada, California (Figure 1). Hybridization between these species has not previously been documented. Furthermore, breeding experiments by Zweifel (1955) between *R. sierrae* (formerly known as *R. muscosa*) and *R. boylii* yielded very low viability in fertilization and high incidences of embryological abnormalities—indicating a post-zygotic barrier between the species. However, these experiments only crossed female *R. sierrae* with male *R. boylii*, and the individuals were from very different California regions (e.g., Butte and Nevada County vs. Contra Costa County).
+*Rana boylii* and *R. sierrae* species have very similar morphology and habitat preferences in areas where they co-occur; thus assigning individuals to species is difficult and imprecise using field identification methods. This presents a challenge for management because these sympatric species have different conservation status and management objectives. We employed modern genetic methodology to better understand *R. sierrae* and *R. boylii* where their ranges overlap. We investigated three primary questions:
 
-Chemical formulas will look best if they are not italicized. Get around math mode's automatic italicizing in LaTeX by using the argument `$\mathrm{formula here}$`, with your formula inside the curly brackets.  (Notice the use of the backticks here which enclose text that acts as code.)
+  1. Can hybridization be detected between two sympatrically occurring threatened and endangered (ESA) frog species in the Sierra Nevada using data generated from genome-wide single nucleotide polymorphisms (SNPs);
+  2. If hybrids can be detected, do genetic signatures suggest hybrid viability (i.e., can hybrids reproduce, leading to introgression between species);
+  3. Using coalescent modeling, are migration rates between species in sympatrically occurring populations higher than in allopatrically occurring populations in adjacent watersheds?
 
-So, $\mathrm{Fe_2^{2+}Cr_2O_4}$ is written `$\mathrm{Fe_2^{2+}Cr_2O_4}$`.
+## Materials and Methods
 
-<!--
-The \noindent command below does what you'd expect:  it forces the current line/paragraph to not indent. This was done here to match the format of the LaTeX thesis PDF.
--->
+### Sampling and DNA Extraction
+To investigate potential hybridization between *R. sierrae* and *R. boylii*, a total of 458 tadpole tail clips, buccal swabs, or tissue samples were compiled. Samples were identified to species in the field as either *R. boylii*, *R. sierrae*, or “unknown”, which were individuals which could not be visually confirmed as either species (Stebbins 2003). The samples were collected between 1992 and 2016, from three watersheds in the Sierra Nevada (the Feather, Yuba, and American) (Table S1). All unknown individuals were from Feather watershed localities.
 
-\noindent Exponent or Superscript: $\mathrm{O^-}$
+```{r tableS1, results='asis', echo=FALSE, warning=FALSE}
+# http://haozhu233.github.io/kableExtra/awesome_table_in_pdf.pdf
+# library(tidyverse)
+# library(knitr)
+# library(kableExtra)
+# options(knitr.table.format = "latex")
+# 
+# S1 <- read_csv("data/S1_field-sample-sites.csv")
+kable(S1, col.names = c("Locality", "River", "No. Samples",
+                        "Lat.", "Lon.", "Elev (m)", "Watershed (HUC8)"),
+      caption = "Sample Sites", booktabs=F,  longtable = T) %>% 
+  kable_styling(latex_options = c("repeat_header", "hold_position")) %>% 
+  landscape()
+```
 
-\noindent Subscript: $\mathrm{CH_4}$
+The Yuba and American watersheds share a similar Mediterranean climate, underlying geology, watershed aspect (west-slope), and vegetative communities. The Feather watershed shares a similar climate but has a slightly different underlying geology and aspect than that of other watersheds in the Sierra Nevada. The Feather watershed lies in the transition zone of the northern Sierra Nevada and the Cascades/Basin and Range Province, and thus the landscape in the northern portion of the watershed is comprised largely of volcanic bedrock while the southern portion is largely granitic (Durrell 1988).
+Field sampling was conducted following methods in Heyer et al. (1994) under CDFW SCP Permit #0006881 and Federal permit TE-40087B-0 with IACUC protocol #19327 and #04718-001. Individual post-metamorphic frogs were buccal-swabbed following established protocols (Goldberg et al. 2003, Pidancier et al. 2003, Broquet et al. 2007). Each post-metamorphic individual was comprehensively swabbed underneath tongue and inside of both cheeks for approximately 30 sec to one minute. Swabs were air dried for approximately five minutes and placed in 1.5 mL microcentrifuge tubes while in the field or placed in lysis buffer (Goldberg et al. 2003). Dried samples were stored in the laboratory at -80°C until DNA extraction. Where possible, tail clips from tadpole larvae were collected, and tadpoles greater than 15 mm total length were targeted(Wilbur and Semlitsch 1990, Parris et al. 2010). One clip was taken per individual tadpole and dried on Whatman filter paper (grade 1) and stored at room temperature or in 95% ethanol. DNA was extracted from ethanol-stored samples using Qiagen DNeasy kits following manufacturer protocol and stored at -20°C. DNA was extracted from dried buccal swabs and tail clips using an Ampure magnetic bead-based protocol (Ali et al. 2016) and stored at -20°C.
 
-To stack numbers or letters as in $\mathrm{Fe_2^{2+}}$, the subscript is defined first, and then the superscript is defined.
+### Rapture Sequencing
+To produce a high-quality genomic resource for frog species with large genome sizes, we interrogated a significant fraction of the *R. boylii* genome using RAD sequencing with SbfI (Miller et al. 2007, Baird et al. 2008, Ali et al. 2016). Paired-end sequence data were generated using 24 *R. boylii* individuals (Table S2). RAD libraries were constructed following the protocol described in (Ali et al. 2016). De novo locus discovery and contig extension were carried out as previously described (Miller et al. 2012) using the alignment program Novoalign and the genome assembler PRICE (Ruby et al. 2013). This resulted in a set of 77,544 RAD contigs ranging from 300 to 800 bp which served as a de novo partial genome reference for all subsequent downstream analyses (File S3: de novo). We next removed loci with five or more SNPs, and randomly selected 10,000 loci from the remaining subset. Of these 10,000 loci, 8,533 were successfully designed into 120 bp RAD capture baits by Arbor Biosciences (File S4: Baits). Sample libraries were prepared for sequencing following RAD Capture (Rapture) methods outlined in Ali et al. (2016). These samples were then then used to identify putative high-quality SNPs following sequencing.
 
-\noindent Bullet: CuCl $\bullet$ $\mathrm{7H_{2}O}$
+Sampled individuals were aligned against the de novo partial genome reference using the BWA-MEM algorithm (Li and Durbin 2010, Li 2013), and converted to BAM format and filtered for properly paired alignments using Samtools (File S1). Next, alignments from three different sequencing runs on an Illumina HiSeq were merged together and duplicates were removed using Samtools (Li et al. 2009). For all downstream analysis, we selected individuals that had greater than 25,000 alignments (n=311), which provided sufficient data to investigate population genetic attributes at broad and fine geographic scales (Table S5).
+To generate SNP (i.e., segregating site) data, a probabilistic framework was used for all population genetic analyses as it does not require calling genotypes and is suitable for low-coverage sequencing data (Korneliussen et al. 2013, Fumagalli et al. 2013). SNP discovery, minor allele frequencies (MAF) estimates, and genotype probabilities were conducted using ANGSD (Korneliussen et al. 2014). ANGSD analyses were conducted following methods from Prince et al. (2017), with a minimum mapping quality score (minMapQ) of 10, a minimum base quality score (minQ) of 20, the genotype likelihood model (GL 1), specifying the RAPTURE bait locations using the -sites flag, and only sites represented in at least 50% of the included samples (minInd) were used. Furthermore, genomic sites were designated as polymorphic only if MAFs were greater than 0.05 and the probability of the site not being polymorphic was less than 1e-6. Using this approach, over 44,000 polymorphic sites were identified across all *R. boylii* study samples. 
 
+### PCA & Admixture
+To assess population structure and coancestry, ANGSD was used to generate PCA and NGSadmix was used to calculate admixture. Settings used in ANGSD for PCA to identify polymorphic sites included a SNP_pval of 1e-6, inferring major and minor alleles (doMajorMinor 1), estimating genotypic likelihoods (GL 1), estimating allele frequencies (doMaf 2) (Kim et al. 2011), retaining SNPs with a minor allele frequency of at least 0.05 (minMaf), specifying the RAPTURE bait locations using the -sites flag, estimation of genotype posterior probabilities using a uniform prior (doPost 2), and the -doIBS 1 and -doCov 1 options. Principal components (PC) summarizing population structure were derived from classic eigenvalue decomposition and were visualized using the ggplot2 package in R (R Core Team 2017). To assess admixture between *R. sierrae* and *R. boylii*, genotype likelihood data (-GL 2) was generated in ANGSD with the same settings as above, in addition to retaining only SNPs that were shared in at least of 50% of the samples, -doPost 2, -doGLF 2, and limiting to higher quality alignment data (-minMapQ 10, -minQ 20). We then used NGSadmix (Skotte et al. 2013) to infer ancestry proportions in *R. sierrae* and *R. boylii* individuals. NGSadmix is a robust admixture method that can be applied to low-depth NGS data, and does not require called genotypes, thus reducing error associated with potential ascertainment and uncertainty in the data (Skotte et al. 2013).
 
-\noindent Delta: $\Delta$
+### F1 vs F2 Test with Species Diagnostic SNPs
+To test whether hybrids were first generation filial (F1) hybrids or progeny from F1 hybrids from subsequent generations (e.g., F2, F3, etc.), we identified differentially fixed (i.e., species-specific) SNPs and assessed heterozygosity at these loci in hybrid individuals as F1 vs. F2 hybrid individuals will have different degrees of heterozygosity in these species-diagnostic SNPs. We called genotypes in ANGSD using a uniform prior (-doPost 2) and the following settings: -GL 1, -doGeno 13, -postCutoff 0.95, -doMaf 1, -doMajorMinor 1, -minInd 2, -SNP_pval 1e-6, -minMapQ 20, -minQ 20, and specifying the RAPTURE bait locations using the -sites. The subsequent output (*.geno.gz) was then processed in the program R using the dplyr package (Wickham et al. 2018) to manipulate and filter to homozygous diagnostic SNPs. Data were filtered to include only loci where over 50 non-hybrid individuals from each species had called genotypes at a given polymorphism.
 
-\noindent Reaction Arrows: $\longrightarrow$ or  $\xrightarrow{solution}$
+### Demographic Modeling with fastsimcoal2
 
-\noindent Resonance Arrows: $\leftrightarrow$
+To quantify divergence times and migration rates between *R. sierrae* and *R. boylii*, we used coalescent simulations in fastsimcoal2 (Excoffier and Foll 2011, Excoffier et al. 2013). This maximum-likelihood modeling approach uses simulations to estimate the expected site-frequency spectra (SFS) for a demographic model of interest to calculate a composite likelihood, and then utilizes a maximization procedure to find the maximum-likelihood parameter estimates.
 
-\noindent Reversible Reaction Arrows: $\rightleftharpoons$
+We calculated folded joint SFS for each species in each watershed from SNP data generated from ANGSD because the ancestral condition is unknown.  For all models, we assumed the potential for bidirectional gene flow and that extant genetic clusters emerged simultaneously from a common ancestry. We tested models that allowed for population growth, and models with no growth. We used two conservative model scenarios to estimate divergence times and migration rates between species in each watershed. To estimate migration probabilities per generation between species within each watershed, we set the divergence time parameters between 1–1.1 billion years ago to create simplified migration-only models. To estimate divergence time between species, we used the watershed that had the lowest migration rate from the previous migration-only models, and generated divergence time estimates assuming no migration between species.
 
-### Typesetting reactions
+The basic steps taken to obtain final model estimates from fastsimcoal2 used a set of 10 replicate models, followed by comparison of maximum observed and expected likelihoods to select the best-fit model (Akaike 1973), then simulate new SFS using the best-fit model for parametric bootstrapping. Following Excoffier and Foll (2011), we used 1,000 randomly drawn SNPs from each SFS to generate 100,000 coalescent simulations for likelihood calculations (estimation of the expected SFS) with a maximum of 40 cycles for the conditional maximization algorithm. To select the best-fit model we selected the model replicate that minimized the difference between the maximum expected likelihood and the maximum observed likelihood. We used parametric bootstrapping to generate 95% confidence intervals for each best-fit model using 100 bootstraps for each model and selecting the best model from each bootstrap based on maximum likelihoods as described above.
 
-You may wish to put your reaction in an equation environment, which means that LaTeX will place the reaction where it fits and will number the equations for you. 
+## Results
 
-\begin{equation}
-  \mathrm{C_6H_{12}O_6  + 6O_2} \longrightarrow \mathrm{6CO_2 + 6H_2O}
-  (\#eq:reaction)
-\end{equation}
+### Rapture produced high quality genomic data for both *R. sierrae* and *R. boylii*
 
-We can reference this combustion of glucose reaction via Equation \@ref(eq:reaction).
+Individual samples were collected across 56 different sampling localities in three different watersheds (Figure 1, Table S1). For downstream analysis, we filtered and retained 311 samples from the original sequencing data that contained a minimum of 25,000 alignments (Table S5). The final merged dataset mean alignments per sample was 229,485 (Table S5), and the mean number of samples per site was eight. These frog species are cryptic, and often occur in low densities, so we retained all sites in our analysis, regardless of the number of samples (Table S1). We conclude that the sequence data we obtained should be appropriate for population genetic analyses across our study area.
 
-### Other examples of reactions
+(ref:fig1map) Map of sampling locations in the Feather, Yuba, and American watersheds. RABO=*R. boylii*, RASI=*R. sierrae*.
 
-$\mathrm{NH_4Cl_{(s)}}$ $\rightleftharpoons$ $\mathrm{NH_{3(g)}+HCl_{(g)}}$
+```{r fig1map, results="asis", warnings=FALSE, messages=FALSE, fig.cap='(ref:fig1map)', fig.width=8, echo=FALSE, out.extra="angle=90, scale=.75"}
 
-\noindent $\mathrm{MeCH_2Br + Mg}$ $\xrightarrow[below]{above}$ $\mathrm{MeCH_2\bullet Mg \bullet Br}$
+include_graphics("figure/figure_01_overview_hybrid.pdf")
 
-## Physics
-
-Many of the symbols you will need can be found on the math page <http://web.reed.edu/cis/help/latex/math.html> and the Comprehensive LaTeX Symbol Guide (<http://mirror.utexas.edu/ctan/info/symbols/comprehensive/symbols-letter.pdf>).
-
-## Biology
-
-You will probably find the resources at <http://www.lecb.ncifcrf.gov/~toms/latex.html> helpful, particularly the links to bsts for various journals. You may also be interested in TeXShade for nucleotide typesetting (<http://homepages.uni-tuebingen.de/beitz/txe.html>).  Be sure to read the proceeding chapter on graphics and tables.
-
+```
