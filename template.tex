@@ -1,10 +1,11 @@
 %%%---PREAMBLE---%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\documentclass[twoside,12pt,final]{ucthesis-CA2012}
+\documentclass[twoside,12pt,final]{ucthesis-CA2012} % change this for oneside, 11pt, draft, etc.
+
 % fix for pandoc 1.14
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
-%--- Packages ---------------------------------------------------------
+%--- Packages --------------------------------------------------------
 \usepackage[lofdepth,lotdepth,caption=false]{subfig}
 \usepackage{fancyhdr}
 \usepackage{amsmath, amssymb, graphicx}
@@ -22,6 +23,7 @@
 
 %% for more attractive tables
 \usepackage{booktabs}
+\usepackage{xcolor}
 \usepackage{longtable}
 \usepackage{lscape}
 \usepackage{tabularx}
@@ -31,9 +33,9 @@
 \SetWatermarkText{DRAFT}
 \SetWatermarkLightness{0.95}
 
-% suppress bottom page numbers on first page of each chapter
+% suppress bottom page numbers on 1st page of each chapt.
 % because they overlap with text
-%\patchcmd{\chapter}{plain}{empty}{}{}
+%\patchcmd{\chapter}{plain}{empty}{}{} % turn off for UCD requirements of page number on every page
 
 %---New Definitions and Commands------------------------------------------------------
 
@@ -110,7 +112,7 @@
 \begin{ucfrontmatter}
 
   %%%%%%%%%%%%%%%%%%%%%%%%%%%
-  % TITLE PAGE INFORMATION %
+  % TITLE PAGE INFORMATION % % modified to meet UCDavis
   %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
   \title{$title$}
@@ -121,23 +123,21 @@
   \report{$report$} 
   \degree{$degree$} 
   \degreemonth{$month$} \degreeyear{$year$}
-  %\defensemonth{$month$} % should be one of the following: March,
-  %\defenseyear{$year$}
   \chair{$chair$}  % this is your advisor
   \othermemberA{$signature1$} % This is a member of your committee
   \othermemberB{$signature2$} % This is a member of your committee
-  \othermemberC{$signature3$} % This is a member of your committee (if your department requires 4 members)
+  \othermemberC{$signature3$} % This is a member of your committee
   \numberofmembers{3} % should match the number of entries above (chair + othermembers)
 
   \field{$program$}
   \campus{$uccampus$}
+	
 	\maketitle
 	\approvalpage
-	%\copyrightpage
+	%\copyrightpage % if you want
 
-  %%%%%%%%%%%%%%%%%%%%%%%%%%%
-  % DEDICATION PAGE INFORMATION %
-  %%%%%%%%%%%%%%%%%%%%%%%%%%%
+  % DEDICATION %
+  %%%%%%%%%%%%%%%%%%%%
 
     \begin{dedication}
 
@@ -153,23 +153,30 @@
       \end{center}
 
   \end{dedication}
+
+  % ACKNOWLEDGEMENTS %
+  %%%%%%%%%%%%%%%%%%%%
   \begin{acknowledgements}
     $acknowledgments$
   \end{acknowledgements}
 
-	%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  % removed CV section from this but see gauchodown or huskydown
+
   % ABSTRACT %
   %%%%%%%%%%%%%%%%%%%%%%%%%%%
   \begin{abstract}
     \addcontentsline{toc}{chapter}{Abstract}
-    %todo: max 350 words
 
     $abstract$
 
     %\abstractsignature
   \end{abstract}
+  
+  % Table of Contents %
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%
 	\tableofcontents
-\end{ucfrontmatter}
+
+\end{ucfrontmatter} % end of the preliminary pages
 
 \begin{ucmainmatter}
 
@@ -182,9 +189,14 @@ $body$
 
 %---Set Headers and Footers ------------------------------------------------------
 \pagestyle{fancy}
-\renewcommand{\chaptermark}[1]{\markboth{{\sf #1 \hspace*{\fill} Chapter~}}{} }
-\renewcommand{\sectionmark}[1]{\markright{ {\sf Section~\thesection \hspace*{\fill} #1 }}}
+% UCD
+%\renewcommand{\chaptermark}[1]{\markboth{{\sf #1 \hspace*{\fill} Chapter~}}{} }
+% GAUCHO
 \fancyhf{}
+\renewcommand{\chaptermark}[1]{\markboth{{\sf #1 \hspace*{\fill} Chapter~\thechapter}}{} }
+\renewcommand{\sectionmark}[1]{\markright{ {\sf Section~\thesection 
+\hspace*{\fill} #1 }}}
+
 
 \makeatletter \if@twoside \fancyhead[LO]{\small \rightmark} \fancyhead[RE]{\small\leftmark} \else \fancyhead[LO]{\small\leftmark}
 \fancyhead[RE]{\small\rightmark} \fi
@@ -202,7 +214,6 @@ $body$
 \makeatother
 \fancyfoot[c]{\textrm{\textup{\thepage}}} % page number
 \fancyfoot[C]{\thepage}
-\setlength\footskip{-2pt}
 \renewcommand{\headrulewidth}{0.4pt}
 
 \fancypagestyle{plain} { \fancyhf{} \fancyfoot[C]{\thepage}

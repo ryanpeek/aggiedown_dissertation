@@ -1,10 +1,11 @@
 %%%---PREAMBLE---%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\documentclass[twoside,12pt,final]{ucthesis-CA2012}
+\documentclass[twoside,12pt,final]{ucthesis-CA2012} % change this for oneside, 11pt, draft, etc.
+
 % fix for pandoc 1.14
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
-%--- Packages ---------------------------------------------------------
+%--- Packages --------------------------------------------------------
 \usepackage[lofdepth,lotdepth,caption=false]{subfig}
 \usepackage{fancyhdr}
 \usepackage{amsmath, amssymb, graphicx}
@@ -22,6 +23,7 @@
 
 %% for more attractive tables
 \usepackage{booktabs}
+\usepackage{xcolor}
 \usepackage{longtable}
 \usepackage{lscape}
 \usepackage{tabularx}
@@ -31,9 +33,9 @@
 \SetWatermarkText{DRAFT}
 \SetWatermarkLightness{0.95}
 
-% suppress bottom page numbers on first page of each chapter
+% suppress bottom page numbers on 1st page of each chapt.
 % because they overlap with text
-%\patchcmd{\chapter}{plain}{empty}{}{}
+%\patchcmd{\chapter}{plain}{empty}{}{} % turn off for UCD requirements of page number on every page
 
 %---New Definitions and Commands------------------------------------------------------
 
@@ -110,11 +112,11 @@
 \begin{ucfrontmatter}
 
   %%%%%%%%%%%%%%%%%%%%%%%%%%%
-  % TITLE PAGE INFORMATION %
+  % TITLE PAGE INFORMATION % % modified to meet UCDavis
   %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-  \title{Linking watersheds with genomics: Population genetics of the Foothill
-yellow-legged Frog (\emph{Rana boylii})}
+  \title{Population genetics of a sentinel stream-breeding frog (\emph{Rana
+boylii})}
 
   \author{Ryan A Peek}
   \prevdegreeA{B.S. (University of California, Davis) 2002}
@@ -122,34 +124,39 @@ yellow-legged Frog (\emph{Rana boylii})}
   \report{DISSERTATION} 
   \degree{DOCTOR OF PHILOSOPHY} 
   \degreemonth{September} \degreeyear{2018}
-  %\defensemonth{September} % should be one of the following: March,
-  %\defenseyear{2018}
   \chair{Michael R. Miller}  % this is your advisor
   \othermemberA{Peter B. Moyle} % This is a member of your committee
   \othermemberB{Mark W. Schwartz} % This is a member of your committee
-  \othermemberC{} % This is a member of your committee (if your department requires 4 members)
+  \othermemberC{} % This is a member of your committee
   \numberofmembers{3} % should match the number of entries above (chair + othermembers)
 
   \field{Ecology}
   \campus{Davis}
+	
 	\maketitle
 	\approvalpage
-	%\copyrightpage
+	%\copyrightpage % if you want
 
-  %%%%%%%%%%%%%%%%%%%%%%%%%%%
-  % DEDICATION PAGE INFORMATION %
-  %%%%%%%%%%%%%%%%%%%%%%%%%%%
+  % DEDICATION %
+  %%%%%%%%%%%%%%%%%%%%
     \begin{dedication}
 
       \vspace*{25ex}
       \begin{center}
       \begin{Large}
 
-        To those who love the water and listen best when their feet are wet
+        ``\emph{One thing to remember is to talk to the animals. If you do, they
+        will talk back to you. But if you don't talk to them, they won't talk
+        back to you, then you won't understand. And when you don't understand,
+        you will fear, and when you fear, you will destroy the animals, and if
+        you destroy the animals, you will destroy yourself}''\\
+        (Chief Dan George, Tseil-Waututh Nation, North Vancouver)
 
       \end{Large}
       \end{center}
   \end{dedication}
+  % ACKNOWLEDGEMENTS %
+  %%%%%%%%%%%%%%%%%%%%
   \begin{acknowledgements}
     For all the curious people who have come before and hopefully after, I
     want to acknowledge you, and I hope we can do better to inspire and
@@ -177,12 +184,12 @@ yellow-legged Frog (\emph{Rana boylii})}
     graduate student career. The Graduate Group in Ecology has been a great
     place to grow and mature as a scientist and researcher.
   \end{acknowledgements}
-	%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  % removed CV section from this but see gauchodown or huskydown
+
   % ABSTRACT %
   %%%%%%%%%%%%%%%%%%%%%%%%%%%
   \begin{abstract}
     \addcontentsline{toc}{chapter}{Abstract}
-    %todo: max 350 words
 
     \emph{Rana boylii} is an imperiled frog species native to CA and OR, and
     it is currently designated as a species of special concern (CDFW) in the
@@ -253,8 +260,11 @@ yellow-legged Frog (\emph{Rana boylii})}
 
     %\abstractsignature
   \end{abstract}
+  % Table of Contents %
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%
 	\tableofcontents
-\end{ucfrontmatter}
+
+\end{ucfrontmatter} % end of the preliminary pages
 \begin{ucmainmatter}
 
 \fancypagestyle{plain}{%
@@ -1536,7 +1546,7 @@ been organised into an R package, xxx, which is available at
 \url{https://github.com/xxx/xxx}. A hard copy of the thesis can be found
 in the University of Washington library.
 
-This version of the thesis was generated on 2018-09-05 00:04:31. The
+This version of the thesis was generated on 2018-09-08 11:41:14. The
 repository is currently at this commit:
 
 The computational environment that was used to generate this version is
@@ -1552,7 +1562,7 @@ Session info -------------------------------------------------------------
  language (EN)                        
  collate  en_US.UTF-8                 
  tz       America/Los_Angeles         
- date     2018-09-05                  
+ date     2018-09-08                  
 \end{verbatim}
 \begin{verbatim}
 Packages -----------------------------------------------------------------
@@ -1811,9 +1821,14 @@ the Rana boylei group. University of California publications in zoology
 
 %---Set Headers and Footers ------------------------------------------------------
 \pagestyle{fancy}
-\renewcommand{\chaptermark}[1]{\markboth{{\sf #1 \hspace*{\fill} Chapter~}}{} }
-\renewcommand{\sectionmark}[1]{\markright{ {\sf Section~\thesection \hspace*{\fill} #1 }}}
+% UCD
+%\renewcommand{\chaptermark}[1]{\markboth{{\sf #1 \hspace*{\fill} Chapter~}}{} }
+% GAUCHO
 \fancyhf{}
+\renewcommand{\chaptermark}[1]{\markboth{{\sf #1 \hspace*{\fill} Chapter~\thechapter}}{} }
+\renewcommand{\sectionmark}[1]{\markright{ {\sf Section~\thesection 
+\hspace*{\fill} #1 }}}
+
 
 \makeatletter \if@twoside \fancyhead[LO]{\small \rightmark} \fancyhead[RE]{\small\leftmark} \else \fancyhead[LO]{\small\leftmark}
 \fancyhead[RE]{\small\rightmark} \fi
@@ -1831,7 +1846,6 @@ the Rana boylei group. University of California publications in zoology
 \makeatother
 \fancyfoot[c]{\textrm{\textup{\thepage}}} % page number
 \fancyfoot[C]{\thepage}
-\setlength\footskip{-2pt}
 \renewcommand{\headrulewidth}{0.4pt}
 
 \fancypagestyle{plain} { \fancyhf{} \fancyfoot[C]{\thepage}

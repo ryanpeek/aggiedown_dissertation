@@ -1,6 +1,5 @@
 % UCTHESIS DOCUMENT CLASS -- Release info is below.
 %    for LaTeX version 2e - 11/3/94
-%ucthesis-CA2012
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{ucthesis-CA2012} [2012/05/08 Revision by Curtis Asplund of 1996/06/26 JTW's modification of 1994/10/31 v3.0 University of California Thesis Class]
 
@@ -16,6 +15,8 @@
 % Options inclued 'Xpt [X=10,11,12]','final/draft','oneside/twoside',
 % Defaults are set to 12 point, onesided, final (ie not draft) mode (BBF 10/31/94)
 
+
+% options from uwthesis.cls
 
 % ----  Timely loading of specific packages -----------------------------
 %
@@ -126,27 +127,26 @@
       \markboth {\MakeUppercase{%
         \ifnum \c@secnumdepth >\m@ne
           \if@ucmainmatter
-            \thepart \ %
+            \@chapapp\ \thechapter. \ % \@chapapp\ \thepart \ 
           \fi
         \fi
         ##1}}{}}%
     \def\sectionmark##1{%
       \markright {\MakeUppercase{%
         \ifnum \c@secnumdepth >\z@
-          \thechapter. \ %
+          \thesection. \ % or just \the chapter
         \fi
         ##1}}}}
 \else               % If one-sided printing.
   \def\ps@headings{%
     \def\@oddfoot{\rm\hfil\thepage\hfil}
     \def\@oddhead{{\slshape\rightmark}\hfil}%
-    \def\@evenfoot{\rm\hfil\thepage\hfil}
     \let\@mkboth\markboth
     \def\chaptermark##1{%
       \markright {\MakeUppercase{%
         \ifnum \c@secnumdepth >\m@ne
           \if@ucmainmatter
-            \thechapter. %
+            \@chapapp\ \thechapter. \ % maybe just \thechapter here
           \fi
         \fi
         ##1}}}}
@@ -161,7 +161,7 @@
  \def\@evenhead{\hfil \slshape \leftmark}  %    Left heading.
  \def\@oddhead{{\slshape \rightmark}\hfil} %   Right heading.
  \def\chaptermark##1{\markboth {\uppercase{\ifnum \c@secnumdepth >\m@ne
-   \thechapter. \ \fi} ##1}{}}%
+ \@chapapp\ \thechapter. \ \fi} ##1}{}}% maybe just \thechapter. here
  \def\sectionmark##1{\markright {\uppercase{\ifnum \c@secnumdepth >\z@
    \thesection. \ \fi} ##1}}}
 \else               % If one-sided printing.
@@ -198,10 +198,6 @@
 %\def\defensemonth#1{\gdef\@defensemonth{#1}}% defense month
 %\def\defenseyear#1{\gdef\@defenseyear{#1}}  % defense year
 \def\degree#1{\gdef\@degree{#1}}            % full (unabbreviated) name of the degree
-% All previous degrees: one per line in chronological order
-\def\prevdegreeA#1{\gdef\@prevdegreeA{#1}}
-\def\prevdegreeB#1{\gdef\@prevdegreeB{#1}}
-
 \def\chair#1{\gdef\@chair{#1}}              % committee's chair
 \def\othermemberA#1{\gdef\@othermemberA{#1}}% committe members, one per line
 \def\othermemberB#1{\gdef\@othermemberB{#1}}
@@ -210,12 +206,20 @@
 \def\othermembers#1{\gdef\@othermembers{#1}}%
 \def\field#1{\gdef\@field{#1}}              % degree's field (e.g. Psychology, Computer Science)
 \def\campus#1{\gdef\@campus{#1}}
+
+% changes for UCDavis
+% All previous degrees: one per line in chronological order
+\def\prevdegreeA#1{\gdef\@prevdegreeA{#1}}
+\def\prevdegreeB#1{\gdef\@prevdegreeB{#1}}
+\def\@numberofmembers{3} % specify number of people on committee here
+
+% front matter font
 \def\fmfont{\fontsize\@xiipt{14.5}\selectfont} % Set the font for frontmatter
 \def\fmsmallfont{\fontsize\@xiipt{14pt}\selectfont}
 
 % REPORT    type of report:Dissertation or dissertation or proposal etc...
 \def\report#1{\gdef\@report{#1}}
-\def\@numberofmembers{3}
+
 % FRONTMATTER environment
 %
 % The FRONTMATTER environment makes sure that page numbering is set
@@ -228,48 +232,45 @@
   \pagestyle{plain}}
   {\newpage\renewcommand{\thepage}{\arabic{page}}\setcounter{page}{1}}
 
-%%% TITLE PAGE %%%%
+%%% UC DAVIS TITLE PAGE %%%%
 %%%%%%%%%%%%%%%%%%%
 \def\maketitle{
 { \smallssp
   \let\footnotesize\small 
   \let\footnoterule\relax
   %\thispagestyle{empty}
-  \setcounter{page}{1}
+  \setcounter{page}{1} % important to add page number on first page
   \renewcommand{\thepage}{\roman{page}}% Roman numerals for page counter
 
   %\null\vfil
   \begin{center}
-    \vspace{-3.5cm}
-    \fmfont {\bfseries {\@title} \par}   % Formatting of the Dissertation title
+    %\vspace{-3em}
+    \fmfont {\bfseries\large {\@title} \par}   % Formatting of the Dissertation title
     \smallskip \vspace{2ex}
     By \par
-    \smallskip
     \medskip \MakeUppercase{\@author} \par
-    \smallskip {\@prevdegreeA} \par
-    \smallskip {\@prevdegreeB} \par
+    {\@prevdegreeA} \\
+    {\@prevdegreeB} \par
     \vspace*{\fill}
     \MakeUppercase{\@report} \par
+    \smallskip
     \vspace*{\fill}
-    %\bigskip \par
+    \smallskip
     Submitted in partial satisfaction of the requirements for the degree of \par
+    \smallskip
     \vspace*{\fill}
+    \smallskip
     {\expandafter\uppercase\expandafter{\@degree}} \par
     \vspace*{\fill} 
-    in \par
+    \small in \par
     \vspace*{\fill} 
     {\@field}\par
     \vspace*{\fill} 
-    in the \par
+    \small in the \par
     \vspace*{\fill} 
-    %\medskip \MakeUppercase{\@degree} \par
-    %\smallskip in \par
-    %\smallskip {\@field} \par
-    %\medskip in the \par
-    %\medskip \par
     \MakeUppercase{OFFICE OF GRADUATE STUDIES} \par
     of the \par
-    \MakeUppercase{UNIVERSITY OF CALIFORNIA} \par
+    \MakeUppercase{UNIVERSITY OF CALIFORNIA} \\
     \MakeUppercase{\@campus} \par
     \bigskip \par
     Approved: \par
@@ -284,24 +285,11 @@
     $\:\overline{~~~~ \mbox{\rule{0in}{0.05in} \hspace{3.25in}}}\:$ \\
     {(\@othermemberB}) \\
     \vskip 2em
-    \ifnum \@numberofmembers > 3 
-      $\:\overline{~~~~ \mbox{\rule{0in}{0.05in} \hspace{3.25in}}}\:$ \\
-      {(\@othermemberC}) \\ 
-      \vskip 2em \fi
-    \ifnum \@numberofmembers > 4
-      $\:\overline{~~~~ \mbox{\rule{0in}{0.05in} \hspace{3.25in}}}\:$ \\
-      {\@othermemberD} \\ 
-      \vskip 2em \fi
-    \medskip \par
-    Committee in charge \par
-    \@degreemonth~\@degreeyear
+    % add additional members as needed
+    Committee in Charge \par
+    \@degreeyear
     \end{center}
     }
-  %\renewcommand{\thepage}{\roman{page}}% Roman numerals for page counter
-  % \vfil\null \setcounter{footnote}{0}
-  %  \if@openright
-  %    \clearpage \thispagestyle{empty} \mbox{} \newpage
-  %  \fi
 }
 
 % APPROVALPAGE
@@ -362,9 +350,6 @@
     {\fmfont \@degreemonth~\@degreeyear}
   \end{center}
   \vfill\null
-%  \if@openright
-%    \clearpage \thispagestyle{empty} \mbox{} \newpage
-%  \fi
 }
 
 % COPYRIGHTPAGE
@@ -409,7 +394,7 @@
   \if@openright\cleardoublepage \else\clearpage \fi
 }
 
-% ABSTRACT
+% UCDAVIS ABSTRACT
 % The ABSTRACT environment allows for multi-page abstracts and needs the
 % \title and \author macros
 \def\abstract{
@@ -423,14 +408,7 @@
       }
     \end{flushright}
     \begin{center}
-      {\fmfont {\bfseries \abstractname}\par
-      % \vspace{.3in} \@title\par
-      % \vspace{.1in} by\par
-      % \vspace{.1in} \@author\par}
-%      \vspace{.5in} \@title\par
-%      \vspace{.1in} by\par
-%      \vspace{.1in} \@author\par}
-      }
+      {\fmfont {\bfseries \abstractname}\par}
     \end{center}
     \ifnum \@draftmark = 1  \ssp \else  \dsp \fi
 }{\par\vfil\null}
@@ -452,9 +430,8 @@
     \ifnum \@draftmark = 1  \ssp \else  \dsp \fi
     \pagestyle{headings}
     \setcounter{page}{1}
-    % \renewcommand{\thepage}{\arabic{page}}% Roman numerals for page counter
     \pagenumbering{arabic}
-    \setlength\footskip{3pt}
+    %\setlength\footskip{12pt} % change distance for page number
 }
 
 %    ****************************************
@@ -667,7 +644,6 @@
    \def\@chapapp{\protect\@textofChapter}
    \def\Thechapter{\arabic{chapter}}
    \pagenumbering{arabic}
-   \setlength\footskip{3pt}
      \footskip\z@
    }
 
@@ -805,6 +781,7 @@
   \twocolumn\fi}
 
 \let\l@table\l@figure
+
 
 
 %    ****************************************
