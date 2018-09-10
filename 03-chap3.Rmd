@@ -15,46 +15,16 @@ library(readr)
 library(knitr)
 library(kableExtra)
 
-flights <- read.csv("data/flights.csv")
 ```
 
 
-# Tables, Graphics, References, and Labels {#ref-labels}
+# Refining conservation unit boundaries of a sentinel stream-breeding frog (*Rana boylii*) using population genomics {#rangewide}
 
-## Tables
-
-By far the easiest way to present tables in your thesis is to store the contents of the table in a CSV or Excel file, then read that file in to your R Markdown document as a data frame. Then you can style the table with the `kable` function, or functions in the [kableExtra](https://cran.r-project.org/web/packages/kableExtra/index.html) pacakge. 
-
-In addition to the tables that can be automatically generated from a data frame in **R** that you saw in [R Markdown Basics] using the `kable` function, you can also create tables using _pandoc_. (More information is available at <http://pandoc.org/README.html#tables>.)  This might be useful if you don't have values specifically stored in **R**, but you'd like to display them in table form.  Below is an example.  Pay careful attention to the alignment in the table and hyphens to create the rows and columns. Generally I don't recommend this approach of typing the table directly into your R Markdown document. 
-
-----------------------------------------------------------------------------------
-  Factors                    Correlation between Parents & Child      Inherited
-------------------------- ----------------------------------------- --------------
-  Education                                -0.49                         Yes
-  
-  Socio-Economic Status                     0.28                        Slight   
-  
-  Income                                    0.08                          No
-  
-  Family Size                               0.18                        Slight
-  
-  Occupational Prestige                     0.21                        Slight
-------------------------- ----------------------------------------- --------------
-Table: (\#tab:inher) Correlation of Inheritance Factors for Parents and Child 
-
-We can also create a link to the table by doing the following: Table \@ref(tab:inher).  If you go back to [Loading and exploring data] and look at the `kable` table, we can create a reference to this max delays table too: Table \@ref(tab:maxdelays). The addition of the `(\#tab:inher)` option to the end of the table caption allows us to then make a reference to Table `\@ref(tab:label)`. Note that this reference could appear anywhere throughout the document after the table has appeared.  
-
-<!-- We will next explore ways to create this label-ref link using figures. -->
+<!-- starts a new page and stops trying to place floats such as tables and figures 
 
 \clearpage
 
-<!-- clearpage ends the page, and also dumps out all floats.
-  Floats are things like tables and figures. -->
-
-
-## Figures
-
-If your thesis has a lot of figures, _R Markdown_ might behave better for you than that other word processor. One perk is that it will automatically number the figures accordingly in each chapter. You'll also be able to create a label for each figure, add a caption, and then reference the figure in a way similar to what we saw with tables earlier.  If you label your figures, you can move the figures around and _R Markdown_ will automatically adjust the numbering for you.  No need for you to remember!  So that you don't have to get too far into LaTeX to do this, a couple **R** functions have been created for you to assist.  You'll see their use below.
+-->
 
 <!--
 One thing that may be annoying is the way _R Markdown_ handles "floats" like tables and figures (it's really \LaTeX's fault). \LaTeX\ will try to find the best place to put your object based on the text around it and until you're really, truly done writing you should just leave it where it lies. There are some optional arguments specified in the options parameter of the `label` function.  If you need to shift your figure around, it might be good to look here on tweaking the options argument:  <https://en.wikibooks.org/wiki/LaTeX/Floats,_Figures_and_Captions>
@@ -62,75 +32,51 @@ One thing that may be annoying is the way _R Markdown_ handles "floats" like tab
 If you need a graphic or tabular material to be part of the text, you can just put it inline. If you need it to appear in the list of figures or tables, it should be placed in a code chunk.
 -->
 
-
-In the **R** chunk below, we will load in a picture stored as `uw.png` in our main directory.  We then give it the caption of "UW logo", the label of "uwlogo", and specify that this is a figure.  Make note of the different **R** chunk options that are given in the R Markdown file (not shown in the knitted document).
-
 ```{r uwlogo, fig.cap="UW logo", eval=FALSE}
 #include_graphics(path = "figure/uw.png")
+
+# Here is a reference to the UW logo: Figure \@ref(fig:uwlogo).  Note the use of the `fig:` code here.
+
 ```
 
-Here is a reference to the UW logo: Figure \@ref(fig:uwlogo).  Note the use of the `fig:` code here.  By naming the **R** chunk that contains the figure, we can then reference that figure later as done in the first sentence here.  We can also specify the caption for the figure via the R chunk option `fig.cap`.
+## INTRODUCTION
 
-\clearpage 
+The use of modern genomic sequencing technology has greatly advanced the ability for higher resolution analyses of both geographic and ecological patterns in populations [@nunziata_genomic_2017; @barbosa_integrative_2018; @hendricks_recent_2018]. Reduced representation sequencing methods such as restriction site-associated DNA sequencing (RADSeq) [@ali_rad_2016; @baird_rapid_2008; @miller_rapid_2007] provides a powerful tool to address ecological genomics questions at scales that were previously impossible using traditional field methods. Furthermore, new methods such as RAD Capture (Rapture) [@ali_rad_2016] adapt RADSeq to target desired loci and allow highly efficient genotyping of thousands of individuals at once. As historical and future landscape use can influence species demography and migration patterns [@anderson_oceanic_2009; @barbosa_integrative_2018; @burkey_extinction_1989], these genomic tools will be invaluable for assessing critical factors for long-term persistence in sensitive populations or species.  
 
-<!-- starts a new page and stops trying to place floats such as tables and figures -->
+The ecological integrity of freshwater systems and their constituent biota are rapidly declining globally [@ricciardi_extinction_1999], and conservation efforts will require assessment of the adaptive capacity of populations to rapid environmental change. Given limited capacity to conserve, it is important to define and establish clear geographic boundaries for conservation units such as distinct population segments across a species’ range. Delineation of distinct population segments can be used for prioritizing objectives in conservation management. Furthermore, quantification and comparison of relative genetic diversity within and among populations can provide additional information as a benchmark for future assessment responses to conservation actions. Thus, quantifying and linking landscape change with genetic diversity metrics may provide an important baseline to track how sensitive populations respond to future environmental change (through reduced adaptive potential) as well as evaluating whether restoration efforts are effective (i.e., increasing genetic connectivity, diversity, effective breeder/population size).  
 
-Below we will investigate how to save the output of an **R** plot and label it in a way similar to that done above.  Recall the `flights` dataset from Chapter \@ref(rmd-basics).  (Note that we've shown a different way to reference a section or chapter here.)  We will next explore a bar graph with the mean flight departure delays by airline from Portland for 2014.  Note also the use of the `scale` parameter which is discussed on the next page.
+Amphibians are particularly sensitive to changes in the ecosystem due to their physiology and ontogeny [@beebee_amphibian_2005; @davidson_spatial_2002], thus the ability to utilize environmental variables as life history cues can be especially important. In highly dynamic riverine environments, organisms must constantly adapt to temporal and spatial changes. One such sentinel stream-breeding species is the Foothill yellow-legged frog (*Rana boylii*), a native to California and Oregon which historically occurred in lower elevation (0-1500m) streams and rivers from Southern Oregon to northern Baja California west of the Sierra-Cascade crest [@stebbins_field_2003]. As a lotic breeding amphibian, *R. boylii* is tied closely to the local hydrology in watersheds it inhabits, and therefore it is particularly sensitive to alterations to flow regimes [@kupferberg_effects_2012; @kupferberg_hydrologic_1996; @lind_effects_1996].  
 
-```{r delaysboxplot, warnings=FALSE, messages=FALSE, fig.cap="Mean Delays by Airline", fig.width=6, eval=F}
-flights %>% group_by(carrier) %>%
-  summarize(mean_dep_delay = mean(dep_delay)) %>%
-  ggplot(aes(x = carrier, y = mean_dep_delay)) +
-  geom_bar(position = "identity", stat = "identity", fill = "red")
-```
+As with many amphibians in California [@davidson_declining_2004; @peek_landscape_2010; @thomson_california_2016], there have been significant population declines across the former range of this species, particularly in southern California and the Sierra Nevada where it has been extirpated from approximately 50 percent of its historical range [@davidson_spatial_2002; @jennings_amphibian_1994]. *Rana boylii*, currently designated as a species of special concern (CDFW) in the state of CA, has been petitioned as candidate for listing under the federal (USFWS) Endangered Species Act [@usfws_endangered_2014] as well as the state (CDFW) Endangered Species Act.  
 
-Here is a reference to this image: Figure \@ref(fig:delaysboxplot).
+Effective conservation management of this species will need to consider and prioritize maintenance of genetic diversity as part of any listing decision because it is closely related to the evolutionary capacity for adaptation to environmental changes [@lande_role_1996]. Thus, utilizing genetic data provides a potentially informative process for identifying the impacts of anthropogenic and environmental change on the process of adaptation. Establishing high-resolution genetic boundaries for populations across the species range as well as quantification of relative genomic diversity metrics (i.e., genomic diversity,  population connectivity) would help managers prioritize conservation actions.
+A recent study by @mccartney-melstad_population_2018 identified five major clades in *R. boylii* with strong geographically structured genetic subdivision across its range in California and Oregon. Here we provide an additional population genomic analysis across the range of this declining sentinel stream species that is currently a candidate for listing. We provide additional geographic and genetic resolution to @mccartney-melstad_population_2018, as well as quantify genetic diversity metrics across subpopulations and clades as both a reference and assessment of the potential for long-term persistence across this species’ range.
 
-A table linking these carrier codes to airline names is available at <https://github.com/ismayc/pnwflights14/blob/master/data/airlines.csv>.
+## MATERIALS AND METHODS
 
-\clearpage
+### Sampling and DNA extraction  
 
-Next, we will explore the use of the `out.extra` chunk option, which can be used to shrink or expand an image loaded from a file by specifying `"scale= "`. Here we use the mathematical graph stored in the "subdivision.pdf" file.
+A total of 1103 individual tadpole tail clips, buccal swabs, or tissue samples were compiled, collected between 1992 and 2016 across the range of *R. boylii*. Field sampling was conducted following methods in @heyer_measuring_1994 under CDFW SCP Permit #0006881, with IACUC protocol #19327. Individual post-metamorphic frogs were buccal-swabbed following established protocols [@broquet_buccal_2007; @goldberg_frogs_2003; @pidancier_buccal_2003]. Each post-metamorphic individual was comprehensively swabbed underneath tongue and cheek for approximately one minute. Swabs were air dried for approximately five minutes and placed in 1.5 mL microcentrifuge tubes while in the field. Samples were stored in the laboratory at -80°C until DNA extraction. Where possible, tail clips from tadpole larvae were collected, and tadpoles greater than 15 mm total length were targeted [@parris_assessing_2010; @wilbur_ecological_1990]. One clip was taken per individual tadpole and dried on Whatman filter paper (grade 1) and stored at room temperature. Some older tissue samples consisted of toe clips placed in 100% ethanol for storage, and DNA extraction from these samples used Qiagen DNeasy kits following the manufacturer’s protocol. Buccal swabs and tail clip DNA were extracted using an Ampure magnetic bead-based protocol [@ali_rad_2016]. DNA samples were stored at -20°C.  
 
-```{r subd, results="asis", echo=FALSE, fig.cap="Subdiv. graph", out.extra="scale=0.75"}
-include_graphics("figure/subdivision.pdf")
-```
+### Generating high-quality sequencing data
 
-Here is a reference to this image: Figure \@ref(fig:subd).  Note that `echo=FALSE` is specified so that the **R** code is hidden in the document.
+To produce a high-quality genomic resource for frog species with large genome sizes, we interrogated a significant fraction of the *R. boylii* genome using a SbfI restriction enzyme and high-density RAD sequencing on an Illumina HiSeq [@baird_rapid_2008; @miller_rapid_2007]. Paired-end sequence data were generated using 24 *R. boylii* individuals (**Table S1**). RAD libraries were constructed following the protocol described in Ali et al. (2016). De novo loci discovery and contig extension were carried out via custom PERL scripts [@miller_conserved_2012], the alignment program Novoalign and the genome assembler PRICE [@ruby_price:_2013]. This pipeline resulted in a set of 77,544 RAD contigs ranging from 300 to 800 bp which served as a de novo partial genome reference for all subsequent downstream analyses (**Supplemental File S2**).  Using these data, we filtered data to loci with 4 or fewer SNPs, and randomly selected 10,000 loci from this subset. Using these RADSeq data, 8,533 RAD capture baits (120bp) were designed by Arbor Biosciences from the de novo alignment (**Supplemental File S3**). The number of polymorphic loci identified across all *R. boylii* study samples was 44,406. RAPTURE was then used to identify putative high-quality SNPs. 
 
-**More Figure Stuff**
+Three different sequencing runs on an Illumina HiSeq were merged together, filtered, and duplicates were removed using ANGSD and Samtools [@li_sequence_2009]. Sampled individuals were aligned against the de novo partial genome reference using the BWA-MEM algorithm [@li_aligning_2013; @li_fast_2010] and saved to BAM format. To generate SNP (segregating site) data, a probabilistic framework was used for all population genetic analyses as it does not require calling genotypes and is suitable for low-coverage sequencing data [@fumagalli_quantifying_2013; @korneliussen_calculation_2013]. Estimates of per site minor allele frequencies (MAF), genotype probabilities and SNP discovery were conducted using ANGSD and NGStools [@fumagalli_ngstools:_2014; @korneliussen_angsd:_2014].  Genomic sites were designated as polymorphic only if MAFs were greater than 0.05 and the probability of the site not being polymorphic was less than 10-12. ANGSD analyses were conducted following methods from @prince_evolutionary_2017, with a minimum mapping quality score (minMapQ) of 10, a minimum base quality score (minQ) of 20, the genotype likelihood model (GL 1), and only sites represented in at least 50% of the included samples (minInd) were used [@li_inference_2011].
 
-Lastly, we will explore how to rotate and enlarge figures using the `out.extra` chunk option.  (Currently this only works in the PDF version of the book.)
+### Quantifying genetic structure
 
-```{r subd2, results="asis", echo=FALSE, out.extra="angle=180, scale=1.1", fig.cap="A Larger Figure, Flipped Upside Down"}
-include_graphics("figure/subdivision.pdf")
-```
+To characterize and quantify genetic population structure within and among watersheds, we conducted principal component analysis (PCA) using data subsampled to different alignment thresholds (e.g., all individuals with a minimum of 100,000 alignments) to determine the amount of data needed for population analyses. For downstream analysis, we selected individuals that had greater than 100,000 alignments. To assess population structure and coancestry, ANGSD was used to generate PCA and NGSadmix was used to estimate admixture. Settings used in ANGSD for PCA to identify polymorphic sites included a SNP_pval of 1e-6, inferring major and minor alleles (doMajorMinor 1), estimating allele frequencies (doMaf 2) [@kim_estimation_2011], retaining SNPs with a minor allele frequency of at least 0.05 (minMaf), estimation of genotype posterior probabilities using a uniform prior (doPost 2), specifying the RAPTURE bait locations using the -sites flag, calculating the PCA matrix with the -doIBS 1 and -doCov 1 options, and limiting the analysis to higher quality alignment data (-minMapQ 10, -minQ 20). Principal components (PC) summarizing population structure were derived from classic eigenvalue decomposition and visualized using the ggplot2 package in R [@r_core_team_r:_2017]. To assess admixture in *R. boylii*, genotype likelihood data (-GL 2 and -doGLF 2) was generated in ANGSD with the same settings as above. We then used NGSadmix [@skotte_estimating_2013] to infer ancestry proportions in *R. boylii* individuals. NGSadmix is a robust admixture method that can be applied to low-depth NGS data, and does not require called genotypes, thus reducing error associated with potential ascertainment and uncertainty in the data [@skotte_estimating_2013].  
 
-As another example, here is a reference: Figure \@ref(fig:subd2).  
+### Genetic differentiation and diversity estimates
 
-## Footnotes and Endnotes
+*Rana boylii* are cryptic, and often occur in low densities within the study area. Thus, we retained a minimum of three individuals per site for estimates of genetic diversity and F~ST~. With genomic data, population genetic parameters can be accurately estimated from even low sample numbers [@hotaling_demographic_2018], and genomic analyses in non-model organism often use fewer loci [@narum_genotyping-by-sequencing_2013]. To quantify genetic variation and differentiation, pairwise population differentiation (F~ST~) was calculated and scaled [mean F~ST~ / (1-mean F~ST~)] to examine the relationship between genetic differentiation and geographic distance between populations [@rousset_genetic_1997; @weir_estimating_1984] (Wright 1943). F~ST~ was estimated by first calculating a folded site frequency spectrum (SFS) for each population from site allele frequencies (SAF) in ANGSD (doSaf 1, fold 1, minMapQ 10, minQ 20, GL 2) and specifying the Rapture bait locations using the -sites flag [@nielsen_snp_2012]. The two-dimensional SFS between each population pair were then estimated from folded SAF.idx files using a maxIter of 100 with realSFS [@korneliussen_angsd:_2014]. F~ST~ statistics were then calculated from two-dimensional SFS (2DSFS) for each possible pairwise combination of unique collection locations using an estimator preferable for small sample sizes implemented in ANGSD (-whichFST 1). These values were plotted in R.  
 
-You might want to footnote something. ^[footnote text] The footnote will be in a smaller font and placed appropriately. Endnotes work in much the same way. 
+We summarized patterns of genetic variation using two estimators of θ (4N𝛍): Tajima’s θ (θ𝜋) is based on the average number of pairwise differences [@tajima_evolutionary_1983] (Td Watterson’s θ (θS) is based on the number of segregating sites [@watterson_number_1975]. These estimators are influenced by the demographic history of a population and provide information on the trajectory of changes in genetic diversity. When genetic diversity has been stable, these estimates are generally equal; but when genetic diversity has been increasing, θ𝜋 > θS; and when genetic diversity has been decreasing, θS > θ𝜋.
+To calculate θ statistics from Rapture data, we used folded SFS in ANGSD with -GL 2, -doThetas 1, -doSaf 1 -fold 1, and -pest. Outputs were used to calculate each statistic for each site using thetaStat with make_bed and then do_stat. These data were averaged over the sites to obtain a single “genome-wide” value for each statistic for each locality (Korneliussen et al. 2013).
+RESULTS
+A total of 1,103 individual samples were sequenced using Rapture (see Methods). For principal components analysis (PCA) and admixture, we selected samples that had greater than 100,000 alignments and had 1 or more individuals per sampling locality. For localities with greater than ten individuals, we randomly sampled a maximum of 10 samples, yielding 480 total samples from 89 distinct localities across the range of the species (Figure 1, Table 1). These localities overlap many of the localities used in McCartney-Melstad et al. (2018), with a few notable differences. There were more individuals available for analyses at most of the localities (Table 1), there was higher resolution sampling in certain areas (i.e., the northern coast of California, the Feather watershed), and a two additional localities fall outside of the clades delineated by McCartney-Melstad et al. (2018) (i.e., Locality 1 in the SF American basin in El Dorado County, and Locality 4 in the Honey-Eagle Lakes basin in Lassen County; Figure 1).
 
-## Bibliographies
 
-Of course you will need to cite things, and you will probably accumulate an armful of sources. There are a variety of tools available for creating a bibliography database (stored with the .bib extension).  In addition to BibTeX suggested below, you may want to consider using the free and easy-to-use tool called Zotero. Some Zotero documentation is at <http://libguides.reed.edu/citation/zotero>.  In addition, a tutorial is available from Middlebury College at <http://sites.middlebury.edu/zoteromiddlebury/>.
 
-_R Markdown_ uses _pandoc_ (<http://pandoc.org/>) to build its bibliographies.  One nice caveat of this is that you won't have to do a second compile to load in references as standard LaTeX requires. To cite references in your thesis (after creating your bibliography database), place the reference name inside square brackets and precede it by the "at" symbol.  For example, here's a reference to a book about worrying:  [@Molina1994].  This `Molina1994` entry appears in a file called `thesis.bib` in the `bib` folder.  This bibliography database file was created by a program called BibTeX.  You can call this file something else if you like (look at the YAML header in the main .Rmd file) and, by default, is to placed in the `bib` folder.  
-
-For more information about BibTeX and bibliographies, see (<http://web.reed.edu/cis/help/latex/index.html>)^[@reedweb2007]. There are three pages on this topic:  _bibtex_ (which talks about using BibTeX, at <http://web.reed.edu/cis/help/latex/bibtex.html>), _bibtexstyles_ (about how to find and use the bibliography style that best suits your needs, at <http://web.reed.edu/cis/help/latex/bibtexstyles.html>) and _bibman_ (which covers how to make and maintain a bibliography by hand, without BibTeX, at <http://web.reed.edu/cis/help/latex/bibman.html>). The last page will not be useful unless you have only a few sources.
-
-If you look at the YAML header at the top of the main .Rmd file you can see that we can specify the style of the bibliography by referencing the appropriate csl file.  You can download a variety of different style files at <https://www.zotero.org/styles>.  Make sure to download the file into the csl folder.
-
-**Tips for Bibliographies**
-
-- Like with thesis formatting, the sooner you start compiling your bibliography for something as large as thesis, the better. 
-- The cite key (a citation's label) needs to be unique from the other entries.
-- When you have more than one author or editor, you need to separate each author's name by the word "and" e.g. `Author = {Noble, Sam and Youngberg, Jessica},`.
-- Bibliographies made using BibTeX (whether manually or using a manager) accept LaTeX markup, so you can italicize and add symbols as necessary.
-- To force capitalization in an article title or where all lowercase is generally used, bracket the capital letter in curly braces.
-
-## Anything else?
-
-If you'd like to see examples of other things in this template, please [contact us](https://github.com/benmarwick/huskydown/issues/new) (email <bmarwick@uw.edu>) with your suggestions. We love to see people using _R Markdown_ for their theses, and are happy to help.
 
