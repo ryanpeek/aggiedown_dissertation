@@ -1,0 +1,31 @@
+SiteName,SiteID,Locality,river,watershed,regtype,lat,lon,elev_m,NHD_StO,NHD_DA_km2,n_initial,n_retained
+BEAR,20,Chicago Powerhouse,Bear,Bear,Bypass,39.17484,-120.899775,665.7989502,4,136,6,6
+BEAR_GRHN,16,Greenhorn Creek,Bear,Bear,Bypass,39.232063,-120.901893,820.534729,2,11,15,6
+BEAR_STH2,19,Steep Hollow Creek US,Bear,Bear,Bypass,39.19444,-120.88778,704.6578369,2,45,7,6
+BEAR_STHA,18,Hawkins Ravine,Bear,Bear,Bypass,39.18833,-120.8981,706.9960938,2,4,3,3
+BEAR_STHC,17,Steep Hollow Creek DS,Bear,Bear,Bypass,39.202307,-120.875371,736.8512573,2,52,13,12
+MFA_AMEC,1,American Canyon,MF American,American,Hydropeaking,38.933963,-120.943562,240.3927917,2,9,16,6
+MFA_GASC,2,Gas Canyon,MF American,American,Hydropeaking,38.966512,-120.932521,241.8505859,1,13,6,6
+MFA_TODC,3,Todd Creek,MF American,American,Hydropeaking,38.963848,-120.921578,367.7263184,2,10,11,9
+MFY_OREGCK,27,Oregon Creek,Middle Yuba,Yuba,Bypass,39.441876,-121.057534,620.4250488,4,375,15,13
+MFY_US_OH,28,US Our House Dam,Middle Yuba,Yuba,Bypass,39.413048,-120.990346,624.1466675,4,375,13,12
+NFA,13,Iowa Hill Mainstem,NF American,American,Unregulated,39.111151,-120.916844,386.4709778,4,605,36,30
+NFA_BUNC,8,Bunch Canyon,NF American,American,Unregulated,39.037618,-120.91028,286.2874146,3,27,15,14
+NFA_EUCH,14,Euchre Bar,NF American,American,Unregulated,39.18492,-120.76204,579.5186157,4,508,13,11
+NFA_INDC,10,Indian Creek,NF American,American,Unregulated,39.056651,-120.908539,296.1070557,2,24,12,11
+NFA_POND,7,Ponderosa Bridge,NF American,American,Unregulated,38.999947,-120.940596,240.8255005,5,857,5,5
+NFA_ROBR,12,Robbers Ravine,NF American,American,Unregulated,39.104505,-120.926715,400.0004578,1,4,30,11
+NFA_SAIC,15,Sailor Canyon,NF American,American,Unregulated,39.216943,-120.495953,1005.578125,3,166,8,5
+NFA_SHIC,9,Shirttail Creek,NF American,American,Unregulated,39.04445788,-120.8993659,525.7588501,4,141,16,15
+NFA_SLAR,11,Slaughter Ravine,NF American,American,Unregulated,39.098653,-120.925481,356.0791016,2,6,8,8
+NFMFA_SC,4,NFMFA-Skunk Canyon,MF American,American,Hydropeaking,39.022372,-120.736932,521.5720215,2,6,18,18
+NFY,29,Rocky Rest Mainstem,North Yuba,Yuba,Unregulated,39.511905,-120.977379,704.6862793,5,669,15,12
+NFY_SLATE_CGRAV,30,Slate Creek,North Yuba,Yuba,Bypass,39.68912801,-120.9388908,1330.937256,3,58.7,4,4
+RUB_LCUS,6,Rubicon-Long Canyon,MF American,American,Bypass,38.988871,-120.689958,415.1026306,5,806,9,8
+RUB_USPH,5,Rubicon-US Powerhouse,MF American,American,Bypass,38.999276,-120.723327,360.5759277,5,816,11,11
+SFY,26,US Canyon Creek,South Yuba,Yuba,Bypass,39.353865,-120.734188,889.7744751,4,365,6,6
+SFY_LOGA,25,Logan Creek,South Yuba,Yuba,Bypass,39.36914,-120.85258,1201.178955,1,5,5,4
+SFY_MISC,24,Missouri Canyon,South Yuba,Yuba,Bypass,39.360961,-120.88138,1094.631226,2,5,8,6
+SFY_ROCKCK,23,Rock Creek,South Yuba,Yuba,Bypass,39.32983398,-120.9863358,593.5213623,4,710,3,3
+SFY_SHADYCK,21,Shady Creek,South Yuba,Yuba,Bypass,39.35433197,-121.0589981,675.0254517,2,15,14,12
+SFY_SPRINGCK,22,Spring Creek,South Yuba,Yuba,Bypass,39.33233261,-120.9889984,595.1054077,3,24,4,4

@@ -17,7 +17,7 @@ library(knitr)
 library(kableExtra)
 options(knitr.table.format = "latex")
 
-S1 <- read_csv("data/S1_field-sample-sites.csv")
+S1 <- read_csv("data/ch2_T1_field-sample-sites.csv")
 
 ```
 
@@ -51,8 +51,7 @@ To investigate potential hybridization between *R. sierrae* and *R. boylii*, a t
 # library(knitr)
 # library(kableExtra)
 # options(knitr.table.format = "latex")
-# 
-# S1 <- read_csv("data/S1_field-sample-sites.csv")
+
 kable(S1, col.names = c("Locality", "River", "No. Samples",
                         "Lat.", "Lon.", "Elev (m)", "Watershed (HUC8)"),
       caption = "Sample Sites", booktabs=F,  longtable = T) %>% 
@@ -96,7 +95,7 @@ Individual samples were collected across 56 different sampling localities in thr
 
 ```{r fig1map, results="asis", warnings=FALSE, messages=FALSE, fig.cap='(ref:fig1map)', fig.width=8, echo=FALSE, out.extra="angle=90, scale=.75"}
 
-include_graphics("figure/figure_01_overview_hybrid.pdf")
+include_graphics("figure/ch2/figure_01_overview_hybrid.pdf")
 
 ```
 

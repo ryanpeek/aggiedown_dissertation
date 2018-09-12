@@ -6,19 +6,19 @@
 If you feel it necessary to include an appendix, it goes here.
 -->
 
+This includes repository links to supplementary tables and code for analyses and figure generation. 
 
-# The First Appendix
 
-This first appendix includes all of the R chunks of code that were hidden throughout the document (using the `include = FALSE` chunk tag) to help with readibility and/or setup.
+**In Chapter \@ref(reg-health):**
 
-**In the main Rmd file**
-
-```{r ref.label='include_packages', results='hide', echo = TRUE}
+```{r ref.label='include_packages_ch1', results='hide', echo = TRUE}
 ```
 
-**In Chapter \@ref(ref-labels):**
 
-```{r ref.label='include_packages_2', results='hide', echo = TRUE}
-```
+## Supplemental Tables {#supptables}
 
-# The Second Appendix, for Fun
+ - Table S1: [Chapter 1 Rapture Samples](#ch1samplecollection) can be found at [github.com/peek_phd_supplemental_materials](https://raw.githubusercontent.com/ryanpeek/peek_phd_supplemental_materials/master/supplemental_tables/S1_chap1_Rapture_samples.csv) 
+ - Table S2: [RADSeq samples](#denovo) used for designing baits can be found at [github.com/peek_phd_supplemental_materials](https://raw.githubusercontent.com/ryanpeek/peek_phd_supplemental_materials/master/supplemental_tables/S2_RADSeq-bait-samples.csv)
+ - Table S3: [RAD Capture baits](#rapture) can be found at [github.com/peek_phd_supplemental_materials](https://github.com/ryanpeek/peek_phd_supplemental_materials/blob/master/supplemental_tables/S3_capture_baits_120.fa.txt?raw=true)
+ - Table S4: [*de Novo*](#denovo) alignment for *R. boylii*. Zipped file is 4.16 MB and can be found at [github.com/peek_phd_supplemental_materials](https://github.com/ryanpeek/peek_phd_supplemental_materials/blob/master/supplemental_tables/S4_de_novo_assembly_300.fa.zip?raw=true)
+
