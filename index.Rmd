@@ -22,17 +22,21 @@ dedication: |
 knit: "bookdown::render_book"
 site: bookdown::bookdown_site
 output: 
-  huskydown::thesis_pdf: 
+  gauchodown::thesis_pdf: 
     latex_engine: xelatex
-#  huskydown::thesis_gitbook: default
-#  huskydown::thesis_word: default
-#  huskydown::thesis_epub: default
+#  gauchodown::thesis_gitbook: default
+#  gauchodown::thesis_word: default
+#  gauchodown::thesis_epub: default
 bibliography: bib/peek_dissertation.bib
 # Download your specific bibliography database file and refer to it in the line above.
 csl: csl/ecology.csl
 # Download your specific csl file and refer to it in the line above.
+link-citations: yes
 lot: true
 lof: true
+linkcolor: blue
+citecolor: blue
+urlcolor: blue
 #space_between_paragraphs: true
 # Delete the # at the beginning of the previous line if you'd like
 # to have a blank new line between each paragraph
@@ -51,44 +55,15 @@ If you receive a duplicate label error after knitting, make sure to delete the i
 -->
 
 ```{r include_packages, include = FALSE}
-# This chunk ensures that the huskydown package is
-# installed and loaded. This huskydown package includes
-# the template files for the thesis.
+
 if(!require(devtools))
   install.packages("devtools", repos = "http://cran.rstudio.com")
-if(!require(huskydown))
-  devtools::install_github("benmarwick/huskydown")
-library(huskydown)
-#if(!require(huskydown))
-#  devtools::install_github("danovando/gauchodown")
-#library(gauchodown)
+if(!require(gauchodown))
+  devtools::install_github("danovando/gauchodown")
+library(gauchodown)
 library(knitr)
 ```
 
-
-<!--- Define Headers and Footers --->
-\fancypagestyle{plain}{%
-  \renewcommand{\headrulewidth}{0pt}%
-  \fancyhf{}%
-  \fancyfoot[C]{\thepage}
-  \setlength\footskip{28pt}
-}
-\pagestyle{plain}
-
-
-<!-- The {.unnumbered} option here means that the introduction will be "Chapter 0." You can also use {-} for no numbers on chapters. -->
-
-<!-- Abstract 
-\newpage
-\pagestyle{fancy}
-\fancyhead[L]{Abstract}
-\fancyfoot[C]{\footnotesize \thepage}
-\setlength\footskip{0pt}
-\chapter*{ABSTRACT}
-\addcontentsline{toc}{section}{Abstract}
-##```{r child = '00_abstract.Rmd'}
-##```
--->
 
 
 <!-- extract references from Word doc to bibtex: https://rintze.zelle.me/ref-extractor/ -->

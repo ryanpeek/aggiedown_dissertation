@@ -32,7 +32,7 @@ One thing that may be annoying is the way _R Markdown_ handles "floats" like tab
 If you need a graphic or tabular material to be part of the text, you can just put it inline. If you need it to appear in the list of figures or tables, it should be placed in a code chunk.
 -->
 
-```{r uwlogo, fig.cap="UW logo", eval=FALSE}
+```{r uwlogo, fig.cap="UW logo", eval=FALSE, echo=F}
 #include_graphics(path = "figure/uw.png")
 
 # Here is a reference to the UW logo: Figure \@ref(fig:uwlogo).  Note the use of the `fig:` code here.

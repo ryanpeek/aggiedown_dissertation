@@ -211,7 +211,6 @@
 % All previous degrees: one per line in chronological order
 \def\prevdegreeA#1{\gdef\@prevdegreeA{#1}}
 \def\prevdegreeB#1{\gdef\@prevdegreeB{#1}}
-\def\@numberofmembers{3} % specify number of people on committee here
 
 % front matter font
 \def\fmfont{\fontsize\@xiipt{14.5}\selectfont} % Set the font for frontmatter
@@ -233,7 +232,6 @@
   {\newpage\renewcommand{\thepage}{\arabic{page}}\setcounter{page}{1}}
 
 %%% UC DAVIS TITLE PAGE %%%%
-%%%%%%%%%%%%%%%%%%%
 \def\maketitle{
 { \smallssp
   \let\footnotesize\small 
@@ -342,7 +340,7 @@
       \vspace{\@approvalspace}
     \fi
 
-    $\:\overline{~~~~ \mbox{\rule{0in}{0.16in} \hspace{3.15in}}}\:$ \\
+    $\:\overline{~~~~ \mbox{\rule{0in}{0.16in} \hspace{3.5in}}}\:$ \\
     \vspace{\@approvaladjust} {\@chair}, Committee Chair \\
     \vspace{\@approvalspace}
     \vspace{-.25in}
@@ -360,19 +358,19 @@
 
 \def\copyrightpage{
   \if@openright\cleardoublepage\else\clearpage\fi
+  \thispagestyle{empty}
   \begin{center}
       {\fmfont {\@title} \par
       \vspace{1in}  Copyright \copyright ~\@degreeyear\par
       \vspace{.1in} by\par
       \vspace{.1in} \@author}
   \end{center}
-%  \if@openright
-%      \clearpage \thispagestyle{empty} \mbox{} \newpage
-%  \fi
+       \if@openright\cleardoublepage \else\clearpage \fi
 }
 
 % DEDICATION
 \newenvironment{dedication}{
+  \setcounter{page}{3} % important to add page number on first page
   \if@openright\cleardoublepage \else\clearpage \fi
 }
 
@@ -431,7 +429,6 @@
     \pagestyle{headings}
     \setcounter{page}{1}
     \pagenumbering{arabic}
-    %\setlength\footskip{12pt} % change distance for page number
 }
 
 %    ****************************************
@@ -805,11 +802,12 @@
 \topmargin      0.25in
 \oddsidemargin  0.5in
 \evensidemargin 0.25in
-\textheight     7.00in
+\textheight     7.00in % was 7.75 but adjust to 
 \textwidth      5.75in
 \headsep        25pt
 \headheight     12pt
 \marginparsep  12pt
 \marginparwidth  54pt
-\footskip      0.4in % was 0.5
+\footskip      0.1in % was 0.5
+
 \endinput

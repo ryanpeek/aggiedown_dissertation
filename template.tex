@@ -1,5 +1,5 @@
 %%%---PREAMBLE---%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\documentclass[twoside,12pt,final]{ucthesis-CA2012} % change this for oneside, 11pt, draft, etc.
+\documentclass[proquest,12pt,final]{ucthesis-CA2012} % change this for oneside, twoside, 11pt, draft, etc.
 
 % fix for pandoc 1.14
 \providecommand{\tightlist}{%
@@ -108,6 +108,7 @@
 %%%---DOCUMENT---%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 
+
 %=== Preliminary Pages ============================================
 \begin{ucfrontmatter}
 
@@ -116,7 +117,6 @@
   %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
   \title{$title$}
-
   \author{$author$}
   \prevdegreeA{$prevdegreeA$}
   \prevdegreeB{$prevdegreeB$}
@@ -128,14 +128,18 @@
   \othermemberB{$signature2$} % This is a member of your committee
   \othermemberC{$signature3$} % This is a member of your committee
   \numberofmembers{3} % should match the number of entries above (chair + othermembers)
-
   \field{$program$}
   \campus{$uccampus$}
 	
+  % MAKE THE TITLE PAGE
 	\maketitle
+	
+	% MAKE THE APPROVAL SHEET
 	\approvalpage
-	%\copyrightpage % if you want
 
+  % COPYRIGHT
+  \copyrightpage % if you want
+  
   % DEDICATION %
   %%%%%%%%%%%%%%%%%%%%
 
@@ -188,18 +192,17 @@ $body$
 
 
 %---Set Headers and Footers ------------------------------------------------------
-\pagestyle{fancy}
-% UCD
-%\renewcommand{\chaptermark}[1]{\markboth{{\sf #1 \hspace*{\fill} Chapter~}}{} }
+
 % GAUCHO
-\fancyhf{}
-\renewcommand{\chaptermark}[1]{\markboth{{\sf #1 \hspace*{\fill} Chapter~\thechapter}}{} }
-\renewcommand{\sectionmark}[1]{\markright{ {\sf Section~\thesection 
-\hspace*{\fill} #1 }}}
+\pagestyle{fancy}
+%\renewcommand{\chaptermark}[1]{\markboth{{\sf #1 \hspace*{\fill} Chapter~\thechapter}}{} }
+%\renewcommand{\chaptermark}[1]{\markboth{{\sf #1 \hspace*{\fill} Chapter~\thesection}}{} }
+%\renewcommand{\sectionmark}[1]{\markright{ {\sf #1 \hspace*{\fill} Chapter~}}{} }
+% \renewcommand{\sectionmark}[1]{\markright{ {\sf Section~\thesection \hspace*{\fill} #1 }}}
+%\fancyhf{}
 
-
-\makeatletter \if@twoside \fancyhead[LO]{\small \rightmark} \fancyhead[RE]{\small\leftmark} \else \fancyhead[LO]{\small\leftmark}
-\fancyhead[RE]{\small\rightmark} \fi
+%\makeatletter \if@twoside \fancyhead[LO]{\small \rightmark} \fancyhead[RE]{\small\leftmark} \else \fancyhead[LO]{\small\leftmark}
+%\fancyhead[RE]{\small\rightmark} \fi
 
 \def\cleardoublepage{\clearpage\if@openright \ifodd\c@page\else
   \hbox{}
@@ -211,6 +214,7 @@ $body$
   \thispagestyle{plain}
   \newpage
   \fi \fi}
+
 \makeatother
 \fancyfoot[c]{\textrm{\textup{\thepage}}} % page number
 \fancyfoot[C]{\thepage}
