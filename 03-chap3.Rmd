@@ -9,15 +9,16 @@ if(!require(ggplot2))
 if(!require(ggplot2))
     install.packages("bookdown", repos = "http://cran.rstudio.com")
 
-library(readr)
-library(knitr)
-library(kableExtra)
-library(dplyr)
-
+suppressPackageStartupMessages({
+  library(readr);
+  library(knitr);
+  library(kableExtra);
+  library(dplyr)
+})
 options(knitr.table.format = "latex")
 
 ch3T1 <- read_csv("data/ch3_T1_site_localities_PCA_all_rabo_filt10_1_100k.csv") %>% select(-Site, -clade)
-ch3T2 <- read_csv("data/ch3_T2_site_localities_popgen_all_rabo_filt_100k.csv")
+ch3T2 <- read_csv("data/ch3_T2_site_localities_popgen_all_rabo_filt_100k.csv") %>% select(-Site, -admix_orig)
 
 ```
 
@@ -89,18 +90,18 @@ kable(ch3T1, col.names = c("SiteID", "Locality", "River",
                            "Clade", "Lat.", "Lon.", 
                            "HUC6", "County", "n samples"),
       caption = "Sampling Localities and clade groupings.", booktabs=T,  longtable = T) %>% 
-  kable_styling(latex_options = c("repeat_header"), position = "center", font_size = 7) 
+  kable_styling(latex_options = c("repeat_header"), position = "center", font_size = 8) %>% 
+  column_spec(c(2,8), width = c("9em", "5em"))
 ```
 
-\clearpage 
 
 ### PCA and Admixture shows strong separation between California ecoregions
 
-To compare and assess population structure patterns across the range of *R. boylii*, PCA were used to provide a dimensionless comparison of genetic variation. The patterns of genetic differentiation largely conformed to the clades described by @mccartney-melstad_population_2018 (North-West [NW], South-West [SW], West [W], North-East[NE], and East [E]), but some notable differences were observed. We used regional names for clades, thus the North Coast=NW, the Central Coast=SW, the South Coast=W, the Northern Sierra=NE, the Southern Sierra=E (Figure 2). The main difference evident in the PCA was the presence of a distinct group previously part of the Northern Sierra, comprised of samples from the Feather basin. Additional subdivision was evident in the Central/Southern coastal region (two groups which match SW and W clades), and the Sierra Nevada (two groups, matching the NE and E clades), yielding seven total distinct structured groups. Interestingly, a small cluster of individuals from the North Fork (NF) Feather River consistently clustered along intermediate axes between the North Coast and Northern Sierra/Southern Sierra groups. These individuals were consistently intergrades between the larger Feather group and the Northern Coastal group, regardless of the PC axes.
+To compare and assess population structure patterns across the range of *R. boylii*, PCA were used to provide a dimensionless comparison of genetic variation. The patterns of genetic differentiation largely conformed to the clades described by @mccartney-melstad_population_2018 (North-West [NW], South-West [SW], West [W], North-East[NE], and East [E]), but some notable differences were observed. We used regional names for clades, thus the North Coast=NW, the Central Coast=SW, the South Coast=W, the Northern Sierra=NE, the Southern Sierra=E (Figure \@ref(fig:CH3F2pca)). The main difference evident in the PCA was the presence of a distinct group previously part of the Northern Sierra, comprised of samples from the Feather basin. Additional subdivision was evident in the Central/Southern coastal region (two groups which match SW and W clades), and the Sierra Nevada (two groups, matching the NE and E clades), yielding seven total distinct structured groups. Interestingly, a small cluster of individuals from the North Fork (NF) Feather River consistently clustered along intermediate axes between the North Coast and Northern Sierra/Southern Sierra groups. These individuals were consistently intergrades between the larger Feather group and the Northern Coastal group, regardless of the PC axes.
 
-A single sampling locality from Lassen National Forest near Eagle Lake (Locality 4, Table 1) clustered with the Northern Sierra group, suggesting the geographic boundary for this genetic group should be extended (Figure 2). Furthermore, individuals from the South Fork (SF) American basin clustered with the Southern Sierra (East) group, which would extend the boundary delineated by @mccartney-melstad_population_2018.
+A single sampling locality from Lassen National Forest near Eagle Lake (Locality 4, Table \@ref(tab:CH3T1)) clustered with the Northern Sierra group, suggesting the geographic boundary for this genetic group should be extended (Figure \@ref(fig:CH3F2pca)). Furthermore, individuals from the South Fork (SF) American basin clustered with the Southern Sierra (East) group, which would extend the boundary delineated by @mccartney-melstad_population_2018.
 
-To assess how strongly the Feather and Southern/Central coastal samples may have affected PCA structure, we ran several additional separate post-hoc PCA analyses where all Feather samples were excluded, and all Southern/Central coastal samples were excluded. Significant genetic structure was evident, and patterns remained consistent with those observed when all samples were used, regardless of which samples were excluded or retained. We conclude there is significant congruence with the @mccartney-melstad_population_2018 genetic clades, but an additional group appears distinct from the original five delineated, the Feather watershed, and boundaries should be expanded to include the SF American basin in the Southern Sierra, and the Honey-Eagle Lakes basin in the Northern Sierra.
+To assess how strongly the Feather and Southern/Central coastal samples may have affected PCA structure, we ran several additional separate post-hoc PCA analyses where all Feather samples were excluded, and all Southern/Central coastal samples were excluded. Significant genetic structure was evident, and patterns remained consistent with those observed when all samples were used (Figure \@ref(fig:CH3F2pca)), regardless of which samples were excluded or retained. We conclude there is significant congruence with the @mccartney-melstad_population_2018 genetic clades, but an additional group appears distinct from the original five delineated, the Feather watershed, and boundaries should be expanded to include the SF American basin in the Southern Sierra, and the Honey-Eagle Lakes basin in the Northern Sierra.
 
 
 (ref:ch3f2pca) Principal component analysis of Rapture data colored by genetic groups (in parentheses) from @mccartney-melstad_population_2018. A) PC1 vs. PC2; B) PC3 vs. PC4. Note, samples from South Fork American River and Lassen County (gray) were not previously studied and thus had no assigned clade. *Rana boylii* in the Feather basin were assigned as part of the Northern Sierra (NE) clade by @mccartney-melstad_population_2018.
@@ -114,7 +115,7 @@ include_graphics("figure/ch3/fig_02_pca_12_34_all_rabo_filt10_1_100k_thresh_anno
 \clearpage
 
 
-To further evaluate population structure across the range of *R. boylii*, we used NGSAdmix estimate the proportion of coancestry among individuals (admixture) from genome-wide SNPs. We used a range of k-values to evaluate the number of potential groups based on genetic ancestry and found strong patterns of divergence which largely matched the patterns observed in the PCA. While the northern and central coastal (SW and W) groups showed strong divergence from all other groups, they did not separate into distinct groups until k=9 (Figure 3). At k=3 through k=8, the N. Sierra and N. Coast groups continued to show patterns of subdivision, while other groups like the N. Sierra-Feather remained strongly distinct with little or no admixture observed.  At k=9, the Central Coast and South Coast split into distinct groups, with additional patterns of substructure and admixture observed in the N. Sierrae (NE) and the N. Coast (NW) groups (Figure 3). While the Central/Southern Coastal populations are clearly distinct from all other clades, our NGSadmix analysis of our data shows weaker support for delineating Central (SW) and Southern (W) groups as distinct. 
+To further evaluate population structure across the range of *R. boylii*, we used NGSAdmix estimate the proportion of coancestry among individuals (admixture) from genome-wide SNPs. We used a range of k-values to evaluate the number of potential groups based on genetic ancestry and found strong patterns of divergence which largely matched the patterns observed in the PCA. While the northern and central coastal (SW and W) groups showed strong divergence from all other groups, they did not separate into distinct groups until k=9 (Figure \@ref(fig:CH3F3admix)). At k=3 through k=8, the N. Sierra and N. Coast groups continued to show patterns of subdivision, while other groups like the N. Sierra-Feather remained strongly distinct with little or no admixture observed.  At k=9, the Central Coast and South Coast split into distinct groups, with additional patterns of substructure and admixture observed in the N. Sierrae (NE) and the N. Coast (NW) groups (Figure 3). While the Central/Southern Coastal populations are clearly distinct from all other clades, our NGSadmix analysis of our data shows weaker support for delineating Central (SW) and Southern (W) groups as distinct. 
 
 (ref:ch3f3admix) NGSAdmixture for k=3 through k=9 for *R. boylii* across major geographic groupings (adapted from @mccartney-melstad_population_2018). The two Central/Southern Coastal groups did not differentiate until a k=9.
 
@@ -124,10 +125,38 @@ include_graphics("figure/ch3/fig_03_admix_stacked_combined_rabo_filt_100k.jpeg")
 
 ```
 
-Sampling localities were then updated with genetic groups identified from admixture and PCA analyses to delineate geographic boundaries for these clades, building on @mccartney-melstad_population_2018 (**Figure ??**). In summary, we identified *R. boylii* from the Feather Basin as a unique genetic group, the Southern Sierra (East) clade should extend to include the South Fork American basin in El Dorado County (Locality 1), and the Northern Sierra (North-East) clade should be expanded to include Honey-Eagle Lakes basin in Lassen County (Locality 4, see Figure 1 and Figure 4).
+Sampling localities were then updated with genetic groups identified from admixture and PCA analyses to delineate geographic boundaries for these clades, building on @mccartney-melstad_population_2018 (Figure \@ref(fig:CH3F4map)). In summary, we identified *R. boylii* from the Feather Basin as a unique genetic group, the Southern Sierra (East) clade should extend to include the South Fork American basin in El Dorado County (Locality 1), and the Northern Sierra (North-East) clade should be expanded to include Honey-Eagle Lakes basin in Lassen County (Locality 4, see Figure \@ref(fig:CH3F1map) and Figure \@ref(fig:CH3F4map)).
 
 \clearpage
 
+(ref:ch3f4map) Map of localities colored by genetic groupings. The Northern Sierra-Feather group adds an additional genetically distinct group, the Feather Basin to previous clades; Locality 1 extends the boundary for the Southern Sierra (E) genetic clade up to the SF American basin in El Dorado County, and Locality 4 extends the Northern Sierra (NE) clade into Lassen County.
+
+```{r CH3F4map, results="asis", warnings=FALSE, messages=FALSE, fig.cap='(ref:ch3f4map)', out.width = "85%", echo=FALSE}
+
+include_graphics("figure/ch3/fig_04_maps_all_rabo_filt10_1_100k_clades_localities.png")
+
+```
+
+\clearpage
+
+### F~ST~ shows strong divergence across regions
+
+To assess how distinct *R. boylii* populations were across the range of the species using F~ST~ and genetic diversity metrics, we selected all samples that had greater than 100,000 alignments from localities with at least three individuals, yielding a total of 630 individuals from 63 localities for analysis (Table \@ref(tab:CH3T2)). Pairwise F~ST~ was calculated between each population pair (total combinations = 1,953), values ranged from 0 to 0.646. Extremely high F~ST~ values were observed between Central/South Coastal (SW/W) localities and all other localities from other regions, indicating the coastal regions are strongly divergent and unique from R. boylii in other parts of the species’ range (Figure \@ref(fig:CH3F5fst)A). Comparison of pairwise F~ST~ values against geographic distance showed higher FST values between clades than within, and largest geographic distances between locality pairs (i.e., between Southern Coastal localities and Northern Coastal localities in Oregon) correlated with higher F~ST~ values. However, the highest F~ST~ values were not associated with the greatest geographic distances, as the Sierra (NE/E) and Southern Coast (SW/W) comparisons had the greatest pairwise F~ST~ values (> 0.6) of any pairwise comparison (Figure \@ref(fig:CH3F5fst)). \par
+
+```{r CH3T2, results='asis', echo=FALSE, warning=FALSE}
+
+codeCaption <- "Sampling localities with at least 3 individuals, used in population analyses of genetic diversity"
+
+# siteID	Locality	River	Site	clade	admix_orig	lat	lon	HUC_6	county	n_samples
+kable(ch3T1, col.names = c("SiteID", "Locality", "River", 
+                           "Clade", "Lat.", "Lon.", 
+                           "HUC6", "County", "n samples"),
+      booktabs=T,  longtable = T, caption = codeCaption) %>% 
+  kable_styling(latex_options = c("repeat_header"), position = "center", font_size = 8) %>% 
+  column_spec(c(2,8), width = c("9em", "5em"))
+```
+
+\clearpage 
 
 (ref:ch3f5fst) Plots of F~ST~ for all localities sampled, A) comparison of pairwise F~ST~ for all localities grouped by *R. boylii* clades;  and B) pairwise F~ST~ comparisons between and within clades vs. geographic distance between localities.
 
@@ -139,8 +168,11 @@ include_graphics("figure/ch3/fig_05_combined_fst_cowplot_annotated.png")
 
 \clearpage
 
+### Genetic variation is highest in the North-West and lowest in the East/ South-West clades
 
-(ref:ch3f6thetas) Tajima’s $\theta_\pi$ and Watterson’ $\theta_S$  diversity estimates for *R. boylii* by clade groups (adapted from @mccartney-melstad_population_2018) with 95% CI. A) Tajima’s $\theta_\pi$) by clade, B) Watterson’ $\theta_S$ by clade; and $\theta_\pi - \theta_S$ aggregated by clade C) and for each locality within clades D).
+Genetic diversity estimates for each region showed *R. boylii* from the North Coast (NW) group had the greatest range in genetic variation, with both the most diverse and least diverse $\theta$ estimates (Figure \@ref(fig:CH3F6thetas)). Populations from the Southern Sierra (E) and Central Coast (SW) had the lowest mean Tajima's $\theta_\pi$ (0.0064) and Watterson's $\theta_W$ (0.0059 = E, 0.0060 = SW), but both these groups had the lowest number of sampling localities. The $\Delta \theta$ was positive across all groups except the North Coast, which exhibited the lowest value, while the Central Coast (SW) and Southern Sierra (E) estimates were highest. Both coastal groups (SW and W) had wide ranges of $\Delta \theta$ estimates in different locations.  With the exception of the North Coast, which contains the greatest genetic diversity and a trajectory of increasing genetic diversity, overall genetic diversity data for *R. boylii* show a trajectory of genetic diversity loss, with many locations exhibiting positive $\Delta \theta$ (Figure \@ref(fig:CH3F6thetas)D). 
+
+(ref:ch3f6thetas) Tajima’s $\theta_\pi$ and Watterson’ $\theta_S$  diversity estimates for *R. boylii* by clade groups (adapted from @mccartney-melstad_population_2018) with 95% CI. A) Tajima’s $\theta_\pi$) by clade; B) Watterson’ $\theta_S$ by clade; C) $\theta_\pi - \theta_S$ aggregated by clade  and D) for each locality within clades.
 
 ```{r CH3F6thetas, results="asis", warnings=FALSE, messages=FALSE, fig.cap='(ref:ch3f6thetas)', out.width = '95%', fig.align='center', echo=FALSE}
 
@@ -149,3 +181,17 @@ include_graphics("figure/ch3/fig_06_thetas_taj_watt_tdiff_95CI_fig06.png")
 ```
 
 \clearpage
+
+## Discussion and Conclusion
+
+As a species with a broad geographic range, *Rana boylii* utilizes a wide array of different habitats throughout California and Oregon, however our study indicates there are strong patterns of geographic structure and substantial differences in patterns of genetic diversity across the species’ range. The more comprehensive sampling provided by this data set complements a recent genomic study of R. boylii [@mccartney-melstad_population_2018], and largely supports the same clades identified using a different RADSeq method. Moreover, our PCA and admixture results are congruent with the five major clades identified in @mccartney-melstad_population_2018, with the exception of an additional novel group comprised of locations from the Feather Basin. The congruence of these independent data sets, using different genetic measures, indicates these clades are robust and should be important units for conservation actions. We suggest that planning management actions such as translocation, recolonization, and habitat restoration should consider these population differences to maintain potentially valuable genetic variation across the species range.
+
+We also show that genetic data can provide resolution to prioritize populations and regions at multiple scales. Evaluating the efficacy of potential restoration actions can be difficult, particularly with rare and cryptic species. Genetics provides a tool that can more effectively track changes in population connectivity or genetic trajectories (i.e., low diversity, high F~ST~) that likely relate to the potential for long-term population persistence. Populations in the Northern Coastal clade contained the greatest amount of genetic variation, yet pairwise comparisons with populations from Central and Southern Coast localities showed extremely high F~ST~ values (in addition to the Central/Southern Coast groups having relatively low genetic diversity and trajectories of genetic diversity loss), indicating these groups are genetically very distinct. 
+
+Recent sampling has largely occurred in the North Coast, Northern Sierra, and Northern Sierra-Feather groups. The limited number of sampling localities from the southern extent of the range of *R. boylii* correlates with research documenting population declines [@adams_rapid_2017; @davidson_declining_2004]. Thus, conservation actions should prioritize protecting sites in the Central/Southern Coast and Southern Sierra clades, as these represent both the most genetically divergent and distinct R. boylii, and simultaneously the most at-risk populations. Extremely high F~ST~ values between populations from the same species as well as strong phylogeographic structuring suggest limited gene flow from biogeographic barriers [@caze_could_2016; @spinks_nuclear_2010; @voelker_river_2013]. This suggests conservation management should consider these clades as distinct, and future actions that include translocation or captive breeding should utilize genetic data to assess potential impacts such as outbreeding depression in locally adapted populations.
+
+*R. boylii* is an important sentinel stream species—not only as link between both aquatic and riparian ecosystems—but also as a sensitive gage of the natural hydrology in riverine environments.  The impacts of regulated hydrology on *R. boylii* populations have been well documented [@catenazzi_importance_2013; @kupferberg_effects_2012; @kupferberg_hydrologic_1996; @lind_effects_1996; @yarnell_dynamic_2012]. For populations in regulated streams, genetic monitoring may be a crucial component for assessing flow management actions on the probability of long-term persistence (via maintenance of genetic diversity), as well as tracking population responses (i.e., using metrics like F~ST~ and $\theta$) to restoration actions.
+
+### Acknowledgements
+
+Many thanks to all who helped collect/prepare samples: Corey Luna, Rick Wachs, and Sarah Mussulman. This research could not have been conducted without access to specimens from Brad Shaffer at the Krebb Museum at UCLA, and field samples from Caren Goldberg and Mallory Bedwell at Washington State University. 

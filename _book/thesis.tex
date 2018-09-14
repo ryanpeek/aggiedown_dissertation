@@ -2204,8 +2204,8 @@ annotated with the clades identified by McCartney-Melstad et al.
 \end{figure}
 \clearpage
 
-\begingroup\fontsize{7}{9}\selectfont
-\begin{longtable}[t]{rlllrrrlr}
+\begingroup\fontsize{8}{10}\selectfont
+\begin{longtable}[t]{r>{\raggedright\arraybackslash}p{9em}llrrr>{\raggedright\arraybackslash}p{5em}r}
 \caption{\label{tab:CH3T1}Sampling Localities and clade groupings.}\\
 \toprule
 SiteID & Locality & River & Clade & Lat. & Lon. & HUC6 & County & n samples\\
@@ -2327,8 +2327,6 @@ SiteID & Locality & River & Clade & Lat. & Lon. & HUC6 & County & n samples\\
 88 & PAJ-ClearCk & PAJ & West & 36.37111 & -120.7400 & 180600 & San Benito & 3\\
 89 & SOQUEL-EBSC & SOQUEL & West & 37.07300 & -121.9270 & 180600 & Santa Cruz & 10\\*
 \end{longtable}\endgroup{}
-\clearpage
-
 \hypertarget{pca-and-admixture-shows-strong-separation-between-california-ecoregions}{%
 \subsection{PCA and Admixture shows strong separation between California
 ecoregions}\label{pca-and-admixture-shows-strong-separation-between-california-ecoregions}}
@@ -2342,24 +2340,26 @@ conformed to the clades described by McCartney-Melstad et al.
 North-East{[}NE{]}, and East {[}E{]}), but some notable differences were
 observed. We used regional names for clades, thus the North Coast=NW,
 the Central Coast=SW, the South Coast=W, the Northern Sierra=NE, the
-Southern Sierra=E (Figure 2). The main difference evident in the PCA was
-the presence of a distinct group previously part of the Northern Sierra,
-comprised of samples from the Feather basin. Additional subdivision was
-evident in the Central/Southern coastal region (two groups which match
-SW and W clades), and the Sierra Nevada (two groups, matching the NE and
-E clades), yielding seven total distinct structured groups.
-Interestingly, a small cluster of individuals from the North Fork (NF)
-Feather River consistently clustered along intermediate axes between the
-North Coast and Northern Sierra/Southern Sierra groups. These
-individuals were consistently intergrades between the larger Feather
-group and the Northern Coastal group, regardless of the PC axes.
+Southern Sierra=E (Figure \ref{fig:CH3F2pca}). The main difference
+evident in the PCA was the presence of a distinct group previously part
+of the Northern Sierra, comprised of samples from the Feather basin.
+Additional subdivision was evident in the Central/Southern coastal
+region (two groups which match SW and W clades), and the Sierra Nevada
+(two groups, matching the NE and E clades), yielding seven total
+distinct structured groups. Interestingly, a small cluster of
+individuals from the North Fork (NF) Feather River consistently
+clustered along intermediate axes between the North Coast and Northern
+Sierra/Southern Sierra groups. These individuals were consistently
+intergrades between the larger Feather group and the Northern Coastal
+group, regardless of the PC axes.
 
 A single sampling locality from Lassen National Forest near Eagle Lake
-(Locality 4, Table 1) clustered with the Northern Sierra group,
-suggesting the geographic boundary for this genetic group should be
-extended (Figure 2). Furthermore, individuals from the South Fork (SF)
-American basin clustered with the Southern Sierra (East) group, which
-would extend the boundary delineated by McCartney-Melstad et al.
+(Locality 4, Table \ref{tab:CH3T1}) clustered with the Northern Sierra
+group, suggesting the geographic boundary for this genetic group should
+be extended (Figure \ref{fig:CH3F2pca}). Furthermore, individuals from
+the South Fork (SF) American basin clustered with the Southern Sierra
+(East) group, which would extend the boundary delineated by
+McCartney-Melstad et al.
 (\protect\hyperlink{ref-mccartney-melstad_population_2018}{2018}).
 
 To assess how strongly the Feather and Southern/Central coastal samples
@@ -2367,9 +2367,9 @@ may have affected PCA structure, we ran several additional separate
 post-hoc PCA analyses where all Feather samples were excluded, and all
 Southern/Central coastal samples were excluded. Significant genetic
 structure was evident, and patterns remained consistent with those
-observed when all samples were used, regardless of which samples were
-excluded or retained. We conclude there is significant congruence with
-the McCartney-Melstad et al.
+observed when all samples were used (Figure \ref{fig:CH3F2pca}),
+regardless of which samples were excluded or retained. We conclude there
+is significant congruence with the McCartney-Melstad et al.
 (\protect\hyperlink{ref-mccartney-melstad_population_2018}{2018})
 genetic clades, but an additional group appears distinct from the
 original five delineated, the Feather watershed, and boundaries should
@@ -2408,16 +2408,16 @@ k-values to evaluate the number of potential groups based on genetic
 ancestry and found strong patterns of divergence which largely matched
 the patterns observed in the PCA. While the northern and central coastal
 (SW and W) groups showed strong divergence from all other groups, they
-did not separate into distinct groups until k=9 (Figure 3). At k=3
-through k=8, the N. Sierra and N. Coast groups continued to show
-patterns of subdivision, while other groups like the N. Sierra-Feather
-remained strongly distinct with little or no admixture observed. At k=9,
-the Central Coast and South Coast split into distinct groups, with
-additional patterns of substructure and admixture observed in the N.
-Sierrae (NE) and the N. Coast (NW) groups (Figure 3). While the
-Central/Southern Coastal populations are clearly distinct from all other
-clades, our NGSadmix analysis of our data shows weaker support for
-delineating Central (SW) and Southern (W) groups as distinct.
+did not separate into distinct groups until k=9 (Figure
+\ref{fig:CH3F3admix}). At k=3 through k=8, the N. Sierra and N. Coast
+groups continued to show patterns of subdivision, while other groups
+like the N. Sierra-Feather remained strongly distinct with little or no
+admixture observed. At k=9, the Central Coast and South Coast split into
+distinct groups, with additional patterns of substructure and admixture
+observed in the N. Sierrae (NE) and the N. Coast (NW) groups (Figure 3).
+While the Central/Southern Coastal populations are clearly distinct from
+all other clades, our NGSadmix analysis of our data shows weaker support
+for delineating Central (SW) and Southern (W) groups as distinct.
 
 
 
@@ -2438,13 +2438,184 @@ Sampling localities were then updated with genetic groups identified
 from admixture and PCA analyses to delineate geographic boundaries for
 these clades, building on McCartney-Melstad et al.
 (\protect\hyperlink{ref-mccartney-melstad_population_2018}{2018})
-(\textbf{Figure ??}). In summary, we identified \emph{R. boylii} from
-the Feather Basin as a unique genetic group, the Southern Sierra (East)
-clade should extend to include the South Fork American basin in El
-Dorado County (Locality 1), and the Northern Sierra (North-East) clade
-should be expanded to include Honey-Eagle Lakes basin in Lassen County
-(Locality 4, see Figure 1 and Figure 4).
+(Figure \ref{fig:CH3F4map}). In summary, we identified \emph{R. boylii}
+from the Feather Basin as a unique genetic group, the Southern Sierra
+(East) clade should extend to include the South Fork American basin in
+El Dorado County (Locality 1), and the Northern Sierra (North-East)
+clade should be expanded to include Honey-Eagle Lakes basin in Lassen
+County (Locality 4, see Figure \ref{fig:CH3F1map} and Figure
+\ref{fig:CH3F4map}).
 
+\clearpage
+
+
+
+
+
+
+
+\begin{figure}
+\includegraphics[width=0.85\linewidth]{figure/ch3/fig_04_maps_all_rabo_filt10_1_100k_clades_localities} \caption{Map of localities colored by genetic groupings. The
+Northern Sierra-Feather group adds an additional genetically distinct
+group, the Feather Basin to previous clades; Locality 1 extends the
+boundary for the Southern Sierra (E) genetic clade up to the SF American
+basin in El Dorado County, and Locality 4 extends the Northern Sierra
+(NE) clade into Lassen County.}\label{fig:CH3F4map}
+\end{figure}
+\clearpage
+
+\hypertarget{fst-shows-strong-divergence-across-regions}{%
+\subsection{\texorpdfstring{F\textsubscript{ST} shows strong divergence
+across
+regions}{FST shows strong divergence across regions}}\label{fst-shows-strong-divergence-across-regions}}
+
+To assess how distinct \emph{R. boylii} populations were across the
+range of the species using F\textsubscript{ST} and genetic diversity
+metrics, we selected all samples that had greater than 100,000
+alignments from localities with at least three individuals, yielding a
+total of 630 individuals from 63 localities for analysis (Table
+\ref{tab:CH3T2}). Pairwise F\textsubscript{ST} was calculated between
+each population pair (total combinations = 1,953), values ranged from 0
+to 0.646. Extremely high F\textsubscript{ST} values were observed
+between Central/South Coastal (SW/W) localities and all other localities
+from other regions, indicating the coastal regions are strongly
+divergent and unique from R. boylii in other parts of the species' range
+(Figure \ref{fig:CH3F5fst}A). Comparison of pairwise F\textsubscript{ST}
+values against geographic distance showed higher FST values between
+clades than within, and largest geographic distances between locality
+pairs (i.e., between Southern Coastal localities and Northern Coastal
+localities in Oregon) correlated with higher F\textsubscript{ST} values.
+However, the highest F\textsubscript{ST} values were not associated with
+the greatest geographic distances, as the Sierra (NE/E) and Southern
+Coast (SW/W) comparisons had the greatest pairwise F\textsubscript{ST}
+values (\textgreater{} 0.6) of any pairwise comparison (Figure
+\ref{fig:CH3F5fst}).
+
+\par
+
+\begingroup\fontsize{8}{10}\selectfont
+\begin{longtable}[t]{r>{\raggedright\arraybackslash}p{9em}llrrr>{\raggedright\arraybackslash}p{5em}r}
+\caption{\label{tab:CH3T2}Sampling localities with at least 3 individuals, used in population analyses of genetic diversity}\\
+\toprule
+SiteID & Locality & River & Clade & Lat. & Lon. & HUC6 & County & n samples\\
+\midrule
+\endfirsthead
+\caption[]{\label{tab:CH3T2}Sampling localities with at least 3 individuals, used in population analyses of genetic diversity \textit{(continued)}}\\
+\toprule
+SiteID & Locality & River & Clade & Lat. & Lon. & HUC6 & County & n samples\\
+\midrule
+\endhead
+\
+\endfoot
+\bottomrule
+\endlastfoot
+1 & SFA-CAMI & SFA & Unknown & 38.81151 & -120.5787 & 180201 & El Dorado & 6\\
+2 & STAN-RoseCk & STAN & East & 38.10420 & -120.3460 & 180400 & Tuolumne & 2\\
+3 & TUO-Clavey & TUO & East & 37.86643 & -120.1134 & 180400 & Tuolumne & 4\\
+4 & ANTV-PineCk & ANTV & Unknown & 40.66316 & -120.8288 & 180800 & Lassen & 1\\
+5 & BEAR & BEAR & North-East & 39.17484 & -120.8998 & 180201 & Nevada & 6\\
+\addlinespace
+6 & BEAR-GRHN & BEAR & North-East & 39.23206 & -120.9019 & 180201 & Nevada & 6\\
+7 & BEAR-STH2 & BEAR & North-East & 39.19444 & -120.8878 & 180201 & Nevada & 6\\
+8 & BEAR-STHA & BEAR & North-East & 39.18833 & -120.8981 & 180201 & Nevada & 3\\
+9 & BEAR-STHC & BEAR & North-East & 39.20231 & -120.8754 & 180201 & Nevada & 10\\
+10 & DEER-ClearCk & DEER & North-East & 39.18287 & -121.1410 & 180201 & Nevada & 3\\
+\addlinespace
+11 & DEER-CLEC & DEER & North-East & 39.18287 & -121.1410 & 180201 & Nevada & 2\\
+12 & MFA-AMEC & MFA & North-East & 38.93396 & -120.9436 & 180201 & El Dorado & 6\\
+13 & MFA-GASC & MFA & North-East & 38.96651 & -120.9325 & 180201 & Placer & 6\\
+14 & MFA-TODC & MFA & North-East & 38.96385 & -120.9216 & 180201 & Placer & 9\\
+15 & MFA-US-R & MFA & North-East & 39.00754 & -120.7316 & 180201 & Placer & 1\\
+\addlinespace
+16 & MFY-OREGCk & MFY & North-East & 39.44188 & -121.0575 & 180201 & Nevada & 10\\
+17 & MFY-US-OH & MFY & North-East & 39.41305 & -120.9903 & 180201 & Nevada & 10\\
+18 & NFA & NFA & North-East & 39.10722 & -120.9239 & 180201 & Placer & 10\\
+19 & NFA-BUNC & NFA & North-East & 39.03762 & -120.9103 & 180201 & Placer & 10\\
+20 & NFA-EUCHDS & NFA & North-East & 39.18492 & -120.7620 & 180201 & Placer & 5\\
+\addlinespace
+21 & NFA-EUCHUS & NFA & North-East & 39.18444 & -120.7505 & 180201 & Placer & 4\\
+22 & NFA-INDC & NFA & North-East & 39.05665 & -120.9085 & 180201 & Placer & 10\\
+23 & NFA-NFNFA & NFA & North-East & 39.18839 & -120.7592 & 180201 & Placer & 2\\
+24 & NFA-POND & NFA & North-East & 38.99995 & -120.9406 & 180201 & Placer & 5\\
+25 & NFA-ROBR & NFA & North-East & 39.10451 & -120.9267 & 180201 & Placer & 10\\
+\addlinespace
+26 & NFA-SAIC & NFA & North-East & 39.21694 & -120.4960 & 180201 & Placer & 5\\
+27 & NFA-SHIC & NFA & North-East & 39.04073 & -120.9014 & 180201 & Placer & 10\\
+28 & NFA-SLAR & NFA & North-East & 39.09865 & -120.9255 & 180201 & Placer & 8\\
+29 & NFMFA-SC & NFMFA & North-East & 39.02237 & -120.7369 & 180201 & Placer & 10\\
+30 & NFY & NFY & North-East & 39.51190 & -120.9774 & 180201 & Sierra & 10\\
+\addlinespace
+31 & NFY-SLATE & NFY & North-East & 39.69219 & -120.9399 & 180201 & Plumas & 1\\
+32 & NFY-SLATE-CGRav & NFY & North-East & 39.68913 & -120.9389 & 180201 & Plumas & 3\\
+33 & NFY-SLATE-Onion & NFY & North-East & 39.63414 & -121.0400 & 180201 & Plumas & 2\\
+34 & RUB-LC-US & RUB & North-East & 38.98887 & -120.6900 & 180201 & Placer & 8\\
+35 & RUB-USPH & RUB & North-East & 38.99928 & -120.7233 & 180201 & Placer & 10\\
+\addlinespace
+36 & SFY & SFY & North-East & 39.35386 & -120.7342 & 180201 & Nevada & 1\\
+37 & SFY-FallCk & SFY & North-East & 39.35532 & -120.7370 & 180201 & Nevada & 5\\
+38 & SFY-LOGA & SFY & North-East & 39.36914 & -120.8526 & 180201 & Nevada & 4\\
+39 & SFY-MCKI & SFY & North-East & 39.36805 & -120.8354 & 180201 & Nevada & 2\\
+40 & SFY-MISC & SFY & North-East & 39.36096 & -120.8814 & 180201 & Nevada & 6\\
+\addlinespace
+41 & SFY-RockCk & SFY & North-East & 39.32983 & -120.9863 & 180201 & Nevada & 3\\
+42 & SFY-Scotchman & SFY & North-East & 39.31653 & -120.7733 & 180201 & Nevada & 2\\
+43 & SFY-ShadyCk & SFY & North-East & 39.35433 & -121.0590 & 180201 & Nevada & 10\\
+44 & SFY-SpringCk & SFY & North-East & 39.33233 & -120.9890 & 180201 & Nevada & 3\\
+45 & SFY-THIMC & SFY & North-East & 39.36465 & -120.8462 & 180201 & Nevada & 1\\
+\addlinespace
+46 & FEA-BeanCk & FEA & North-East & 39.97650 & -121.0901 & 180201 & Plumas & 10\\
+47 & FEA-SPANISH-BGulch & FEA & North-East & 39.95460 & -121.0887 & 180201 & Plumas & 6\\
+48 & FEA-SPANISH-RockCk & FEA & North-East & 39.94449 & -121.0221 & 180201 & Plumas & 1\\
+49 & FEA-SPANISH-SilverCk & FEA & North-East & 39.93733 & -121.0904 & 180201 & Plumas & 4\\
+50 & FEA-SPANISH-Wapaunsie & FEA & North-East & 39.95226 & -121.0373 & 180201 & Plumas & 1\\
+\addlinespace
+51 & FEA-SpanishCk & FEA & North-East & 39.94637 & -121.0325 & 180201 & Plumas & 10\\
+52 & NFF-Poe & NFF & North-East & 39.73598 & -121.4702 & 180201 & Butte & 4\\
+53 & CHETCO-NookCk & CHETCO & North-West & 42.12500 & -124.1870 & 171003 & Curry & 1\\
+54 & EEL & EEL & North-West & 40.21518 & -123.6303 & 180101 & Humboldt & 10\\
+55 & KLAM-Aiken & KLAM & North-West & 41.22842 & -123.6524 & 180102 & Humboldt & 2\\
+\addlinespace
+56 & LAGUN-HalleckCk & LAGUN & North-West & 38.07650 & -122.6680 & 180500 & Marin & 1\\
+57 & MAD-MapleCk & MAD & North-West & 40.78113 & -123.8778 & 180101 & Humboldt & 8\\
+58 & MAD-RedwoodCk & MAD & North-West & 41.29934 & -124.0430 & 180101 & Humboldt & 9\\
+59 & MAD-RedwoodCk2 & MAD & North-West & 41.23420 & -124.0171 & 180101 & Humboldt & 9\\
+60 & MAT-BearRiver & MAT & North-West & 40.46383 & -124.3652 & 180101 & Humboldt & 9\\
+\addlinespace
+61 & MAT-HeadwaterMattole & MAT & North-West & 40.08992 & -124.0003 & 180101 & Humboldt & 1\\
+62 & MAT-LowerMattole & MAT & North-West & 40.31408 & -124.2830 & 180101 & Humboldt & 5\\
+63 & PUT-COLD & PUT & North-West & 38.49829 & -122.0988 & 180201 & Solano & 9\\
+64 & PUT-WildhorseCk & PUT & North-West & 38.48616 & -122.0866 & 180201 & Solano & 10\\
+65 & RUSS-HUNTCK & RUSS & North-West & 38.80166 & -122.8793 & 180101 & Sonoma & 1\\
+\addlinespace
+66 & RUSS-MWSprngCk & RUSS & North-West & 38.54757 & -122.7086 & 180101 & Sonoma & 10\\
+67 & SFEEL & SFEEL & North-West & 40.01786 & -123.7896 & 180101 & Humboldt & 1\\
+68 & SFEEL-Cedar & SFEEL & North-West & 39.75784 & -123.6364 & 180101 & Mendocino & 10\\
+69 & SFEEL-Elder & SFEEL & North-West & 39.72383 & -123.6483 & 180101 & Mendocino & 2\\
+70 & SMITH & SMITH & North-West & 41.81553 & -124.1003 & 180101 & Del Norte & 1\\
+\addlinespace
+71 & SMITH-HurdygurdyCk & SMITH & North-West & 41.69500 & -123.9043 & 180101 & Del Norte & 10\\
+72 & SSANTIAM & SSANTIAM & North-West & 44.36750 & -122.6250 & 170900 & Linn & 7\\
+73 & SUMPQUA & SUMPQUA & North-West & 42.93500 & -122.9390 & 171003 & Douglas & 2\\
+74 & TRIN-ConnerCk & TRIN & North-West & 40.74656 & -123.0607 & 180102 & Trinity & 1\\
+75 & TRIN-NFTrinity & TRIN & North-West & 40.77713 & -123.1318 & 180102 & Trinity & 1\\
+\addlinespace
+76 & TRIN-SFTrinity & TRIN & North-West & 40.78619 & -123.5575 & 180102 & Humboldt & 6\\
+77 & TRIN-SFTrinity-SandyBar & TRIN & North-West & 40.87797 & -123.6088 & 180102 & Humboldt & 9\\
+78 & TRIN-TishTang & TRIN & North-West & 41.02208 & -123.6351 & 180102 & Humboldt & 9\\
+79 & TRIN-WillowCk & TRIN & North-West & 40.90705 & -123.7073 & 180102 & Humboldt & 1\\
+80 & VANDZ-Dinsmore & VANDZ & North-West & 40.48759 & -123.5918 & 180101 & Humboldt & 9\\
+\addlinespace
+81 & VANDZ-Mill & VANDZ & North-West & 40.48759 & -123.5918 & 180101 & Humboldt & 1\\
+82 & VANDZ-RootCreek & VANDZ & North-West & 40.47422 & -123.9400 & 180101 & Humboldt & 4\\
+83 & VANDZ-Shanty & VANDZ & North-West & 40.37670 & -123.5061 & 180101 & Trinity & 3\\
+84 & SANCARP-DutraCk & SANCARP & South-West & 35.80217 & -121.2932 & 180600 & Monterey & 10\\
+85 & SANCARP-SanCarpoforoCk & SANCARP & South-West & 35.79533 & -121.2787 & 180600 & San Luis Obispo & 2\\
+\addlinespace
+86 & ALA-ArroyoMocho & ALA & West & 37.60299 & -121.6691 & 180500 & Alameda & 5\\
+87 & DRY-Cantua\_AL & DRY & West & 36.39510 & -120.5359 & 180300 & Fresno & 1\\
+88 & PAJ-ClearCk & PAJ & West & 36.37111 & -120.7400 & 180600 & San Benito & 3\\
+89 & SOQUEL-EBSC & SOQUEL & West & 37.07300 & -121.9270 & 180600 & Santa Cruz & 10\\*
+\end{longtable}\endgroup{}
 \clearpage
 
 
@@ -2466,6 +2637,28 @@ localities.}\label{fig:CH3F5fst}
 \end{figure}
 \clearpage
 
+\hypertarget{genetic-variation-is-highest-in-the-north-west-and-lowest-in-the-east-south-west-clades}{%
+\subsection{Genetic variation is highest in the North-West and lowest in
+the East/ South-West
+clades}\label{genetic-variation-is-highest-in-the-north-west-and-lowest-in-the-east-south-west-clades}}
+
+Genetic diversity estimates for each region showed \emph{R. boylii} from
+the North Coast (NW) group had the greatest range in genetic variation,
+with both the most diverse and least diverse \(\theta\) estimates
+(Figure \ref{fig:CH3F6thetas}). Populations from the Southern Sierra (E)
+and Central Coast (SW) had the lowest mean Tajima's \(\theta_\pi\)
+(0.0064) and Watterson's \(\theta_W\) (0.0059 = E, 0.0060 = SW), but
+both these groups had the lowest number of sampling localities. The
+\(\Delta \theta\) was positive across all groups except the North Coast,
+which exhibited the lowest value, while the Central Coast (SW) and
+Southern Sierra (E) estimates were highest. Both coastal groups (SW and
+W) had wide ranges of \(\Delta \theta\) estimates in different
+locations. With the exception of the North Coast, which contains the
+greatest genetic diversity and a trajectory of increasing genetic
+diversity, overall genetic diversity data for \emph{R. boylii} show a
+trajectory of genetic diversity loss, with many locations exhibiting
+positive \(\Delta \theta\) (Figure \ref{fig:CH3F6thetas}D).
+
 
 
 
@@ -2483,11 +2676,94 @@ localities.}\label{fig:CH3F5fst}
 diversity estimates for \emph{R. boylii} by clade groups (adapted from
 McCartney-Melstad et al.
 (\protect\hyperlink{ref-mccartney-melstad_population_2018}{2018})) with
-95\% CI. A) Tajima's \(\theta_\pi\)) by clade, B) Watterson'
-\(\theta_S\) by clade; and \(\theta_\pi - \theta_S\) aggregated by clade
-C) and for each locality within clades D).}\label{fig:CH3F6thetas}
+95\% CI. A) Tajima's \(\theta_\pi\)) by clade; B) Watterson'
+\(\theta_S\) by clade; C) \(\theta_\pi - \theta_S\) aggregated by clade
+and D) for each locality within clades.}\label{fig:CH3F6thetas}
 \end{figure}
 \clearpage
+
+\hypertarget{discussion-and-conclusion}{%
+\section{Discussion and Conclusion}\label{discussion-and-conclusion}}
+
+As a species with a broad geographic range, \emph{Rana boylii} utilizes
+a wide array of different habitats throughout California and Oregon,
+however our study indicates there are strong patterns of geographic
+structure and substantial differences in patterns of genetic diversity
+across the species' range. The more comprehensive sampling provided by
+this data set complements a recent genomic study of R. boylii
+(McCartney-Melstad et al.
+\protect\hyperlink{ref-mccartney-melstad_population_2018}{2018}), and
+largely supports the same clades identified using a different RADSeq
+method. Moreover, our PCA and admixture results are congruent with the
+five major clades identified in McCartney-Melstad et al.
+(\protect\hyperlink{ref-mccartney-melstad_population_2018}{2018}), with
+the exception of an additional novel group comprised of locations from
+the Feather Basin. The congruence of these independent data sets, using
+different genetic measures, indicates these clades are robust and should
+be important units for conservation actions. We suggest that planning
+management actions such as translocation, recolonization, and habitat
+restoration should consider these population differences to maintain
+potentially valuable genetic variation across the species range.
+
+We also show that genetic data can provide resolution to prioritize
+populations and regions at multiple scales. Evaluating the efficacy of
+potential restoration actions can be difficult, particularly with rare
+and cryptic species. Genetics provides a tool that can more effectively
+track changes in population connectivity or genetic trajectories (i.e.,
+low diversity, high F\textsubscript{ST}) that likely relate to the
+potential for long-term population persistence. Populations in the
+Northern Coastal clade contained the greatest amount of genetic
+variation, yet pairwise comparisons with populations from Central and
+Southern Coast localities showed extremely high F\textsubscript{ST}
+values (in addition to the Central/Southern Coast groups having
+relatively low genetic diversity and trajectories of genetic diversity
+loss), indicating these groups are genetically very distinct.
+
+Recent sampling has largely occurred in the North Coast, Northern
+Sierra, and Northern Sierra-Feather groups. The limited number of
+sampling localities from the southern extent of the range of \emph{R.
+boylii} correlates with research documenting population declines
+(Davidson \protect\hyperlink{ref-davidson_declining_2004}{2004}, Adams
+et al. \protect\hyperlink{ref-adams_rapid_2017}{2017}). Thus,
+conservation actions should prioritize protecting sites in the
+Central/Southern Coast and Southern Sierra clades, as these represent
+both the most genetically divergent and distinct R. boylii, and
+simultaneously the most at-risk populations. Extremely high
+F\textsubscript{ST} values between populations from the same species as
+well as strong phylogeographic structuring suggest limited gene flow
+from biogeographic barriers (Spinks et al.
+\protect\hyperlink{ref-spinks_nuclear_2010}{2010}, Voelker et al.
+\protect\hyperlink{ref-voelker_river_2013}{2013}, Cazé et al.
+\protect\hyperlink{ref-caze_could_2016}{2016}). This suggests
+conservation management should consider these clades as distinct, and
+future actions that include translocation or captive breeding should
+utilize genetic data to assess potential impacts such as outbreeding
+depression in locally adapted populations.
+
+\emph{R. boylii} is an important sentinel stream species---not only as
+link between both aquatic and riparian ecosystems---but also as a
+sensitive gage of the natural hydrology in riverine environments. The
+impacts of regulated hydrology on \emph{R. boylii} populations have been
+well documented (Kupferberg
+\protect\hyperlink{ref-kupferberg_hydrologic_1996}{1996}, Lind et al.
+\protect\hyperlink{ref-lind_effects_1996}{1996}, Yarnell et al.
+\protect\hyperlink{ref-yarnell_dynamic_2012}{2012}, Kupferberg et al.
+\protect\hyperlink{ref-kupferberg_effects_2012}{2012}, Catenazzi and
+Kupferberg \protect\hyperlink{ref-catenazzi_importance_2013}{2013}). For
+populations in regulated streams, genetic monitoring may be a crucial
+component for assessing flow management actions on the probability of
+long-term persistence (via maintenance of genetic diversity), as well as
+tracking population responses (i.e., using metrics like
+F\textsubscript{ST} and \(\theta\)) to restoration actions.
+
+\hypertarget{acknowledgements-1}{%
+\subsection{Acknowledgements}\label{acknowledgements-1}}
+
+Many thanks to all who helped collect/prepare samples: Corey Luna, Rick
+Wachs, and Sarah Mussulman. This research could not have been conducted
+without access to specimens from Brad Shaffer at the Krebb Museum at
+UCLA, and field samples from Caren Goldberg and Mallory Bedwell at
+Washington State University.
 
 \appendix
 
@@ -2499,7 +2775,7 @@ This includes repository links to supplementary tables and code for
 analyses and figure generation.
 
 \hypertarget{supptables}{%
-\section{Supplemental Tables}\label{supptables}}
+\subsection{Supplemental Tables}\label{supptables}}
 \begin{itemize}
 \tightlist
 \item
@@ -2543,11 +2819,6 @@ analyses and figure generation.
     \href{https://raw.githubusercontent.com/ryanpeek/peek_phd_supplemental_materials/master/supplemental_tables/S5_chap2_selected_samples_25k.csv}{github.com/peek\_phd\_supplemental\_materials}
   \end{itemize}
 \end{itemize}
-\hypertarget{code}{%
-\section{Code and Packages}\label{code}}
-
-\textbf{In Chapter \ref{reg-health}:}
-
 \hypertarget{colophon}{%
 \chapter*{Colophon}\label{colophon}}
 \addcontentsline{toc}{chapter}{Colophon}
@@ -2558,32 +2829,26 @@ Code Pro} and \href{http://www.latofonts.com/lato-free-fonts/}{Lato}.
 The body text is set at 11pt with \(\familydefault\).
 
 It was written in R Markdown and \(\LaTeX\), and rendered into PDF using
-\href{https://github.com/benmarwick/huskydown}{huskydown} and
-\href{https://github.com/rstudio/bookdown}{bookdown}.
+\href{https://github.com/ryanpeek/ucd-aggiedown}{ucd-aggiedown} and
+\href{https://github.com/rstudio/bookdown}{bookdown}, largely based on
+the \href{https://github.com/benmarwick/huskydown}{huskydown} template.
 
 This document was typeset using the XeTeX typesetting system, and the
-\href{http://staff.washington.edu/fox/tex/}{University of Washington
-Thesis class} class created by Jim Fox. Under the hood, the
-\href{https://github.com/UWIT-IAM/UWThesis}{University of Washington
-Thesis LaTeX template} is used to ensure that documents conform
-precisely to submission standards. Other elements of the document
-formatting source code have been taken from the
+University of California Thesis class (2012). The template meets
+\href{https://grad.ucdavis.edu/resources/graduate-student-resources/academic-information-and-services/filing-thesis-or-dissertation}{UC
+Davis Graduate Studies dissertation requirements as of Fall 2018} to
+ensure that documents conform precisely to submission standards. Other
+elements of the document formatting source code have been taken from the
 \href{https://github.com/stevenpollack/ucbthesis}{Latex, Knitr, and
 RMarkdown templates for UC Berkeley's graduate thesis}, and
 \href{https://github.com/suchow/Dissertate}{Dissertate: a LaTeX
 dissertation template to support the production and typesetting of a PhD
-dissertation at Harvard, Princeton, and NYU}
+dissertation at Harvard, Princeton, and NYU}.
 
-The source files for this thesis, along with all the data files, have
-been organised into an R package, xxx, which is available at
-\url{https://github.com/xxx/xxx}. A hard copy of the thesis can be found
-in the University of Washington library.
+The source files for this thesis, along with data files are available at
+\url{https://github.com/ryanpeek/peek_phd_supplemental_materials}.
 
-This version of the thesis was generated on 2018-09-14 12:39:33. The
-repository is currently at this commit:
-
-The computational environment that was used to generate this version is
-as follows:
+This version of the thesis was generated on 2018-09-14 16:17:21.
 
 \backmatter
 
@@ -2610,6 +2875,12 @@ Nichols, A. W. Nolte, C. Parisod, K. Pfennig, A. M. Rice, M. G. Ritchie,
 B. Seifert, C. M. Smadja, R. Stelkens, J. M. Szymura, R. Väinölä, J. B.
 W. Wolf, and D. Zinner. 2013. Hybridization and speciation. Journal of
 evolutionary biology 26:229--246.
+
+\leavevmode\hypertarget{ref-adams_rapid_2017}{}%
+Adams, A. J., A. P. Pessier, and C. J. Briggs. 2017. Rapid extirpation
+of a North American frog coincides with an increase in fungal pathogen
+prevalence: Historical analysis and implications for reintroduction.
+Ecology and evolution 7:10216--10232.
 
 \leavevmode\hypertarget{ref-akaike_information_1973}{}%
 Akaike, H. 1973. Information theory and an extension of the maximum
@@ -3172,6 +3443,12 @@ Genetics 195:693--702.
 Slatkin, M. 1987. Gene flow and the geographic structure of natural
 populations. Science 236:787--792.
 
+\leavevmode\hypertarget{ref-spinks_nuclear_2010}{}%
+Spinks, P. Q., R. C. Thomson, and H. B. Shaffer. 2010. Nuclear gene
+phylogeography reveals the historical legacy of an ancient inland sea on
+lineages of the western pond turtle, Emys marmorata in California.
+Molecular ecology 19:542--556.
+
 \leavevmode\hypertarget{ref-stebbins_field_2003}{}%
 Stebbins, R. C. 2003. A Field Guide to Western Reptiles and Amphibians.
 3rd editions. Houghton Mifflin Harcourt, Boston.
@@ -3291,6 +3568,11 @@ for 'ggplot2'.
 
 \leavevmode\hypertarget{ref-wright_isolation_1943}{}%
 Wright, S. 1943. Isolation by Distance. Genetics 28:114--38.
+
+\leavevmode\hypertarget{ref-yarnell_dynamic_2012}{}%
+Yarnell, S. M., A. J. Lind, and J. F. Mount. 2012. Dynamic flow
+modelling of riverine amphibian habitat with application to regulated
+flow management. River Research and Applications 28:177--191.
 
 \leavevmode\hypertarget{ref-yarnell_ecology_2010}{}%
 Yarnell, S. M., J. H. Viers, and J. F. Mount. 2010. Ecology and

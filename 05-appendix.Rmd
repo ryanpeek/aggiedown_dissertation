@@ -12,7 +12,7 @@ If you feel it necessary to include an appendix, it goes here.
 This includes repository links to supplementary tables and code for analyses and figure generation. 
 
 
-## Supplemental Tables {#supptables}
+### Supplemental Tables {#supptables}
 
 
  - Table S1: [Chapter 1 Rapture Samples](#ch1samplecollection) can be found at:
@@ -27,9 +27,20 @@ This includes repository links to supplementary tables and code for analyses and
     - [github.com/peek_phd_supplemental_materials](https://raw.githubusercontent.com/ryanpeek/peek_phd_supplemental_materials/master/supplemental_tables/S5_chap2_selected_samples_25k.csv)
 
 
-## Code and Packages {#code}
+<!-- ## Code and Packages {#code} -->
 
-**In Chapter \@ref(reg-health):**
+<!-- **In Chapter \@ref(reg-health):** -->
 
-```{r ref.label='include_packages_ch1', results='hide', echo = FALSE, eval=FALSE}
-```
+<!-- ```{r ref.label='include_packages_ch1', results='hide', echo = FALSE, eval=F} -->
+<!-- ``` -->
+
+<!-- **In Chapter \@ref(hybrids):** -->
+
+<!-- ```{r ref.label='include_packages_ch2', results='hide', echo = FALSE, eval=F} -->
+<!-- ``` -->
+
+
+<!-- **In Chapter \@ref(rangewide):** -->
+
+<!-- ```{r ref.label='include_packages_ch3', results='hide', echo = FALSE, eval=F} -->
+<!-- ``` -->
