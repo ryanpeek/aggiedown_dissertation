@@ -101,7 +101,7 @@ kable(ch1T2, col.names = c("Study Site", "USGS Gage Number", "Years of Record", 
                         "Longitude"),
       caption = "Metadata for USGS gaging stations with current and historic data available for each study river", 
       booktabs=T,  longtable = F, escape = F) %>% 
-  kable_styling() %>% #%>% position = "float_right"
+  kable_styling(position = "center", latex_options = c("hold_position"), font_size = 11) %>% #%>% position = "float_right"
   group_rows("North Yuba", 1,1) %>% 
   group_rows("Middle Yuba", 2,3) %>% 
   group_rows("South Yuba", 4,5) %>% 
@@ -111,7 +111,6 @@ kable(ch1T2, col.names = c("Study Site", "USGS Gage Number", "Years of Record", 
   footnote(number = c("PCWA=Placer County Water Agency, http://cdec.water.ca.gov/cdecstation2/?sta=OXB"))
 
 ```
-
 
 (ref:ch1fig1map) Sampling locations and flow characteristics. A) Map of sampling locations spread across six rivers. B) Comparison of annual mean daily discharge from 1981–2016 for three flow types. C) Comparison of hourly discharge in three different flow regimes in April through July 2012, Bypass (South Yuba), Hydropeaking (Middle Fork American), and Unregulated (North Fork American). See Table \@ref(tab:CH1T2) for USGS gaging station information.
 
@@ -148,9 +147,9 @@ To investigate the relative influence of river regulation compared to other cova
 
 (ref:ch1fig3fst) Relationship between river regulation and genetic differentiation in *R. boylii*. A) Mean pairwise F~ST~ vs. mean river distance for each location; B) Relative influence of variables on F~ST~ from boosted regression tree models.
 
-```{r CH1F3fst, results="asis", warnings=FALSE, messages=FALSE, fig.cap='(ref:ch1fig3fst)', out.width = '70%', echo=FALSE}
+```{r CH1F3fst, results="asis", warnings=FALSE, messages=FALSE, fig.cap='(ref:ch1fig3fst)', out.width = '90%', echo=FALSE}
 
-include_graphics("figure/ch1/fig_03ab_fst_brt_cowplot.pdf")
+include_graphics("figure/ch1/fig_03ab_fst_brt_cowplot_for_phd")
 
 ```
 
@@ -163,12 +162,11 @@ To investigate the association between river regulation and genetic diversity tr
 
 (ref:ch1fig4theta) Relationship between river regulation and genetic diversity trajectory in *R. boylii*. A) Assessment of genetic diversity trajectories using $\Delta\theta$ ($\theta_\pi - \theta_S$) for each sampling location; B) Boxplots of difference between $\theta_\pi - \theta_S$ and pairwise significance between regulation groups using a pairwise Wilcoxon rank sum test with bonferroni correction (P < 0.05). Negative values represent trends of increasing genetic diversity, positive values represent trajectories of diversity loss, values near zero are stable.
 
-```{r CH1F4theta, results="asis", warnings=FALSE, messages=FALSE, fig.cap='(ref:ch1fig4theta)', out.height='70%', echo=FALSE}
-
-include_graphics("figure/ch1/fig_04ab_theta_combined.pdf")
+```{r CH1F4theta, results="asis", warnings=FALSE, messages=FALSE, fig.cap='(ref:ch1fig4theta)', out.height='80%', out.extra="scale=1.1", echo=FALSE}
+# 
+include_graphics("figure/ch1/fig_04ab_theta_combined_for_phd.pdf")
 
 ```
-
 
 \clearpage
 
@@ -181,5 +179,7 @@ Demographic connectivity is widely recognized as a fundamental driver of long-te
 Genetic diversity is also a critical component for long-term population persistence because it is closely related to the evolutionary capacity for adaptation to environmental changes [@frankham_introduction_2002; @hoffmann_climate_2011; @ishiyama_differential_2015; @lande_role_1996]. In some cases, isolated populations can maintain genetic diversity when they are sufficiently sized [@whiteley_genetic_2010], however, species of conservation concern typically have small and/or declining populations and thus may be susceptible to genetic diversity loss [@krohn_conservation_2018]. Throughout the Sierra Nevada, *R. boylii* have largely disappeared from regulated mainstem rivers, but the extent to which existing populations have been able to maintain genetic diversity is unclear. Strikingly, our analysis revealed that every single population within the regulated watersheds exhibits a trajectory of genetic diversity loss. Thus, genomic analysis of molecular variation provides a powerful lens to discover and assess trajectories of genetic diversity.
 
 Our analyses, using metrics that serve as a reasonable proxy for genetic health, does not bode well for the long-term persistence of *R. boylii* populations in regulated rivers in the Sierra Nevada. Many of these *R. boylii* populations are already losing genetic diversity and given their small size and reduced connectivity the effects of inbreeding will likely exacerbate their problems. *Rana boylii* have evolved in river systems with consistent hydrologic seasonality and predictability, despite inter-annual variation. Flow regulation has altered patterns of hydrologic seasonality and predictability in many watersheds [@kupferberg_effects_2012]. Long-term population persistence may still be possible if conservation efforts utilize methods that promote or maintain genetic health and increase population connectivity. For example, simulations by @botero_evolutionary_2015 demonstrated adaptation persisted in modeled populations through large environmental changes—if phenotypic strategies were appropriate before and after the change—but modeled populations declined rapidly when the current strategy was a mismatch to the current environment. Thus, *R. boylii* conservation efforts should focus on river reaches where flow management may provide opportunities to more closely mimic local natural flow regimes and thus improve hydrologic connectivity.
+
+## Conclusion
 
 Detecting evolutionary responses to within- and among-year changes in an ecological or hydrological context has previously been difficult. However, utilizing genetic data can fill these gaps and provide a highly informative process for identifying the impacts of anthropogenic and environmental change on the process of adaptation [@botero_evolutionary_2015; @kahilainen_conservation_2014]. We demonstrate that an aquatic species that has adapted to local hydrology patterns shows poor genetic health (i.e., clear patterns of decreased connectivity and trajectories of genetic diversity loss). Our results highlight the potential impact of river regulation on aquatic organisms and their potential for long term persistence. In the future, similar genetic approaches could be used in many other contexts to explore the impacts of river regulation on aquatic organisms. Taken together, our results demonstrate that genetic monitoring can be a powerful tool for assessment of population health and should be a critical component of conservation management in aquatic organisms.

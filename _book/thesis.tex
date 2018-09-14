@@ -708,10 +708,11 @@ river regulation occurs in all three of the study watersheds, both the
 North Yuba and North Fork (NF) American are unregulated whereas the
 Middle Fork (MF) American is the only river that has a hydropeaking flow
 regime (Figure \ref{fig:CH1F1map}A).
-\begin{table}
+\begin{table}[!h]
 
 \caption{\label{tab:CH1T2}Metadata for USGS gaging stations with current and historic data available for each study river}
 \centering
+\fontsize{11}{13}\selectfont
 \begin{tabular}[t]{lllrr}
 \toprule
 Study Site & USGS Gage Number & Years of Record & Latitude & Longitude\\
@@ -895,7 +896,7 @@ in regulated reaches.
 
 
 \begin{figure}
-\includegraphics[width=0.7\linewidth]{figure/ch1/fig_03ab_fst_brt_cowplot} \caption{Relationship between river regulation and genetic
+\includegraphics[width=0.9\linewidth]{figure/ch1/fig_03ab_fst_brt_cowplot_for_phd} \caption{Relationship between river regulation and genetic
 differentiation in \emph{R. boylii}. A) Mean pairwise
 F\textsubscript{ST} vs.~mean river distance for each location; B)
 Relative influence of variables on F\textsubscript{ST} from boosted
@@ -949,7 +950,7 @@ regulation type.
 
 
 \begin{figure}
-\includegraphics[height=0.7\textheight]{figure/ch1/fig_04ab_theta_combined} \caption{Relationship between river regulation and genetic
+\includegraphics[height=0.8\textheight,scale=1.1]{figure/ch1/fig_04ab_theta_combined_for_phd} \caption{Relationship between river regulation and genetic
 diversity trajectory in \emph{R. boylii}. A) Assessment of genetic
 diversity trajectories using \(\Delta\theta\)
 (\(\theta_\pi - \theta_S\)) for each sampling location; B) Boxplots of
@@ -1065,6 +1066,9 @@ strategy was a mismatch to the current environment. Thus, \emph{R.
 boylii} conservation efforts should focus on river reaches where flow
 management may provide opportunities to more closely mimic local natural
 flow regimes and thus improve hydrologic connectivity.
+
+\hypertarget{conclusion}{%
+\section{Conclusion}\label{conclusion}}
 
 Detecting evolutionary responses to within- and among-year changes in an
 ecological or hydrological context has previously been difficult.
@@ -1190,8 +1194,8 @@ questions:
   sympatrically occurring populations higher than in allopatrically
   occurring populations in adjacent watersheds?
 \end{enumerate}
-\hypertarget{materials-and-methods}{%
-\section{Materials and Methods}\label{materials-and-methods}}
+\hypertarget{methods-1}{%
+\section{Methods}\label{methods-1}}
 
 \hypertarget{ch2samplecollection}{%
 \subsection{Sampling and DNA Extraction}\label{ch2samplecollection}}
@@ -1207,18 +1211,29 @@ in the Sierra Nevada (the Feather, Yuba, and American) (Table
 \ref{tab:CH2T1}, \protect\hyperlink{supptables}{Appendix, S5}). All
 unknown individuals were from Feather watershed localities.
 
+The Yuba and American watersheds share a similar Mediterranean climate,
+underlying geology, watershed aspect (west-slope), and vegetative
+communities. The Feather watershed shares a similar climate but has a
+slightly different underlying geology and aspect than that of other
+watersheds in the Sierra Nevada. The Feather watershed lies in the
+transition zone of the northern Sierra Nevada and the Cascades/Basin and
+Range Province, and thus the landscape in the northern portion of the
+watershed is comprised largely of volcanic bedrock while the southern
+portion is largely granitic (Durrell
+\protect\hyperlink{ref-durrell_geologic_1988}{1988}).
+
 \clearpage
 
 \begingroup\fontsize{9}{11}\selectfont
 \begin{longtable}[t]{llrllll}
-\caption{\label{tab:CH2T1}Sample Sites}\\
+\caption{\label{tab:CH2T1}Sampling localities.}\\
 \toprule
-Locality & River & No. Samples & Lat. & Lon. & Elev (m) & Watershed (HUC8)\\
+Locality & River & No. Samples & Lat. & Lon. & Elev (m) & Basin (HUC8)\\
 \midrule
 \endfirsthead
-\caption[]{\label{tab:CH2T1}Sample Sites \textit{(continued)}}\\
+\caption[]{\label{tab:CH2T1}Sampling localities. \textit{(continued)}}\\
 \toprule
-Locality & River & No. Samples & Lat. & Lon. & Elev (m) & Watershed (HUC8)\\
+Locality & River & No. Samples & Lat. & Lon. & Elev (m) & Basin (HUC8)\\
 \midrule
 \endhead
 \
@@ -1293,17 +1308,6 @@ SFY-Scotchman & SFY & 3 & 39.3293 & -120.777 & 1167 & Yuba\\
 SFY-ShadyCk & SFY & 9 & 39.3543 & -121.059 & 675 & Yuba\\*
 \end{longtable}\endgroup{}
 \clearpage
-
-The Yuba and American watersheds share a similar Mediterranean climate,
-underlying geology, watershed aspect (west-slope), and vegetative
-communities. The Feather watershed shares a similar climate but has a
-slightly different underlying geology and aspect than that of other
-watersheds in the Sierra Nevada. The Feather watershed lies in the
-transition zone of the northern Sierra Nevada and the Cascades/Basin and
-Range Province, and thus the landscape in the northern portion of the
-watershed is comprised largely of volcanic bedrock while the southern
-portion is largely granitic (Durrell
-\protect\hyperlink{ref-durrell_geologic_1988}{1988}).
 
 Field sampling was conducted following methods in Heyer et al.
 (\protect\hyperlink{ref-heyer_measuring_1994}{1994}) under CDFW SCP
@@ -1388,7 +1392,7 @@ were conducted following methods from Prince et al.
 (\protect\hyperlink{ref-prince_evolutionary_2017}{2017}), with a minimum
 mapping quality score (\texttt{minMapQ}) of 10, a minimum base quality
 score (\texttt{minQ}) of 20, the genotype likelihood model
-(\texttt{GL\ 1}), specifying the RAPTURE bait locations using the
+(\texttt{GL\ 1}), specifying the Rapture bait locations using the
 \texttt{-sites} flag, and only sites represented in at least 50\% of the
 included samples (\texttt{minInd}) were used. Furthermore, genomic sites
 were designated as polymorphic only if MAFs were greater than 0.05 and
@@ -1396,8 +1400,8 @@ the probability of the site not being polymorphic was less than
 1e\textsuperscript{-6}. Using this approach, over 44,000 polymorphic
 sites were identified across all \emph{R. boylii} study samples.
 
-\hypertarget{pca-admixture}{%
-\subsection{PCA \& Admixture}\label{pca-admixture}}
+\hypertarget{pca-and-admixture}{%
+\subsection{PCA and Admixture}\label{pca-and-admixture}}
 
 To assess population structure and coancestry, ANGSD was used to
 generate PCA and NGSadmix was used to calculate admixture. Settings used
@@ -1407,7 +1411,7 @@ alleles (\texttt{doMajorMinor} 1), estimating genotypic likelihoods
 (\texttt{GL\ 1}), estimating allele frequencies (\texttt{doMaf\ 2}) (Kim
 et al. \protect\hyperlink{ref-kim_estimation_2011}{2011}), retaining
 SNPs with a minor allele frequency of at least 0.05 (\texttt{minMaf}),
-specifying the RAPTURE bait locations using the \texttt{sites} flag,
+specifying the Rapture bait locations using the \texttt{sites} flag,
 estimation of genotype posterior probabilities using a uniform prior
 (\texttt{doPost\ 2}), and the \texttt{doIBS\ 1} and \texttt{doCov\ 1}
 options. Principal components (PC) summarizing population structure were
@@ -1427,9 +1431,8 @@ NGS data, and does not require called genotypes, thus reducing error
 associated with potential ascertainment and uncertainty in the data
 (Skotte et al. \protect\hyperlink{ref-skotte_estimating_2013}{2013}).
 
-\hypertarget{f1-vs-f2-test-with-species-diagnostic-snps}{%
-\subsection{F1 vs F2 Test with Species Diagnostic
-SNPs}\label{f1-vs-f2-test-with-species-diagnostic-snps}}
+\hypertarget{f1vsf2}{%
+\subsection{F1 vs.~F2 Test with Species Diagnostic SNPs}\label{f1vsf2}}
 
 To test whether hybrids were first generation filial (F1) hybrids or
 progeny from F1 hybrids from subsequent generations (e.g., F2, F3,
@@ -1523,13 +1526,350 @@ be appropriate for population genetic analyses across our study area.
 \includegraphics[angle=90, scale=.70]{figure/ch2/figure_01_overview_hybrid} \caption{Map of sampling locations in the Feather, Yuba, and
 American watersheds. RABO=\emph{R. boylii}, RASI=\emph{R. sierrae}.}\label{fig:CH2F1map}
 \end{figure}
+\clearpage
+
+\hypertarget{pca-shows-strong-separation-between-species-and-identifies-putative-hybrids}{%
+\subsection{PCA shows strong separation between species and identifies
+putative
+hybrids}\label{pca-shows-strong-separation-between-species-and-identifies-putative-hybrids}}
+
+To assess within-basin population structure, principal components
+analysis (PCA) was used to provide a dimensionless comparison of
+putative SNPs across species and watersheds (Figure \ref{fig:CH2F2pca}).
+Strong differentiation was observed between species (\emph{R. sierrae}
+and \emph{R. boylii}) on the PC1 axis, which accounted for approximately
+55 percent of the variation. PC2 differentiated \emph{R. sierrae} among
+the three watersheds (Figure \ref{fig:CH2F2pca}A), while PC3
+differentiated \emph{R. boylii} sampling locations among the three
+watersheds (Figure \ref{fig:CH2F2pca}B). Little sign of admixture
+between the two species appears in the PCA, however, two
+samples---collected in the Feather Watershed and designated as
+``unknown'' in the field---clustered halfway between the \emph{R.
+sierrae} and \emph{R. boylii} groups along PC1, suggesting these
+individuals were hybrids.
+
+
+
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.95\linewidth]{figure/ch2/figure_02_pca_rasi_all_25k_combined} 
+
+}
+
+\caption{Principal component analysis of Rapture sequencing data,
+RABO=\emph{R. boylii}, RASI=\emph{R. sierrae}. A) PC1 vs.~PC2; B) PC1
+vs.~PC3.}\label{fig:CH2F2pca}
+\end{figure}
+\clearpage
+
+\hypertarget{admixture-shows-two-unknown-individuals-with-equal-rana-species-ancestry}{%
+\subsection{\texorpdfstring{Admixture shows two unknown individuals with
+equal \emph{Rana} species
+ancestry}{Admixture shows two unknown individuals with equal Rana species ancestry}}\label{admixture-shows-two-unknown-individuals-with-equal-rana-species-ancestry}}
+
+To further investigate if the two unknown individuals identified in the
+PCA were potential hybrids of \emph{R. sierrae} and \emph{R. boylii}, we
+used NGSAdmix to assess population structure and individual ancestry
+from genome-wide SNPs (Skotte et al.
+\protect\hyperlink{ref-skotte_estimating_2013}{2013}). We used k=2 to
+evaluate the fraction of ancestry derived from each species. Admixture
+showed the same two unknown samples from the Feather basin were had
+approximately 50\% ancestry from each species (\emph{R. boylii} and
+\emph{R. sierrae}), confirming their hybrid ancestry (Figure
+\ref{fig:CH2F3admix}). Furthermore, ancestry in the individuals
+designated as ``unknown'' in the field also showed very low levels of
+mixed ancestry between the species. There were very low or nearly
+non-existent levels of mixed-ancestry in the American and Yuba basins as
+compared to the Feather. However, introgression between \emph{R.
+sierrae} and \emph{R. boylii} appears asymmetric, with a greater
+proportion of ancestry from \emph{R. boylii} occurs in the \emph{R.
+sierrae} samples, particularly in the Feather watershed, and in
+predominantly in the ``unknown'' individuals. The putative hybrid
+individuals were sampled in Bean Creek, a tributary to Spanish Creek
+((Figure \ref{fig:CH2F4hybmap}). Bean Creek was one of the only
+tributaries where both \emph{R. sierrae} and \emph{R. boylii} co-occur;
+therefore we conclude there is strong evidence for recent hybridization
+between \emph{R. sierrae} and \emph{R. boylii} in this drainage.
+
+
+
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{figure/ch2/figure_03_admix_rana_by_watershed_25k_k2} 
+
+}
+
+\caption{Admixture (k=2) of \emph{R. sierrae} and \emph{R.
+boylii} and ``Unknown'' \emph{Rana} samples from the Feather, American,
+and Yuba watersheds.}\label{fig:CH2F3admix}
+\end{figure}
+
+
+
+\begin{figure}
+
+{\centering \includegraphics[angle=90, scale=.70]{figure/ch2/figure_04_hybrid_bean_ck} 
+
+}
+
+\caption{Map of sample locations in Bean Creek/Spanish Creek in
+the Feather watershed where hybrids were identified. RABO=\emph{R.
+boylii}, RASI=\emph{R. sierrae}.}\label{fig:CH2F4hybmap}
+\end{figure}
+\clearpage
+
+\hypertarget{f1-vs.f2-test-on-hybrids}{%
+\subsection{F1 vs.~F2 test on hybrids}\label{f1-vs.f2-test-on-hybrids}}
+
+To test whether the hybrids were F1 (first-generation) or F2 (progeny of
+two F1's), we identified species diagnostic SNPs. Our filtering process
+(see \protect\hyperlink{f1vsf2}{Methods}) yielded 3,062 putative
+diagnostic SNPs that were homozygous for different alleles in \emph{R.
+sierrae} or \emph{R. boylii} samples and also had successfully called
+genotypes in the two hybrid individuals. F1 hybrids should be
+exclusively heterozygous at species diagnostic SNPs. In contrast, F2
+hybrids should heterozygous for 50\% of the species diagnostic SNPs, and
+homozygous at the remaining 50\% with 25\% allotted to each species. We
+observed extremely high heterozygosity and very low homozygosity (6\%
+genotyped as \emph{R. boylii}, 4\% \emph{R. sierrae}, and 89\% were
+heterozygous) (Figure \ref{fig:CH2F5gentest}). This level of
+heterozygosity is far greater than expected for F2 individuals, and the
+presence of homozygous genotype calls in the hybrid individuals at
+species diagnostic SNPs is expected due to low coverage sequencing data;
+genotyping from low coverage sequencing will cause a low frequency of
+erroneous homozygous calls, because only one of the two alleles is
+sampled, causing heterozygotes to be called as homozygotes. We conclude
+these hybrid individuals are F1 instead of F2 individuals. Furthermore,
+the hybrid individuals were found to have \emph{R. sierrae}
+mitochondrial DNA (Bedwell and Goldberg, in review), indicating the
+female was from a \emph{R. sierrae} individual and the male was from
+\emph{R. boylii} in both cases.
+
+
+
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{figure/ch2/figure_05_f1_f2_hybrid_test_faceted} 
+
+}
+
+\caption{The F1 vs.~F2 test using species diagnostic SNPs to
+assess heterozygosity in hybrid individuals. RABO=\emph{R. boylii},
+RASI=\emph{R. sierrae}.}\label{fig:CH2F5gentest}
+\end{figure}
+\clearpage
+
+\hypertarget{divergence-times-and-migration-rates}{%
+\subsection{Divergence times and migration
+rates}\label{divergence-times-and-migration-rates}}
+
+To test for differential migration rates between \emph{R. sierrae} and
+\emph{R. boylii} in the Feather watershed compared to the Yuba and
+American, we used fastsimcoal2 (Excoffier and Foll
+\protect\hyperlink{ref-excoffier_fastsimcoal_2011}{2011}) coalescent
+simulations. Using all individuals except the two hybrid individuals, we
+found migration probability (or the per generation likelihood that any
+gene from one population transfers to another) from \emph{R. sierrae}
+and \emph{R. boylii} was highest in the Feather, with a mean of
+5.29e\textsuperscript{-6} (95\% CI
+5.28e\textsuperscript{-6}--5.30e\textsuperscript{-6}) and lowest in the
+American watershed, 7.80e\textsuperscript{-7}
+(7.78e\textsuperscript{-7}--7.81e\textsuperscript{-7}). The migration
+probabilities in the Yuba watershed were lower than estimates from the
+Feather, but were closer in magnitude, 3.84e\textsuperscript{-6}
+(3.83e\textsuperscript{-6}--3.85e\textsuperscript{-6}). We found
+migration rates from \emph{R. boylii} to \emph{R. sierrae} were
+extremely low across all three (Feather = 6.05e\textsuperscript{-7}
+{[}6e\textsuperscript{-7}--6.10e\textsuperscript{-7}{]}, Yuba =
+3.76e\textsuperscript{-7}
+{[}3.73e\textsuperscript{-7}--3.79e\textsuperscript{-7}{]}, American =
+8.29e\textsuperscript{-8}
+{[}8.23e\textsuperscript{-8}--8.35e\textsuperscript{-8}{]}; mean and
+95\% CI) (Figure \ref{fig:CH2F6fsc}). As observed in the admixture
+analysis, migration rates were asymmetric, showing F1 individuals
+backcrossing to individuals from \emph{R. boylii} more often than to
+\emph{R. sierrae}. We conclude migration probability rates are highest
+in the Feather watershed from \emph{R. sierrae} and \emph{R. boylii},
+with very limited migration occurring from \emph{R. boylii} to \emph{R.
+sierrae}.
+
+
+
+
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{figure/ch2/figure_06_coalescent_ancMigration_ptsCI} 
+
+}
+
+\caption{Estimates of migration probabilities from fastsimcoal2
+models between the two species within the Feather, Yuba, and American
+watersheds. RABO=\emph{R. boylii}, RASI=\emph{R. sierrae}, with 95\%
+confidence intervals from 100 bootstrapped estimates.}\label{fig:CH2F6fsc}
+\end{figure}
+To estimate divergence time between species, we used the American
+watershed samples because migration estimates between \emph{R. sierrae}
+and \emph{R. boylii} were lowest, and we wanted to derive a conservative
+estimate of divergence by minimizing inaccuracy caused by migration. We
+then ran fastsimcoal2 models with no migration and divergence times
+bounded between 10 kya and 4 mya. The best model based on maximum
+likelihood estimated the time since divergence between \emph{R. sierrae}
+and \emph{R. boylii} was 370,856 (370,041--371,670) generations.
+Typically, \emph{R. boylii} have a generation time of 2--3 years,
+depending on the region (Kupferberg et al.
+\protect\hyperlink{ref-kupferberg_pulsed_2009}{2009}, Railsback et al.
+\protect\hyperlink{ref-railsback_modeling_2015}{2015}), while \emph{R.
+sierrae} can have a greater range of generation times, between 3--6
+years because tadpoles may overwinter as many as three years (Knapp et
+al. \protect\hyperlink{ref-knapp_developing_2003}{2003},
+\protect\hyperlink{ref-knapp_large-scale_2016}{2016}). We may assume the
+ancestral condition was derived from \emph{R. boylii} (Macey et al.
+\protect\hyperlink{ref-macey_molecular_2001}{2001}, Vredenburg et al.
+\protect\hyperlink{ref-vredenburg_concordant_2007}{2007}, Yuan et al.
+\protect\hyperlink{ref-yuan_spatiotemporal_2016}{2016}), therefore we
+suggest a generation time between two and three years, which means
+\emph{R. sierrae} likely diverged from \emph{R. boylii} 741 kya to 1.1
+mya. This time period corresponds to the early Pleistocene and an era of
+glaciation (``the Great Ice Age'') interspersed with periods of
+glaciation---where distributions contracted and lineages became
+isolated---followed by subsequent interglaciation, where distributions
+expanded (Birkeland
+\protect\hyperlink{ref-birkeland_pleistocene_1964}{1964}, Gillespie and
+Zehfuss \protect\hyperlink{ref-gillespie_glaciations_2004}{2004}).
+
+\hypertarget{discussion-1}{%
+\section{Discussion}\label{discussion-1}}
+
+We identified strong divergence between \emph{R. sierrae} and \emph{R.
+boylii} across all three watersheds, evidence of two F1 hybrids, and low
+levels of asymmetric introgression primarily in the Feather basin.
+Hybridization between \emph{R. sierrae} and \emph{R. boylii} has not
+been previously documented based on field observations and breeding
+experiments (Zweifel
+\protect\hyperlink{ref-zweifel_ecology_1955}{1955}).
+
+It is unlikely that there is currently the potential for major
+introgression between \emph{R. sierrae} and \emph{R. boylii},
+particularly as hybridization initially may not be adaptive and is often
+selected against (Abbott et al.
+\protect\hyperlink{ref-abbott_hybridization_2013}{2013}, Streicher et
+al. \protect\hyperlink{ref-streicher_diversification_2014}{2014}).
+Although hybridization may be common between some amphibian species
+(Malone and Fontenot \protect\hyperlink{ref-malone_patterns_2008}{2008})
+and can even occur between highly divergent taxa---up to 21 million
+years divergent (Prager and Wilson
+\protect\hyperlink{ref-prager_slow_1975}{1975})---our data show there is
+strong pattern of divergence between \emph{R. sierrae} and \emph{R.
+boylii} with limited hybridization and introgression between the
+species. Furthermore, there are currently few localities where \emph{R.
+sierrae} and \emph{R. boylii} occur sympatrically, and populations of
+either species are typically sparse in the Sierra (Kupferberg et al.
+\protect\hyperlink{ref-kupferberg_effects_2012}{2012}, Catenazzi and
+Kupferberg \protect\hyperlink{ref-catenazzi_importance_2013}{2013}).
+Additionally, these two species may be strongly influenced by elevation
+due to life history differences (\emph{R. sierrae} are typically found
+in higher elevations and are capable of overwintering as tadpoles while
+\emph{R. boylii} are not). Previous work suggests that elevation
+strongly influences genetic structure in frogs (Monsen and Blouin
+\protect\hyperlink{ref-monsen_extreme_2004}{2004})---further reinforced
+by the patterns of strong divergence between species within watersheds
+that we observe in our data.
+
+There remains the potential for low-levels of naturally occurring
+hybridization and introgression between \emph{R. sierrae} and \emph{R.
+boylii}, but currently both species appear to have clear genotypic
+divergence even in an area of sympatry. Thus, our data suggest this is
+unlikely to be a major concern for conservation management. While there
+is a potential for misclassification of individuals in intermediate
+locations, genetic testing, and/or monitoring could be a useful tool for
+clarifying species and population boundaries as well as population size
+estimates. Successful tests of not only hybridization, but timing of
+divergence events (as well as better understanding bottlenecks and
+population expansion) based on landscape history can be informative in
+understanding what events may have driven divergence. The landscape of
+the Sierra Nevada during the Pleistocene epoch was one of repeated
+glaciation (Moore and Moring
+\protect\hyperlink{ref-moore_rangewide_2013}{2013}). Rivers flowing into
+the present-day Central Valley were being alternately eroded by
+west-flowing streams during interglaciation or covered in glaciers. It
+is therefore likely that adaptation to colder climates (e.g., freezing
+lakes and streams) may have provided an advantage to individuals or
+populations occurring in localities where the effects of glaciation were
+most prominent. \emph{Rana sierrae} are uniquely adapted to persist in
+short-growing periods common in the high Sierras---tadpoles may
+overwinter multiple years before metamorphosing---thus \emph{R. sierrae}
+may have diverged from \emph{R. boylii} because of their ability to
+persist in colder climates, common during periods of glaciation during
+the Pleistocene.
+
+While timing of divergence may correspond with the onset of the
+Pleistocene glaciation in the Sierra Nevada, more recent anthropogenic
+changes may be a stronger driver of current population connectivity and
+structure. With increased global temperatures and more variable winter
+periods in the Sierra Nevada, long-term persistence of high elevation
+species such as \emph{R. sierrae} may reside in the ability for the
+species to adapt to significant change. Future hybridization events
+could provide paths for introgression of selectively favored alleles
+between \emph{R. sierrae} and \emph{R. boylii}, and our data show this
+could be possible, given the presence of gene flow between species; even
+very limited introgression could provide adaptive alleles for subsequent
+positive selection.
+
+In rare species with small population sizes, hybridization outcomes that
+fail to produce successful offspring (sterile F1 hybrids) may have a
+greater cost on the species with low numbers of effective breeders,
+affecting both locally adapted populations and negatively impacting the
+probability of population persistence in a given region (Pagano et al.
+\protect\hyperlink{ref-pagano_frog_2003}{2003}). For \emph{R. sierrae},
+current patterns of hybridization do not appear likely to affect
+population persistence; however under future scenarios (e.g., warming
+climate, range contraction, population crashes) the loss of even several
+breeding individuals (via reproduction with \emph{R. boylii}) may have a
+significant impact in declining populations. Given the pattern of
+asymmetric admixture and migration observed in the Feather watershed, it
+is likely there are more \emph{R. boylii} present in the region the
+hybrids were observed than \emph{R. sierrae}. This difference could
+potentially lead to greater competition for \emph{R. sierrae} females
+and reducing male \emph{R. sierrae} reproductive success through the
+loss of mating opportunities. This may lead to a reduction in the
+fitness of \emph{R. sierrae} females because the female deposits one egg
+clutch per year.
+
+\hypertarget{conclusion-1}{%
+\section{Conclusion}\label{conclusion-1}}
+
+Assessing the impacts of current landscape and watershed change on the
+genetic variation of organisms, particularly sensitive and endangered
+species, may be a crucial tool for monitoring and more robust
+restoration, translocation, and conservation efforts. Future
+conservation of these species will require several key components,
+including establishing higher resolution population boundaries across
+the species' ranges, particularly in the northern Sierra Nevada,
+delineation of distinct population segments that can be utilized in
+conservation management, and quantification of relative genomic health
+of these groups. Identification of hybridization is a key step towards
+better delineating management units and further understanding what
+conservation steps may be taken.
+
+\hypertarget{acknowledgements}{%
+\subsection{Acknowledgements}\label{acknowledgements}}
+
+Many thanks to all who helped collect/provide/prepare samples: Corey
+Luna, Rick Wachs, and Sarah Mussulman. Thanks to Cathy Brown, Colin
+Dillingham, and all the USFS field crew members who helped collect these
+samples.
+
 \hypertarget{rangewide}{%
 \chapter{\texorpdfstring{Refining conservation unit boundaries of a
 sentinel stream-breeding frog (\emph{Rana boylii}) using population
 genomics}{Refining conservation unit boundaries of a sentinel stream-breeding frog (Rana boylii) using population genomics}}\label{rangewide}}
 
 \hypertarget{introduction-2}{%
-\section{INTRODUCTION}\label{introduction-2}}
+\section{Introduction}\label{introduction-2}}
 
 The use of modern genomic sequencing technology has greatly advanced the
 ability for higher resolution analyses of both geographic and ecological
@@ -1612,8 +1952,9 @@ impacts of anthropogenic and environmental change on the process of
 adaptation. Establishing high-resolution genetic boundaries for
 populations across the species range as well as quantification of
 relative genomic diversity metrics (i.e., genomic diversity, population
-connectivity) would help managers prioritize conservation actions. A
-recent study by ({\textbf{???}}) identified five major clades in
+connectivity) would help managers prioritize conservation actions.
+
+A recent study by ({\textbf{???}}) identified five major clades in
 \emph{R. boylii} with strong geographically structured genetic
 subdivision across its range in California and Oregon. Here we provide
 an additional population genomic analysis across the range of this
@@ -1623,8 +1964,8 @@ listing. We provide additional geographic and genetic resolution to
 subpopulations and clades as both a reference and assessment of the
 potential for long-term persistence across this species' range.
 
-\hypertarget{materials-and-methods-1}{%
-\section{MATERIALS AND METHODS}\label{materials-and-methods-1}}
+\hypertarget{methods-2}{%
+\section{Methods}\label{methods-2}}
 
 \hypertarget{sampling-and-dna-extraction}{%
 \subsection{Sampling and DNA
@@ -1793,7 +2134,7 @@ do\_stat. These data were averaged over the sites to obtain a single
 et al. \protect\hyperlink{ref-korneliussen_calculation_2013}{2013}).
 
 \hypertarget{results-2}{%
-\section{RESULTS}\label{results-2}}
+\section{Results}\label{results-2}}
 
 A total of 1,103 individual samples were sequenced using Rapture (see
 Methods). For principal components analysis (PCA) and admixture, we
@@ -1901,7 +2242,7 @@ been organised into an R package, xxx, which is available at
 \url{https://github.com/xxx/xxx}. A hard copy of the thesis can be found
 in the University of Washington library.
 
-This version of the thesis was generated on 2018-09-13 17:59:21. The
+This version of the thesis was generated on 2018-09-14 00:44:33. The
 repository is currently at this commit:
 
 The computational environment that was used to generate this version is
@@ -1968,6 +2309,11 @@ Hybrid speciation leads to novel male secondary sexual ornamentation of
 an Amazonian bird. Proceedings of the National Academy of Sciences of
 the United States of America 115:E218--E225.
 
+\leavevmode\hypertarget{ref-birkeland_pleistocene_1964}{}%
+Birkeland, P. W. 1964. Pleistocene Glaciation of the Northern Sierra
+Nevada, North of Lake Tahoe, California. The Journal of geology
+72:810--825.
+
 \leavevmode\hypertarget{ref-bondi_transferability_2013}{}%
 Bondi, C. A., S. M. Yarnell, A. J. Lind, and A. Lind. 2013.
 Transferability of habitat suitability criteria for a stream breeding
@@ -2004,6 +2350,12 @@ Environmental management 30:492--507.
 Camp, C. L. 1917. Notes on the systematic status of the toads and frogs
 of California. University of California publications in zoology
 17:115--125.
+
+\leavevmode\hypertarget{ref-catenazzi_importance_2013}{}%
+Catenazzi, A., and S. J. Kupferberg. 2013. The importance of thermal
+conditions to recruitment success in stream-breeding frog populations
+distributed across a productivity gradient. Biological Conservation
+168:40--48.
 
 \leavevmode\hypertarget{ref-caze_could_2016}{}%
 Cazé, A. L. R., G. Mäder, T. S. Nunes, L. P. Queiroz, G. de Oliveira, J.
@@ -2069,6 +2421,11 @@ Fumagalli, M., F. G. Vieira, T. S. Korneliussen, T. Linderoth, E.
 Huerta-Sánchez, A. Albrechtsen, and R. Nielsen. 2013. Quantifying
 population genetic differentiation from next-generation sequencing data.
 Genetics 195:979--992.
+
+\leavevmode\hypertarget{ref-gillespie_glaciations_2004}{}%
+Gillespie, A. R., and P. H. Zehfuss. 2004. Glaciations of the Sierra
+Nevada, California, USA. Pages 51--62 \emph{in} J. Ehlers and P. L.
+Gibbard, editors. Developments in Quaternary Sciences. Elsevier.
 
 \leavevmode\hypertarget{ref-gilpin_minimum_1986}{}%
 Gilpin, M., and M. Soule. 1986. Minimum Viable Populations: Processes of
@@ -2159,6 +2516,19 @@ Hansen, O. Pedersen, J. Wang, and R. Nielsen. 2011. Estimation of allele
 frequency and association mapping using next-generation sequencing data.
 BMC bioinformatics 12:231.
 
+\leavevmode\hypertarget{ref-knapp_large-scale_2016}{}%
+Knapp, R. A., G. M. Fellers, P. M. Kleeman, D. A. W. Miller, V. T.
+Vredenburg, E. B. Rosenblum, and C. J. Briggs. 2016. Large-scale
+recovery of an endangered amphibian despite ongoing exposure to multiple
+stressors. Proceedings of the National Academy of Sciences of the United
+States of America 113:11889--11894.
+
+\leavevmode\hypertarget{ref-knapp_developing_2003}{}%
+Knapp, R., K. Matthews, H. Preisler, and R. Jellison. 2003. Developing
+probabilistic models to predict amphibian site occupancy in a patchy
+landscape. Ecological applications: a publication of the Ecological
+Society of America 13:1069--1082.
+
 \leavevmode\hypertarget{ref-korneliussen_angsd_2014}{}%
 Korneliussen, T. S., A. Albrechtsen, and R. Nielsen. 2014. ANGSD:
 Analysis of Next Generation Sequencing Data. BMC bioinformatics 15:356.
@@ -2187,6 +2557,12 @@ Drennan, and M. E. Power. 2012. Effects of flow regimes altered by dams
 on survival, population declines, and range-wide losses of California
 river-breeding frogs. Conservation biology: the journal of the Society
 for Conservation Biology 26:513--524.
+
+\leavevmode\hypertarget{ref-kupferberg_pulsed_2009}{}%
+Kupferberg, S., A. Lind, J. Mount, and S. Yarnell. 2009. Pulsed flow
+effects on the Foothill Yellow- Legged Frog (Rana boylii): Integration
+of empirical, experimental, and hydrodynamic modeling approaches.
+California Energy Commission, PIER.
 
 \leavevmode\hypertarget{ref-lande_role_1996}{}%
 Lande, R., and S. Shannon. 1996. The Role of Genetic Variation in
@@ -2227,8 +2603,18 @@ dam on breeding habitat and egg survival of the foothill yellow-legged
 frog (Rana boylii) in Northwestern Calfifornia. Herpetological review
 27:62--66.
 
+\leavevmode\hypertarget{ref-macey_molecular_2001}{}%
+Macey, J. R., J. L. Strasburg, J. A. Brisson, V. T. Vredenburg, M.
+Jennings, and A. Larson. 2001. Molecular phylogenetics of western North
+American frogs of the Rana boylii species group. Molecular phylogenetics
+and evolution 19:131--143.
+
 \leavevmode\hypertarget{ref-mallet_hybrid_2007}{}%
 Mallet, J. 2007. Hybrid speciation. Nature 446:279--283.
+
+\leavevmode\hypertarget{ref-malone_patterns_2008}{}%
+Malone, J. H., and B. E. Fontenot. 2008. Patterns of reproductive
+isolation in toads. PloS one 3:e3900.
 
 \leavevmode\hypertarget{ref-miller_conserved_2012}{}%
 Miller, M. R., J. P. Brunelli, P. A. Wheeler, S. Liu, C. E. Rexroad 3rd,
@@ -2241,6 +2627,14 @@ Miller, M. R., J. P. Dunham, A. Amores, W. A. Cresko, and E. A. Johnson.
 2007. Rapid and cost-effective polymorphism identification and
 genotyping using restriction site associated DNA (RAD) markers. Genome
 Research 17:240--248.
+
+\leavevmode\hypertarget{ref-monsen_extreme_2004}{}%
+Monsen, K. J., and M. S. Blouin. 2004. Extreme isolation by distance in
+a montane frog Rana cascadae. Conservation genetics 5:827--835.
+
+\leavevmode\hypertarget{ref-moore_rangewide_2013}{}%
+Moore, J. G., and B. C. Moring. 2013. Rangewide glaciation in the Sierra
+Nevada, California. Geosphere 9:1804--1818.
 
 \leavevmode\hypertarget{ref-moyle_rapid_2011}{}%
 Moyle, P. B., J. V. E. Katz, and R. M. Quiñones. 2011. Rapid decline of
@@ -2274,6 +2668,11 @@ Weisrock. 2017. Genomic data detect corresponding signatures of
 population size change on an ecological time scale in two salamander
 species. Molecular ecology 26:1060--1074.
 
+\leavevmode\hypertarget{ref-pagano_frog_2003}{}%
+Pagano, A., A. Dubois, D. Lesbarrères, and T. Lodé. 2003. Frog alien
+species: A way for genetic invasion? Comptes rendus biologies 326 Suppl
+1:S85--92.
+
 \leavevmode\hypertarget{ref-parris_assessing_2010}{}%
 Parris, K. M., S. C. McCall, M. A. McCarthy, B. A. Minteer, K. Steele,
 S. Bekessy, and F. Medvecky. 2010. Assessing ethical trade-offs in
@@ -2305,6 +2704,12 @@ Power, M. E., W. E. Dietrich, and J. C. Finlay. 1996. Dams and
 Downstream Aquatic Biodiversity: Potential Food Web Consequences of
 Hydrologic and Geomorphic Change. Environmental management 20:887--895.
 
+\leavevmode\hypertarget{ref-prager_slow_1975}{}%
+Prager, E. M., and A. C. Wilson. 1975. Slow evolutionary loss of the
+potential for interspecific hybridization in birds: A manifestation of
+slow regulatory evolution. Proceedings of the National Academy of
+Sciences of the United States of America 72:200--204.
+
 \leavevmode\hypertarget{ref-prince_evolutionary_2017}{}%
 Prince, D. J., S. M. O'Rourke, T. Q. Thompson, O. A. Ali, H. S. Lyman,
 I. K. Saglam, T. J. Hotaling, A. P. Spidle, and M. R. Miller. 2017. The
@@ -2320,6 +2725,12 @@ ecologically important? Hydrological processes 17:2685--2689.
 Pringle, C. M. 2001. Hydrologic Connectivity and the Management of
 Biological Reserves: A Global Perspective. Ecological applications: a
 publication of the Ecological Society of America 11:981--998.
+
+\leavevmode\hypertarget{ref-railsback_modeling_2015}{}%
+Railsback, S. F., B. C. Harvey, S. K. Kupferberg, M. M. Lang, S. McBain,
+and H. H. Welsh Jr. 2015. Modeling potential river management conflicts
+between frogs and salmonids. Canadian journal of fisheries and aquatic
+sciences. Journal canadien des sciences halieutiques et aquatiques.
 
 \leavevmode\hypertarget{ref-r_core_team_r_2017}{}%
 R Core Team. 2017. R: A Language and Environment for Statistical
@@ -2390,6 +2801,12 @@ Associating metrics of hydrologic variability with benthic
 macroinvertebrate communities in regulated and unregulated
 snowmelt-dominated rivers. Freshwater biology.
 
+\leavevmode\hypertarget{ref-streicher_diversification_2014}{}%
+Streicher, J. W., T. J. Devitt, C. S. Goldberg, J. H. Malone, H.
+Blackmon, and M. K. Fujita. 2014. Diversification and asymmetrical gene
+flow across time and space: Lineage sorting and hybridization in
+polytypic barking frogs. Molecular ecology 23:3273--3291.
+
 \leavevmode\hypertarget{ref-sun_whole-genome_2015}{}%
 Sun, Y.-B., Z.-J. Xiong, X.-Y. Xiang, S.-P. Liu, W.-W. Zhou, X.-L. Tu,
 L. Zhong, L. Wang, D.-D. Wu, B.-L. Zhang, C.-L. Zhu, M.-M. Yang, H.-M.
@@ -2440,6 +2857,12 @@ Vredenburg, V. 2004. Reversing introduced species effects: Experimental
 removal of introduced fish leads to rapid recovery of a declining frog.
 Proceedings of the National Academy of Sciences 101:7646--7650.
 
+\leavevmode\hypertarget{ref-vredenburg_concordant_2007}{}%
+Vredenburg, V., R. Bingham, R. Knapp, J. Morgan, C. Moritz, and D. Wake.
+2007. Concordant molecular and phenotypic data delineate new taxonomy
+and conservation priorities for the endangered mountain yellow-legged
+frog. Journal of Zoology 271:361--374.
+
 \leavevmode\hypertarget{ref-watterson_number_1975}{}%
 Watterson, G. A. 1975. Number of Segregating Sites in Genetic Models
 without Recombination. Theoretical Population Biology 7:256--276.
@@ -2478,6 +2901,14 @@ Management of the Spring Snowmelt Recession. Bioscience 60:114--127.
 Yarnell, S., R. Peek, G. Epke, and A. Lind. 2016. Management of the
 Spring Snowmelt Recession in Regulated Systems. JAWRA Journal of the
 American Water Resources Association 52:723--736.
+
+\leavevmode\hypertarget{ref-yuan_spatiotemporal_2016}{}%
+Yuan, Z.-Y., W.-W. Zhou, X. Chen, N. A. Poyarkov Jr, H.-M. Chen, N.-H.
+Jang-Liaw, W.-H. Chou, N. J. Matzke, K. Iizuka, M.-S. Min, S. L. Kuzmin,
+Y.-P. Zhang, D. C. Cannatella, D. M. Hillis, and J. Che. 2016.
+Spatiotemporal Diversification of the True Frogs (Genus Rana): A
+Historical Framework for a Widely Studied Group of Model Organisms.
+Systematic biology 65:824--842.
 
 \leavevmode\hypertarget{ref-zhong_environmental_1996}{}%
 Zhong, Y., and G. Power. 1996. Environmental impacts of hydroelectric
