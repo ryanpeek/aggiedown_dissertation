@@ -270,7 +270,7 @@ boylii})}
 river-breeding frog species}\label{reg-health}}
 
 \hypertarget{introduction}{%
-\section{INTRODUCTION}\label{introduction}}
+\section{Introduction}\label{introduction}}
 
 Rivers simultaneously connect and carve the landscapes through which
 they flow. Rivers provide corridors of connectivity for riparian and
@@ -423,13 +423,15 @@ utility of genetics for future conservation monitoring efforts in
 aquatic species.
 
 \hypertarget{methods}{%
-\section{METHODS}\label{methods}}
+\section{Methods}\label{methods}}
 
 \hypertarget{ch1samplecollection}{%
-\subsection{Sample collection}\label{ch1samplecollection}}
+\subsection{Sample collection and DNA
+extraction}\label{ch1samplecollection}}
 
 345 \emph{R. boylii} buccal or tissue samples were used in this study
-\protect\hyperlink{supptables}{(Appendix, S1)}. Field sampling was
+across six different rivers (Table \ref{tab:CH1T1},
+\protect\hyperlink{supptables}{Appendix, S1}). Field sampling was
 conducted as previously described (Heyer et al.
 \protect\hyperlink{ref-heyer_measuring_1994}{1994}), under CDFW SCP
 Permit \#0006881, with IACUC protocol \#19327. Individual
@@ -449,19 +451,16 @@ collected, and tadpoles greater than 15 mm total length were targeted
 \protect\hyperlink{ref-parris_assessing_2010}{2010}). One small
 (\textless{}3mm) tail clip was taken per individual tadpole and dried on
 Whatman qualitative filter paper (grade 1) and stored at room
-temperature.
+temperature. Some older tissue samples consisted of toe clips placed in
+100\% ethanol for storage, and DNA extraction from these samples used
+Qiagen DNeasy kits following the manufacturer's protocol. Buccal swabs
+and tail clip DNA were extracted with a magnetic bead--based protocol
+(Ali et al. \protect\hyperlink{ref-ali_rad_2016}{2016}) and quantified
+using Quant-iT PicoGreen dsDNA Reagent (Thermo Fisher Scientific) with
+an FLx800 Fluorescence Reader (BioTek Instruments).
+\begin{landscape}\begin{table}
 
-
-
-
-
-
-
-
-
-\begin{landscape}\begin{table}[!h]
-
-\caption{\label{tab:CHAP1T1}Sampling and locality information for population genomic analysis of FYLF in the Yuba, Bear, and American Watersheds in the northern Sierra Nevada of California, USA. The number of individuals (n) is given for the total number sequenced per location and the number of individuals that were retained after filtering across the 8,533 baits. NHD refers to the National Hydrography Dataset by USGS (U.S. Geological Survey, National Hydrography Dataset, Digital data, accessed, August 2017).}
+\caption{\label{tab:CH1T1}Sampling and locality information for population genomic analysis of FYLF in the Yuba, Bear, and American Watersheds in the northern Sierra Nevada of California, USA. The number of individuals (n) is given for the total number sequenced per location and the number of individuals that were retained after filtering across the 8,533 baits. NHD refers to the National Hydrography Dataset by USGS (U.S. Geological Survey, National Hydrography Dataset, Digital data, accessed, August 2017).}
 \centering
 \resizebox{\linewidth}{!}{
 \begin{tabular}[t]{lrllllrrrrrrr}
@@ -507,48 +506,50 @@ SFY\_SPRINGCK & 22 & Spring Creek & South Yuba & Yuba & Bypass & 39.33233 & -120
 \end{tabular}}
 \end{table}
 \end{landscape}
-\clearpage
-
 \hypertarget{denovo}{%
-\subsection{De novo assembly}\label{denovo}}
+\subsection{Sequencing and de novo assembly}\label{denovo}}
 
 To produce a high-quality genomic resource for a frog species with a
 large genome size, we first interrogated a large fraction of the genome
-using RAD sequencing(Miller et al.
+using a SbfI restriction enzyme and high-density RAD sequencing on an
+Illumina HiSeq (Miller et al.
 \protect\hyperlink{ref-miller_rapid_2007}{2007}, Baird et al.
 \protect\hyperlink{ref-baird_rapid_2008}{2008}). Paired-end sequence
-data were generated from 24 \emph{R. boylii} individuals
-\protect\hyperlink{supptables}{(Appendix, S2)} across coastal and Sierra
-Nevada populations from California, USA. DNA was extracted with a
-magnetic bead--based protocol (Ali et al.
-\protect\hyperlink{ref-ali_rad_2016}{2016}) and quantified using
-Quant-iT PicoGreen dsDNA Reagent (Thermo Fisher Scientific) with an
-FLx800 Fluorescence Reader (BioTek Instruments). RAD libraries were
-constructed using the SbfI restriction enzyme and a new RAD protocol
-(Ali et al. \protect\hyperlink{ref-ali_rad_2016}{2016}). De novo loci
-discovery and contig extension were carried as previously described
+data were generated from 24 \emph{R. boylii} individuals collected
+previously (Peek \protect\hyperlink{ref-peek_landscape_2010}{2010}) from
+coastal and Sierra Nevada populations in California, USA
+\protect\hyperlink{supptables}{(Appendix, S2)}. RAD libraries were
+constructed following the protocol described in Ali et al.
+(\protect\hyperlink{ref-ali_rad_2016}{2016}). \emph{De novo} loci
+discovery and contig extension were carried via custom PERL scripts
 (Miller et al. \protect\hyperlink{ref-miller_conserved_2012}{2012})
 using the alignment program Novoalign and the genome assembler PRICE
 (Ruby et al. \protect\hyperlink{ref-ruby_price_2013}{2013}). This
 pipeline resulted in a set of 77,544 RAD contigs ranging from 300 to 800
-bp \href{ref:TableCh1S3}{(Appendix, S3)} which served as a de novo
-partial genome reference for all subsequent downstream analyses.
+bp which served as a \emph{de novo} partial genome reference for all
+subsequent downstream analyses \protect\hyperlink{supptables}{(Appendix,
+S3)}. Using these data, we filtered data to loci with 4 or fewer SNPs,
+and randomly selected 10,000 loci from this subset. Using these RADSeq
+data, 8,533 RAD capture baits (120bp) were designed by Arbor Biosciences
+from the de novo alignment \protect\hyperlink{supptables}{(Appendix,
+S4)}.
 
 \hypertarget{rapture}{%
 \subsection{Rapture sequencing}\label{rapture}}
 
-We then performed Rapture on all samples \href{ref:TableS1}{(Appendix
-S1)} (2016) using 8,533 RAD capture baits (120 bp) were designed by
-Arbor Biosciences from the de novo alignment (Table S4). The final
-Rapture library was sequenced in 50\% of an Illumina HiSeq 3000 lane.
-Rapture sequence data from each individual (Table S1) were aligned
-against the de novo partial genome reference using the BWA-MEM algorithm
-(Li and Durbin \protect\hyperlink{ref-li_fast_2010}{2010}) and saved to
-BAM format. SAMtools was used to sort, filter for proper pairs, remove
-PCR duplicates, and index binary alignment map (BAM), as well as merge
+We then performed Rapture on all study samples to identify putative
+high-quality SNPs \protect\hyperlink{supptables}{(Appendix, S1)} using
+RAD capture baits. Three different sequencing runs on an Illumina HiSeq
+were merged together, filtered, and duplicates were removed using ANGSD
+and Samtools (Li et al. \protect\hyperlink{ref-li_sequence_2009}{2009}).
+Sampled individuals were aligned against the de novo partial genome
+reference using the BWA-MEM algorithm (Li and Durbin
+\protect\hyperlink{ref-li_fast_2010}{2010}, Li
+\protect\hyperlink{ref-li_aligning_2013}{2013}) and saved to BAM format.
+SAMtools was used to sort, filter for proper pairs, remove PCR
+duplicates, and index binary alignment map (BAM), as well as merge
 sequences from multiple libraries (Li et al.
-\protect\hyperlink{ref-li_sequence_2009}{2009}). BAM files from the same
-sample were merged before indexing using SAMtools.
+\protect\hyperlink{ref-li_sequence_2009}{2009}).
 
 \hypertarget{principal-component-analysis}{%
 \subsection{Principal component
@@ -556,27 +557,33 @@ analysis}\label{principal-component-analysis}}
 
 A probabilistic framework was used to discover SNPs for PCA as it does
 not require calling genotypes and is suitable for low-coverage
-sequencing data (Fumagalli et al., 2013; Korneliussen, Moltke,
-Albrechtsen, \& Nielsen, 2013). All Rapture analyses were conducted
-using Analysis of Next Generation Sequencing Data (ANGSD) (Korneliussen,
-Albrechtsen, \& Nielsen, 2014). ANGSD analyses were conducted following
-methods from Prince et al.
+sequencing data (Korneliussen et al.
+\protect\hyperlink{ref-korneliussen_calculation_2013}{2013}, Fumagalli
+et al. \protect\hyperlink{ref-fumagalli_quantifying_2013}{2013}). All
+Rapture analyses were conducted using Analysis of Next Generation
+Sequencing Data (ANGSD) (Korneliussen et al.
+\protect\hyperlink{ref-korneliussen_angsd_2014}{2014}). ANGSD analyses
+were conducted following methods from Prince et al.
 (\protect\hyperlink{ref-prince_evolutionary_2017}{2017}), with a minimum
-mapping quality score (minMapQ) of 10, a minimum base quality score
-(minQ) of 20, and the genotype likelihood model (GL 1) (Li, 2011). To
-maximize data quality, samples with less than 100,000 aligned reads were
-excluded (Table S1, S2) using and only sites represented in at least
-50\% of the included samples (minInd) were used. Settings used in ANGSD
-for PCA to identify polymorphic sites included a SNP\_pval of 1e-6,
-inferring major and minor alleles (doMajorMinor 1), estimating allele
-frequencies (doMaf 2) (Kim et al., 2011), retaining SNPs with a minor
-allele frequency of at least 0.05 (minMaf), genotype posterior
-probabilities were calculated with a uniform prior (doPost 2), and the
-doIBS 1 and doCov 1 options were used to generate PCA data. Principal
-components (PC) summarizing population structure were derived from
-classic eigenvalue decomposition and were visualized using the ggplot2
-package in R (R Core Team
-\protect\hyperlink{ref-r_core_team_r_2017}{2017}).
+mapping quality score (\texttt{minMapQ}) of 10, a minimum base quality
+score (\texttt{minQ}) of 20, and the genotype likelihood model
+(\texttt{GL\ 1}) (Li \protect\hyperlink{ref-li_statistical_2011}{2011}).
+To maximize data quality, samples with less than 100,000 aligned reads
+were excluded \protect\hyperlink{supptables}{(Appendix, S1)} and only
+sites represented in at least 50\% of the included samples
+(\texttt{minInd}) were used. Settings used in ANGSD for PCA to identify
+polymorphic sites included a \texttt{SNP\_pval} of
+1e\textsuperscript{-6}, inferring major and minor alleles
+(\texttt{doMajorMinor\ 1}), estimating allele frequencies
+(\texttt{doMaf\ 2}) (Kim et al.
+\protect\hyperlink{ref-kim_estimation_2011}{2011}), retaining SNPs with
+a minor allele frequency of at least 0.05 \texttt{(minMaf}), genotype
+posterior probabilities calculated with a uniform prior
+(\texttt{doPost\ 2}), and the \texttt{doIBS\ 1} and \texttt{doCov\ 1}
+options were used to generate PCA data. Principal components (PC)
+summarizing population structure were derived from classic eigenvalue
+decomposition and were visualized using the ggplot2 package in R (R Core
+Team \protect\hyperlink{ref-r_core_team_r_2017}{2017}).
 
 \hypertarget{genetic-differentiation-and-diversity-estimates}{%
 \subsection{Genetic differentiation and diversity
@@ -587,11 +594,12 @@ differentiation between populations (Wright
 \protect\hyperlink{ref-wright_isolation_1943}{1943}, Rousset
 \protect\hyperlink{ref-rousset_genetic_1997}{1997}). Genome-wide
 F\textsubscript{ST} between population pairs was estimated by first
-calculating a site frequency spectrum (SFS) for each population (doSaf)
-(Nielsen et al. \protect\hyperlink{ref-nielsen_snp_2012}{2012}) with
-ANGSD. The two-dimensional SFS and global F\textsubscript{ST} between
-each population pair were then estimated using realSFS (Korneliussen et
-al. \protect\hyperlink{ref-korneliussen_angsd_2014}{2014}).
+calculating a site frequency spectrum (SFS) for each population
+(\texttt{doSaf}) (Nielsen et al.
+\protect\hyperlink{ref-nielsen_snp_2012}{2012}) with ANGSD. The
+two-dimensional SFS and global F\textsubscript{ST} between each
+population pair were then estimated using realSFS (Korneliussen et al.
+\protect\hyperlink{ref-korneliussen_angsd_2014}{2014}).
 F\textsubscript{ST} was calculated between each pair of collection
 locations within a watershed, and the mean of all pairwise calculations
 within that watershed was calculated for each location. We calculated
@@ -606,10 +614,10 @@ calculate Watterson's \(\theta\) (\(\theta_S\)) (Watterson
 \protect\hyperlink{ref-watterson_number_1975}{1975}), and Tajima's
 \(\theta\) (\(\theta_\pi\)) (Tajima
 \protect\hyperlink{ref-tajima_evolutionary_1983}{1983}), we used SFS
-that were estimated as described above as priors (pest) to calculate
-each statistic for each site (doThetas), and then averaged to obtain a
-single value for each statistic (Korneliussen et al.
-\protect\hyperlink{ref-korneliussen_calculation_2013}{2013}).
+that were estimated as described above as priors (\texttt{pest}) to
+calculate each statistic for each site (\texttt{doThetas}), and then
+averaged to obtain a single value for each statistic (Korneliussen et
+al. \protect\hyperlink{ref-korneliussen_calculation_2013}{2013}).
 
 \hypertarget{boosted-regression-tree-modeling-of-variance-in-fst}{%
 \subsection{\texorpdfstring{Boosted regression tree modeling of variance
@@ -645,8 +653,8 @@ location. Stream segment data on elevation, length, slope, stream order,
 and drainage area were derived from NHD Plus attributes (U.S. Geological
 Survey, National Hydrography Dataset, Digital data, accessed, August
 2017 at \url{http://nhd.usgs.gov/data.html}). In addition,
-\(\Delta \theta\) (\((\theta_\pi - \theta_S)�\)) was included to assess
-the effect of genomic variation on F\textsubscript{ST} across regulation
+\(\Delta \theta\) \((\theta_\pi - \theta_S)\) was included to assess the
+effect of genomic variation on F\textsubscript{ST} across regulation
 types.
 
 Model training and fitting were conducted following methods previously
@@ -670,9 +678,12 @@ the estimated deviance explained.
 \clearpage
 
 \hypertarget{results}{%
-\section{RESULTS}\label{results}}
+\section{Results}\label{results}}
 
-\textbf{Rapture produces high quality genomic data for \emph{R boylii} }
+\hypertarget{rapture-produces-high-quality-genomic-data-for-rana-boylii}{%
+\subsection{\texorpdfstring{Rapture produces high quality genomic data
+for \emph{Rana
+boylii}}{Rapture produces high quality genomic data for Rana boylii}}\label{rapture-produces-high-quality-genomic-data-for-rana-boylii}}
 
 To begin investigating the impact of river regulation on \emph{R.
 boylii}, we collected frog tissue and buccal samples from 30 locations
@@ -683,22 +694,23 @@ spring through fall to provide electricity during peak-use hours and for
 recreational whitewater rafting; (2) bypass, which diverts river flows
 from an upstream portion of the basin to the downstream power generation
 facilities; and (3) unregulated, a largely natural flow regime where no
-upstream controls exist to regulate flows (Figure 1). Flow data were
-obtained for each river reach using proximal USGS gaging stations (Table
-S5). We sampled a total of 345 \emph{R. boylii} from sites in three
-major watersheds (Yuba, Bear, and American) in the northern Sierra
-Nevada of California (Figure 1A; Table 1). The six study rivers share a
-similar Mediterranean climate, underlying geology, watershed aspect
+upstream controls exist to regulate flows (Figure \ref{fig:CH1F1map}).
+Flow data were obtained for each river reach using proximal USGS gaging
+stations (Table \ref{tab:CH1T1}). We sampled a total of 345 \emph{R.
+boylii} from sites in three major watersheds (Yuba, Bear, and American)
+in the northern Sierra Nevada of California (Figure \ref{fig:CH1F1map},
+Table \ref{tab:CH1T1}). The six study rivers share a similar
+Mediterranean climate, underlying geology, watershed aspect
 (west-slope), stream morphology (riffle-pool), and vegetative
 communities, but differ in the intensity of flow regulation (Steel et
 al. \protect\hyperlink{ref-steel_associating_2017}{2017}). Although
 river regulation occurs in all three of the study watersheds, both the
 North Yuba and North Fork (NF) American are unregulated whereas the
 Middle Fork (MF) American is the only river that has a hydropeaking flow
-regime (Figure 1A).
+regime (Figure \ref{fig:CH1F1map}A).
 \begin{table}
 
-\caption{\label{tab:ch1TableS2}Metadata for USGS gaging stations with current and historic data available for each study river}
+\caption{\label{tab:CH1T2}Metadata for USGS gaging stations with current and historic data available for each study river}
 \centering
 \begin{tabular}[t]{lllrr}
 \toprule
@@ -744,8 +756,8 @@ sampling locations spread across six rivers. B) Comparison of annual
 mean daily discharge from 1981--2016 for three flow types. C) Comparison
 of hourly discharge in three different flow regimes in April through
 July 2012, Bypass (South Yuba), Hydropeaking (Middle Fork American), and
-Unregulated (North Fork American). See Table \ref{tab:ch1TableS2} for
-USGS gaging station information.}\label{fig:ch1Fig1map}
+Unregulated (North Fork American). See Table \ref{tab:CH1T2} for USGS
+gaging station information.}\label{fig:CH1F1map}
 \end{figure}
 To generate genetic data from the samples, we performed RAD Capture
 (a.k.a. Rapture) (Ali et al. \protect\hyperlink{ref-ali_rad_2016}{2016})
@@ -760,70 +772,87 @@ investigate population genetic attributes at broad and fine geographic
 scales (see below). \emph{R. boylii} are cryptic, and often occur in low
 densities within the study area. Thus, we retained a minimum of three
 individuals per site, and the mean number of samples per site was
-approximately nine (Table 1). With genomic data, population genetic
-parameters can be accurately estimated from even low sample numbers
-(Hotaling et al.
+approximately nine (Table \ref{tab:CH1T1}). With genomic data,
+population genetic parameters can be accurately estimated from even low
+sample numbers (Hotaling et al.
 \protect\hyperlink{ref-hotaling_demographic_2018}{2018}), and genomic
 analyses in non-model organism often use fewer loci (Narum et al.
 \protect\hyperlink{ref-narum_genotyping-by-sequencing_2013}{2013}). We
 conclude that the sequence data we obtained should be appropriate for
 population genetic analyses across our study area.
 
-\textbf{Anomalous genetic pattern in highly regulated reach of Middle
-Fork American watershed}
+\hypertarget{anomalous-genetic-pattern-in-highly-regulated-reach-of-middle-fork-american-watershed}{%
+\subsection{Anomalous genetic pattern in highly regulated reach of
+Middle Fork American
+watershed}\label{anomalous-genetic-pattern-in-highly-regulated-reach-of-middle-fork-american-watershed}}
 
 To assess \emph{R. boylii} population structure across the collection
-locations, we used ANGSD (Korneliussen et al., 2014) to discover 44,406
-SNPs and perform principal component analysis (PCA; see Methods), which
-provides a dimensionless comparison of all samples. The first two
+locations, we used ANGSD (Korneliussen et al.
+\protect\hyperlink{ref-korneliussen_angsd_2014}{2014}) to discover
+44,406 SNPs and perform principal component analysis (PCA; see Methods),
+which provides a dimensionless comparison of all samples. The first two
 principal components revealed four main groups corresponding to the
 Yuba, Bear, North Fork (NF) American, and Middle Fork (MF) American
-samples (Figure 2A). Unlike the Yuba watershed where all rivers
-clustered as one group, the two rivers within the American watershed
-(the NF American and MF American) were separated by both PC1 and PC2.
-Although the NF American watershed clustered closely with the adjacent
-Bear watershed, the MF American showed a surprisingly high degree of
-genetic differentiation from other locations (Figure 2A). These data
-suggest that there is less genetic differentiation between the NF
-American and the Bear watersheds, than between the NF and MF American
-watersheds. We conclude that measurements of overall genetic
-differentiation in \emph{R. boylii} from our study area largely conform
-to watershed and geographic expectations, with the exception of the
-American watershed, which shows a surprisingly high degree of genetic
-differentiation between the North (unregulated) and Middle
-(hydropeaking) Forks.
+samples (Figure \ref{fig:CH1F2pca}A). Unlike the Yuba watershed where
+all rivers clustered as one group, the two rivers within the American
+watershed (the NF American and MF American) were separated by both PC1
+and PC2. Although the NF American watershed clustered closely with the
+adjacent Bear watershed, the MF American showed a surprisingly high
+degree of genetic differentiation from other locations (Figure
+\ref{fig:CH1F2pca}A). These data suggest that there is less genetic
+differentiation between the NF American and the Bear watersheds, than
+between the NF and MF American watersheds. We conclude that measurements
+of overall genetic differentiation in \emph{R. boylii} from our study
+area largely conform to watershed and geographic expectations, with the
+exception of the American watershed, which shows a surprisingly high
+degree of genetic differentiation between the North (unregulated) and
+Middle (hydropeaking) Forks.
 
+
+
+
+\begin{figure}
+\includegraphics[width=1\linewidth]{figure/ch1/fig_02_pca_combined_v2} \caption{Principal component analysis of Rapture sequencing
+data. A) Northern Sierra Nevada (n=277) watersheds and regulation types;
+B) Unregulated NF American; C) and D) Hydropeaking MF American Reach.}\label{fig:CH1F2pca}
+\end{figure}
 To further investigate patterns of genetic variation within the American
 Watershed, we performed two PCAs, one on samples from the NF American,
 and the other on samples from the MF American. The PCA of the NF
 American showed minimal differentiation among locations, with different
 study sites blending together and weak patterns of population structure
-(Figure 2B). In contrast, PCA of the MF American showed strong
-differentiation between sites (Figures 2C, 2D). The MF American PCA
-completely resolved all sites, with the first component (PC1) strongly
-differentiating the samples in the hydropeaking reach from all other
-sites in the MF American. This pattern may be due to the differential
-river regulation between the two rivers; the NF American is unregulated
-and has weak PCA differentiation, whereas the MF American has a higher
-level of river regulation and all sites form distinct genetic clusters,
-indicative of reduced gene flow among sites within the MF American.
+(Figure \ref{fig:CH1F2pca}B). In contrast, PCA of the MF American showed
+strong differentiation between sites (Figures \ref{fig:CH1F2pca}C,
+\ref{fig:CH1F2pca}D). The MF American PCA completely resolved all sites,
+with the first component (PC1) strongly differentiating the samples in
+the hydropeaking reach from all other sites in the MF American. This
+pattern may be due to the differential river regulation between the two
+rivers; the NF American is unregulated and has weak PCA differentiation,
+whereas the MF American has a higher level of river regulation and all
+sites form distinct genetic clusters, indicative of reduced gene flow
+among sites within the MF American.
 
-\textbf{River regulation is the strongest predictor of genetic isolation
-with \emph{R. boylii} in the Northern Sierra}
+\hypertarget{river-regulation-is-the-strongest-predictor-of-genetic-isolation-with-r.-boylii-in-the-northern-sierra}{%
+\subsection{\texorpdfstring{River regulation is the strongest predictor
+of genetic isolation with \emph{R. boylii} in the Northern
+Sierra}{River regulation is the strongest predictor of genetic isolation with R. boylii in the Northern Sierra}}\label{river-regulation-is-the-strongest-predictor-of-genetic-isolation-with-r.-boylii-in-the-northern-sierra}}
 
 To assess how patterns of genetic differentiation are associated with
 river regulation across our entire study area, we estimated pairwise
-F\textsubscript{ST} (Wright, 1943) between all collection locations
-within a river for all six rivers. We then plotted the scaled mean
-pairwise F\textsubscript{ST} {[}mean F\textsubscript{ST} / (1-mean
-F\textsubscript{ST}){]} (Rousset, 1997) for each location against the
-mean river distance (the average distance along the river network from
-each collection location to every other location within that study
-river). Furthermore, each location was categorized by regulation level
-of closest mainstem location (see Methods). While there was a clear
-relationship between F\textsubscript{ST} and river distance (as shown by
-the slope of regression lines in Figure 3A), there was a striking
-pattern of elevated F\textsubscript{ST} by regulation type (Figure 3A).
+F\textsubscript{ST} (Wright
+\protect\hyperlink{ref-wright_isolation_1943}{1943}) between all
+collection locations within a river for all six rivers. We then plotted
+the scaled mean pairwise F\textsubscript{ST} {[}mean F\textsubscript{ST}
+/ (1-mean F\textsubscript{ST}){]} (Rousset
+\protect\hyperlink{ref-rousset_genetic_1997}{1997}) for each location
+against the mean river distance (the average distance along the river
+network from each collection location to every other location within
+that study river). Furthermore, each location was categorized by
+regulation level of closest mainstem location (see Methods). While there
+was a clear relationship between F\textsubscript{ST} and river distance
+(as shown by the slope of regression lines in Figure
+\ref{fig:CH1F3fst}A), there was a striking pattern of elevated
+F\textsubscript{ST} by regulation type (Figure \ref{fig:CH1F3fst}A).
 Even the bypass regulation type showed a distinct pattern of elevated
 F\textsubscript{ST}. For instance, regulated rivers with locations
 separated by less than 10km had F\textsubscript{ST} values comparable to
@@ -838,9 +867,10 @@ F\textsubscript{ST}=0.278). This suggests a greater degree of isolation
 within sites in regulated river reaches compared with \emph{R. boylii}
 populations in unregulated reaches as larger F\textsubscript{ST} values
 represent reductions in heterozygosity due to population subdivision
-(Slatkin, 1987). We conclude \emph{R. boylii} in regulated rivers show
-patterns of greater population isolation and loss of heterozygosity
-compared to frogs in unregulated locations.
+(Slatkin \protect\hyperlink{ref-slatkin_gene_1987}{1987}). We conclude
+\emph{R. boylii} in regulated rivers show patterns of greater population
+isolation and loss of heterozygosity compared to frogs in unregulated
+locations.
 
 To investigate the relative influence of river regulation compared to
 other covariates such as river distance on genetic differentiation
@@ -849,17 +879,34 @@ modeling. Covariates included flow regime alteration type, river
 distance, watershed variables derived from National hydrology data
 (NHD), topographic data, and allele frequency spectrum skew (see below,
 Methods). We found flow regulation explained the greatest amount of
-variance in F\textsubscript{ST} (Figure 3B). Thus, river regulation has
-a larger relative influence than mean river distance between sampling
-locations, which is often the most important factor influencing genetic
-differentiation (Rousset, 1997; Slatkin, 1987; Wright, 1943). We
-conclude there is a pattern of isolation and limited connectivity
-between populations in regulated reaches.
+variance in F\textsubscript{ST} (Figure \ref{fig:CH1F3fst}B). Thus,
+river regulation has a larger relative influence than mean river
+distance between sampling locations, which is often the most important
+factor influencing genetic differentiation (Wright
+\protect\hyperlink{ref-wright_isolation_1943}{1943}, Slatkin
+\protect\hyperlink{ref-slatkin_gene_1987}{1987}, Rousset
+\protect\hyperlink{ref-rousset_genetic_1997}{1997}). We conclude there
+is a pattern of isolation and limited connectivity between populations
+in regulated reaches.
 
+
+
+
+
+
+\begin{figure}
+\includegraphics[width=0.7\linewidth]{figure/ch1/fig_03ab_fst_brt_cowplot} \caption{Relationship between river regulation and genetic
+differentiation in \emph{R. boylii}. A) Mean pairwise
+F\textsubscript{ST} vs.~mean river distance for each location; B)
+Relative influence of variables on F\textsubscript{ST} from boosted
+regression tree models.}\label{fig:CH1F3fst}
+\end{figure}
 \clearpage
 
-\textbf{River regulation strongly correlated with decreasing genetic
-diversity in \emph{R. boylii} }
+\hypertarget{river-regulation-strongly-correlated-with-decreasing-genetic-diversity-in-r.-boylii}{%
+\subsection{\texorpdfstring{River regulation strongly correlated with
+decreasing genetic diversity in \emph{R.
+boylii}}{River regulation strongly correlated with decreasing genetic diversity in R. boylii}}\label{river-regulation-strongly-correlated-with-decreasing-genetic-diversity-in-r.-boylii}}
 
 To investigate the association between river regulation and genetic
 diversity trajectory (stable, increasing, or decreasing), we summarized
@@ -876,24 +923,46 @@ equal; but when genetic diversity has been increasing,
 \(\theta_\pi > \theta_S\); and when genetic diversity has been
 decreasing, \(\theta_S > \theta_\pi\). We found zero populations sampled
 within regulated watersheds had evidence of increasing genetic diversity
-(e.g., a \(\theta_\pi - \theta_S\) that was less than zero) (Figure 4A).
-The regulated locations showed a clear trajectory of genetic diversity
-loss (Figure 4A, 4B). Three of the four hydropeaking locations had the
+(e.g., a \(\theta_\pi - \theta_S\) that was less than zero) (Figure
+\ref{fig:CH1F4theta}A). The regulated locations showed a clear
+trajectory of genetic diversity loss (Figure \ref{fig:CH1F4theta}A,
+\ref{fig:CH1F4theta}B). Three of the four hydropeaking locations had the
 highest values of \(\Delta\theta\) (\(\theta_\pi - \theta_S\)), and the
 global mean was significantly different from other regulation types.
 Although some tributary populations within unregulated watersheds also
 showed signs of genetic diversity loss, the mean genetic diversity
-trajectory at unregulated locations was largely neutral (Figure 4B).
-This indicates populations in the northern Sierra Nevada which are
-already limited in number are losing genetic variation, and river
-regulation appears to be exacerbating these patterns. We conclude there
-is evidence of recent genetic diversity loss across populations in the
-regulated river systems, regardless of regulation type.
+trajectory at unregulated locations was largely neutral (Figure
+\ref{fig:CH1F4theta}B). This indicates populations in the northern
+Sierra Nevada which are already limited in number are losing genetic
+variation, and river regulation appears to be exacerbating these
+patterns. We conclude there is evidence of recent genetic diversity loss
+across populations in the regulated river systems, regardless of
+regulation type.
 
+
+
+
+
+
+
+
+
+
+\begin{figure}
+\includegraphics[height=0.7\textheight]{figure/ch1/fig_04ab_theta_combined} \caption{Relationship between river regulation and genetic
+diversity trajectory in \emph{R. boylii}. A) Assessment of genetic
+diversity trajectories using \(\Delta\theta\)
+(\(\theta_\pi - \theta_S\)) for each sampling location; B) Boxplots of
+difference between \(\theta_\pi - \theta_S\) and pairwise significance
+between regulation groups using a pairwise Wilcoxon rank sum test with
+bonferroni correction (P \textless{} 0.05). Negative values represent
+trends of increasing genetic diversity, positive values represent
+trajectories of diversity loss, values near zero are stable.}\label{fig:CH1F4theta}
+\end{figure}
 \clearpage
 
 \hypertarget{discussion}{%
-\section{DISCUSSION}\label{discussion}}
+\section{Discussion}\label{discussion}}
 
 Although massive parallel sequencing (MPS) technologies have the
 potential to facilitate collection of high-quality genetic data in
@@ -901,65 +970,78 @@ virtually any species, a number of challenges still remain for many
 species including low quality or non-existent reference genomes,
 large/complex/repetitive genomes, and high cost of processing/sequencing
 in studies with many samples. Amphibians are particularly challenging as
-many species have very large genome sizes (Nunziata, Lance, Scott,
-Lemmon, \& Weisrock, 2017) for example, there are only two frog
-reference genome assemblies available as of 2018 (Hellsten et al., 2010;
-Sun et al., 2015). Our results demonstrate that Rapture (Ali et al.,
-2016) is a suitable method to rapidly and inexpensively discover a large
-number of loci in a frog species with a complex genome. In this study,
-we used new RAD sequencing and RAD capture (Rapture) methods (Ali et
-al., 2016) to generate high-quality genomic data suitable for
-discovering and genotyping many single nucleotide polymorphisms (SNPs)
-in \emph{R. boylii}. Based on this dataset, we were able to successfully
-characterize patterns of genetic variation within \emph{R. boylii} as
-well as design a set of RAD capture baits that can be used as a genetic
-monitoring resource for \emph{R. boylii} (and likely other ranid
-species). This highlights that the collection of genetic information,
-even from large numbers of samples or in complex genomes, is no longer a
-limitation with current genomic methods such as RAD and Rapture.
+many species have very large genome sizes (Nunziata et al.
+\protect\hyperlink{ref-nunziata_genomic_2017}{2017}), for example, there
+are only two frog reference genome assemblies available as of 2018
+(Hellsten et al. \protect\hyperlink{ref-hellsten_genome_2010}{2010}, Sun
+et al. \protect\hyperlink{ref-sun_whole-genome_2015}{2015}). Our results
+demonstrate that Rapture (Ali et al.
+\protect\hyperlink{ref-ali_rad_2016}{2016}) is a suitable method to
+rapidly and inexpensively discover a large number of loci in a frog
+species with a complex genome. In this study, we used new RAD sequencing
+and RAD capture (Rapture) methods (Ali et al.
+\protect\hyperlink{ref-ali_rad_2016}{2016}) to generate high-quality
+genomic data suitable for discovering and genotyping many single
+nucleotide polymorphisms (SNPs) in \emph{R. boylii}. Based on this
+dataset, we were able to successfully characterize patterns of genetic
+variation within \emph{R. boylii} as well as design a set of RAD capture
+baits that can be used as a genetic monitoring resource for \emph{R.
+boylii} (and likely other ranid species). This highlights that the
+collection of genetic information, even from large numbers of samples or
+in complex genomes, is no longer a limitation with current genomic
+methods such as RAD and Rapture.
 
 Demographic connectivity is widely recognized as a fundamental driver of
-long-term population persistence (Fahrig \& Merriam, 1985; Taylor,
-Fahrig, Henein, \& Merriam, 1993). Populations must adapt over time and
-connectivity is a major way to transfer genetic information. For
-example, previous studies have shown that adaptation can occur by
-spreading specific alleles across large geographic distances (Miller et
-al., 2012; Prince et al., 2017). In many regulated river reaches in the
-Sierra Nevada, \emph{R. boylii} now occur in isolated locations,
-breeding in tributaries rather than mainstem habitats. However, since
-these frogs have the potential to move long distances (\emph{R. boylii}
-have been observed moving over 1 km per day (Bourque, 2008)), the extent
-to which current population connectivity has been lost due to river
-regulation remains unknown. Examining pairwise F\textsubscript{ST},
-revealed a major decrease in connectivity in populations in regulated
-systems, even with limited river regulation (i.e., bypass reaches).
-Usually isolation by distance patterns best describe variation in
-genetic data, yet the primary factor influencing genetic differentiation
-among these rivers is hydrologic alteration (Figure 3B). Thus, despite
-being able to move long distances, \emph{R. boylii} have not been able
-to maintain population connectivity in regulated rivers. This
-demonstrates that even in species that can move relatively long
-distances and pass potential physical barriers (e.g., infrastructure
-such as dams, canals, and reservoirs likely do not represent barriers to
-movement of \emph{R. boylii}) loss of connectivity may still occur and
-can be revealed with genetic analysis.
+long-term population persistence (Fahrig and Merriam
+\protect\hyperlink{ref-fahrig_habitat_1985}{1985}, Taylor et al.
+\protect\hyperlink{ref-taylor_connectivity_1993}{1993}). Populations
+must adapt over time and connectivity is a major way to transfer genetic
+information. For example, previous studies have shown that adaptation
+can occur by spreading specific alleles across large geographic
+distances (Miller et al.
+\protect\hyperlink{ref-miller_conserved_2012}{2012}, Prince et al.
+\protect\hyperlink{ref-prince_evolutionary_2017}{2017}). In many
+regulated river reaches in the Sierra Nevada, \emph{R. boylii} now occur
+in isolated locations, breeding in tributaries rather than mainstem
+habitats. However, since these frogs have the potential to move long
+distances (Bourque (\protect\hyperlink{ref-bourque_spatial_2008}{2008})
+observed \emph{R. boylii} individuals moving over 1 km per day), the
+extent to which current population connectivity has been lost due to
+river regulation remains unknown. Examining pairwise
+F\textsubscript{ST}, revealed a major decrease in connectivity in
+populations in regulated systems, even with limited river regulation
+(i.e., bypass reaches). Usually isolation by distance patterns best
+describe variation in genetic data, yet the primary factor influencing
+genetic differentiation among these rivers is hydrologic alteration
+(Figure \ref{fig:CH1F3fst}B). Thus, despite being able to move long
+distances, \emph{R. boylii} have not been able to maintain population
+connectivity in regulated rivers. This demonstrates that even in species
+that can move relatively long distances and pass potential physical
+barriers (e.g., infrastructure such as dams, canals, and reservoirs
+likely do not represent barriers to movement of \emph{R. boylii}) loss
+of connectivity may still occur and can be revealed with genetic
+analysis.
 
 Genetic diversity is also a critical component for long-term population
 persistence because it is closely related to the evolutionary capacity
-for adaptation to environmental changes (Frankham, 2002; Hoffmann \&
-Sgrò, 2011; Ishiyama, Koizumi, Yuta, \& Nakamura, 2015; Lande \&
-Shannon, 1996). In some cases, isolated populations can maintain genetic
-diversity when they are sufficiently sized (Whiteley et al., 2010),
-however, species of conservation concern typically have small and/or
-declining populations and thus may be susceptible to genetic diversity
-loss (Frankham, 2002; Krohn et al., 2018). Throughout the Sierra Nevada,
-\emph{R. boylii} have largely disappeared from regulated mainstem
-rivers, but the extent to which existing populations have been able to
-maintain genetic diversity is unclear. Strikingly, our analysis revealed
-that every single population within the regulated watersheds exhibits a
-trajectory of genetic diversity loss. Thus, genomic analysis of
-molecular variation provides a powerful lens to discover and assess
-trajectories of genetic diversity.
+for adaptation to environmental changes (Lande and Shannon
+\protect\hyperlink{ref-lande_role_1996}{1996}, Frankham
+\protect\hyperlink{ref-frankham_introduction_2002}{2002}, Hoffmann and
+Sgrò \protect\hyperlink{ref-hoffmann_climate_2011}{2011}, Ishiyama et
+al. \protect\hyperlink{ref-ishiyama_differential_2015}{2015}). In some
+cases, isolated populations can maintain genetic diversity when they are
+sufficiently sized (Whiteley et al.
+\protect\hyperlink{ref-whiteley_genetic_2010}{2010}), however, species
+of conservation concern typically have small and/or declining
+populations and thus may be susceptible to genetic diversity loss (Krohn
+et al. \protect\hyperlink{ref-krohn_conservation_2018}{2018}).
+Throughout the Sierra Nevada, \emph{R. boylii} have largely disappeared
+from regulated mainstem rivers, but the extent to which existing
+populations have been able to maintain genetic diversity is unclear.
+Strikingly, our analysis revealed that every single population within
+the regulated watersheds exhibits a trajectory of genetic diversity
+loss. Thus, genomic analysis of molecular variation provides a powerful
+lens to discover and assess trajectories of genetic diversity.
 
 Our analyses, using metrics that serve as a reasonable proxy for genetic
 health, does not bode well for the long-term persistence of \emph{R.
@@ -970,39 +1052,37 @@ inbreeding will likely exacerbate their problems. \emph{Rana boylii}
 have evolved in river systems with consistent hydrologic seasonality and
 predictability, despite inter-annual variation. Flow regulation has
 altered patterns of hydrologic seasonality and predictability in many
-watersheds (Sarah J. Kupferberg et al., 2012). Long-term population
-persistence may still be possible if conservation efforts utilize
-methods that promote or maintain genetic health and increase population
-connectivity. For example, simulations by Botero et al. (2015)
-demonstrated adaptation persisted in modeled populations through large
-environmental changes---if phenotypic strategies were appropriate before
-and after the change---but modeled populations declined rapidly when the
-current strategy was a mismatch to the current environment. Thus,
-\emph{R. boylii} conservation efforts should focus on river reaches
-where flow management may provide opportunities to more closely mimic
-local natural flow regimes and thus improve hydrologic connectivity.
+watersheds (Kupferberg et al.
+\protect\hyperlink{ref-kupferberg_effects_2012}{2012}). Long-term
+population persistence may still be possible if conservation efforts
+utilize methods that promote or maintain genetic health and increase
+population connectivity. For example, simulations by Botero et al.
+(\protect\hyperlink{ref-botero_evolutionary_2015}{2015}) demonstrated
+adaptation persisted in modeled populations through large environmental
+changes---if phenotypic strategies were appropriate before and after the
+change---but modeled populations declined rapidly when the current
+strategy was a mismatch to the current environment. Thus, \emph{R.
+boylii} conservation efforts should focus on river reaches where flow
+management may provide opportunities to more closely mimic local natural
+flow regimes and thus improve hydrologic connectivity.
 
 Detecting evolutionary responses to within- and among-year changes in an
 ecological or hydrological context has previously been difficult.
 However, utilizing genetic data can fill these gaps and provide a highly
 informative process for identifying the impacts of anthropogenic and
-environmental change on the process of adaptation (Botero et al., 2015;
-Kahilainen, Puurtinen, \& Kotiaho, 2014). We demonstrate that an aquatic
-species that has adapted to local hydrology patterns shows poor genetic
-health (i.e., clear patterns of decreased connectivity and trajectories
-of genetic diversity loss). Our results highlight the potential impact
-of river regulation on aquatic organisms and their potential for long
-term persistence. In the future, similar genetic approaches could be
-used in many other contexts to explore the impacts of river regulation
-on aquatic organisms. Taken together, our results demonstrate that
-genetic monitoring can be a powerful tool for assessment of population
-health and should be a critical component of conservation management in
-aquatic organisms.
-
-\textbf{Data Archiving Statement:} Should the manuscript be accepted,
-the data supporting the results will be archived in an appropriate
-public repository such as Dryad, and the data DOI will be appended to
-the end of the article.
+environmental change on the process of adaptation (Kahilainen et al.
+\protect\hyperlink{ref-kahilainen_conservation_2014}{2014}, Botero et
+al. \protect\hyperlink{ref-botero_evolutionary_2015}{2015}). We
+demonstrate that an aquatic species that has adapted to local hydrology
+patterns shows poor genetic health (i.e., clear patterns of decreased
+connectivity and trajectories of genetic diversity loss). Our results
+highlight the potential impact of river regulation on aquatic organisms
+and their potential for long term persistence. In the future, similar
+genetic approaches could be used in many other contexts to explore the
+impacts of river regulation on aquatic organisms. Taken together, our
+results demonstrate that genetic monitoring can be a powerful tool for
+assessment of population health and should be a critical component of
+conservation management in aquatic organisms.
 
 \hypertarget{hybrids}{%
 \chapter{Hybridization between two sympatric ranid frog species in the
@@ -1047,17 +1127,21 @@ Sierra-Cascade crest (Stebbins
 \protect\hyperlink{ref-stebbins_field_2003}{2003}), whereas Sierra
 Nevada yellow-legged frogs, \emph{Rana sierrae}, (Camp
 \protect\hyperlink{ref-camp_notes_1917}{1917}) typically occurred from
-1500 m to over 3600 m in lakes and streams (Stebbins
-\protect\hyperlink{ref-stebbins_field_2003}{2003},
-@zweifel\_ecology\_1955). Population declines have been documented
-across the former range of both of these species; \emph{R. sierrae} has
-been extirpated from over 90 percent of its historical range (Drost and
-Fellers \protect\hyperlink{ref-drost_collapse_1996}{1996}) (Vredenburg
-2004) while \emph{R. boylii} has been extirpated from 50 percent of its
-historical range (Jennings and Hayes 1994, Davidson et al.~2002). Both
-species are of conservation concern; in 2014, the U. S. Fish and
-Wildlife Service (USFWS) listed \emph{R. sierrae} as endangered under
-the U. S. Endangered Species Act (ESA) (USFWS
+1500 m to over 3600 m in lakes and streams (Zweifel
+\protect\hyperlink{ref-zweifel_ecology_1955}{1955}, Stebbins
+\protect\hyperlink{ref-stebbins_field_2003}{2003}). Population declines
+have been documented across the former range of both of these species;
+\emph{R. sierrae} has been extirpated from over 90 percent of its
+historical range (Drost and Fellers
+\protect\hyperlink{ref-drost_collapse_1996}{1996}, Vredenburg
+\protect\hyperlink{ref-vredenburg_reversing_2004}{2004}) while \emph{R.
+boylii} has been extirpated from 50 percent of its historical range
+(Jennings and Hayes
+\protect\hyperlink{ref-jennings_amphibian_1994}{1994}, Davidson et al.
+\protect\hyperlink{ref-davidson_spatial_2002}{2002}). Both species are
+of conservation concern; in 2014, the U. S. Fish and Wildlife Service
+(USFWS) listed \emph{R. sierrae} as endangered under the U. S.
+Endangered Species Act (ESA) (USFWS
 \protect\hyperlink{ref-usfws_endangered_2014}{2014}), and \emph{R.
 boylii} is listed as a species of special concern in California and is a
 candidate for listing under the California and federal ESAs.
@@ -1065,27 +1149,30 @@ candidate for listing under the California and federal ESAs.
 Unlike other ranid frog species with broad areas of potential
 intergradation (Shaffer et al.
 \protect\hyperlink{ref-shaffer_species_2004}{2004}), \emph{R. boylii}
-and \emph{R. sierrae} only rarely occur sympatrically. Zweifel (1955)
-described one historical location where these two species co-occurred,
-in Butte County near DeSabla. Currently the only known location where
-both species are found is several tributaries to the Feather River in
-the northern Sierra Nevada, California (Figure 1). Hybridization between
+and \emph{R. sierrae} only rarely occur sympatrically. Zweifel
+(\protect\hyperlink{ref-zweifel_ecology_1955}{1955}) described one
+historical location where these two species co-occurred, in Butte County
+near DeSabla. Currently the only known location where both species are
+found is several tributaries to the Feather River in the northern Sierra
+Nevada, California (Figure \ref{fig:CH12F1map}). Hybridization between
 these species has not previously been documented. Furthermore, breeding
-experiments by Zweifel (1955) between \emph{R. sierrae} (formerly known
-as \emph{R. muscosa}) and \emph{R. boylii} yielded very low viability in
-fertilization and high incidences of embryological
-abnormalities---indicating a post-zygotic barrier between the species.
-However, these experiments only crossed female \emph{R. sierrae} with
-male \emph{R. boylii}, and the individuals were from very different
-California regions (e.g., Butte and Nevada County vs.~Contra Costa
-County). \emph{Rana boylii} and \emph{R. sierrae} species have very
-similar morphology and habitat preferences in areas where they co-occur;
-thus assigning individuals to species is difficult and imprecise using
-field identification methods. This presents a challenge for management
-because these sympatric species have different conservation status and
-management objectives. We employed modern genetic methodology to better
-understand \emph{R. sierrae} and \emph{R. boylii} where their ranges
-overlap. We investigated three primary questions:
+experiments by Zweifel
+(\protect\hyperlink{ref-zweifel_ecology_1955}{1955}) between \emph{R.
+sierrae} (formerly known as \emph{R. muscosa}) and \emph{R. boylii}
+yielded very low viability in fertilization and high incidences of
+embryological abnormalities---indicating a post-zygotic barrier between
+the species. However, these experiments only crossed female \emph{R.
+sierrae} with male \emph{R. boylii}, and the individuals were from very
+different California regions (e.g., Butte and Nevada County vs.~Contra
+Costa County). \emph{Rana boylii} and \emph{R. sierrae} species have
+very similar morphology and habitat preferences in areas where they
+co-occur; thus assigning individuals to species is difficult and
+imprecise using field identification methods. This presents a challenge
+for management because these sympatric species have different
+conservation status and management objectives. We employed modern
+genetic methodology to better understand \emph{R. sierrae} and \emph{R.
+boylii} where their ranges overlap. We investigated three primary
+questions:
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
@@ -1106,145 +1193,107 @@ overlap. We investigated three primary questions:
 \hypertarget{materials-and-methods}{%
 \section{Materials and Methods}\label{materials-and-methods}}
 
-\hypertarget{sampling-and-dna-extraction}{%
-\subsection{Sampling and DNA
-Extraction}\label{sampling-and-dna-extraction}}
+\hypertarget{ch2samplecollection}{%
+\subsection{Sampling and DNA Extraction}\label{ch2samplecollection}}
 
 To investigate potential hybridization between \emph{R. sierrae} and
 \emph{R. boylii}, a total of 458 tadpole tail clips, buccal swabs, or
 tissue samples were compiled. Samples were identified to species in the
 field as either \emph{R. boylii}, \emph{R. sierrae}, or ``unknown'',
 which were individuals which could not be visually confirmed as either
-species (Stebbins 2003). The samples were collected between 1992 and
-2016, from three watersheds in the Sierra Nevada (the Feather, Yuba, and
-American) (Table S1). All unknown individuals were from Feather
-watershed localities.
-\begin{landscape}
-\begin{longtable}[t]{l|l|r|l|l|l|l}
-\caption{\label{tab:tableS1}Sample Sites}\\
-\hline
+species (Stebbins \protect\hyperlink{ref-stebbins_field_2003}{2003}).
+The samples were collected between 1992 and 2016, from three watersheds
+in the Sierra Nevada (the Feather, Yuba, and American) (Table
+\ref{tab:CH2T1}, \protect\hyperlink{supptables}{Appendix, S5}). All
+unknown individuals were from Feather watershed localities.
+
+\clearpage
+
+\begingroup\fontsize{9}{11}\selectfont
+\begin{longtable}[t]{llrllll}
+\caption{\label{tab:CH2T1}Sample Sites}\\
+\toprule
 Locality & River & No. Samples & Lat. & Lon. & Elev (m) & Watershed (HUC8)\\
-\hline
+\midrule
 \endfirsthead
-\caption[]{\label{tab:tableS1}Sample Sites \textit{(continued)}}\\
-\hline
+\caption[]{\label{tab:CH2T1}Sample Sites \textit{(continued)}}\\
+\toprule
 Locality & River & No. Samples & Lat. & Lon. & Elev (m) & Watershed (HUC8)\\
-\hline
+\midrule
 \endhead
+\
+\endfoot
+\bottomrule
+\endlastfoot
 MFA-AMEC & MFA & 5 & 38.934 & -120.9436 & 240 & American\\
-\hline
 MFA-GASC & MFA & 1 & 38.9665 & -120.9325 & 242 & American\\
-\hline
 MFA-TODC & MFA & 6 & 38.9638 & -120.9216 & 368 & American\\
-\hline
 MFA-US-R & MFA & 1 & 39.0075 & -120.7316 & 360 & American\\
-\hline
 NFA & NFA & 12 & 39.1079 & -120.9227 & 363 & American\\
-\hline
+\addlinespace
 NFA-BUNC & NFA & 8 & 39.0376 & -120.9103 & 286 & American\\
-\hline
 NFA-EUCHDS & NFA & 3 & 39.1849 & -120.762 & 580 & American\\
-\hline
 NFA-INDC & NFA & 3 & 39.0567 & -120.9085 & 296 & American\\
-\hline
 NFA-LyonsPk & NFA & 11 & 39.2067 & -120.3113 & 2529 & American\\
-\hline
 NFA-POND & NFA & 2 & 38.9999 & -120.9406 & 241 & American\\
-\hline
+\addlinespace
 NFA-ROBR & NFA & 6 & 39.1045 & -120.9267 & 400 & American\\
-\hline
 NFA-SHIC & NFA & 8 & 39.0417 & -120.9009 & 341 & American\\
-\hline
 NFA-SLAR & NFA & 5 & 39.0987 & -120.9255 & 356 & American\\
-\hline
 NFMFA-SC & NFMFA & 7 & 39.0224 & -120.7369 & 522 & American\\
-\hline
 RUB-HighlandDS & RUB & 18 & 38.9615 & -120.2422 & 2312 & American\\
-\hline
+\addlinespace
 RUB-HighlandLk & RUB & 29 & 38.9573 & -120.2418 & 2383 & American\\
-\hline
 RUB-LC-US & RUB & 1 & 38.9889 & -120.69 & 415 & American\\
-\hline
 RUB-USPH & RUB & 5 & 38.9993 & -120.7233 & 361 & American\\
-\hline
 RUB-Zitella & RUB & 9 & 38.9595 & -120.227 & 2335 & American\\
-\hline
 RUB-ZitellaLk & RUB & 2 & 38.9604 & -120.2316 & 2337 & American\\
-\hline
+\addlinespace
 SFA-CAMI & SFA & 2 & 38.8115 & -120.5787 & 725 & American\\
-\hline
 FEA-BeanCk & FEA & 60 & 39.9774 & -121.091 & 1397 & Feather\\
-\hline
 FEA-EBNFF & FEA & 6 & Unknown & Unknown & Unknown & Feather\\
-\hline
 FEA-GoldLk & FEA & 4 & 39.9416 & -121.136 & 1816 & Feather\\
-\hline
 FEA-LoneRockCk & FEA & 3 & 40.2012 & -120.6453 & 1563 & Feather\\
-\hline
+\addlinespace
 FEA-MillCk & FEA & 4 & 39.9591 & -121.1573 & 1891 & Feather\\
-\hline
 FEA-RockLkBucksCk & FEA & 1 & 39.9403 & -121.1499 & 2102 & Feather\\
-\hline
 FEA-RockLkSilver & FEA & 8 & 39.9409 & -121.1422 & 1902 & Feather\\
-\hline
 FEA-SFRockCk & FEA & 27 & 39.8789 & -121.0022 & 1470 & Feather\\
-\hline
 FEA-SPANISH-BGulch & FEA & 5 & 39.9546 & -121.089 & 1283 & Feather\\
-\hline
+\addlinespace
 FEA-SPANISH-RockCk & FEA & 1 & 39.9445 & -121.0221 & 1090 & Feather\\
-\hline
 FEA-SPANISH-SilverCk & FEA & 3 & 39.9377 & -121.0849 & 1189 & Feather\\
-\hline
 FEA-SPANISH-Wapaunsie & FEA & 1 & 39.9523 & -121.0373 & 1096 & Feather\\
-\hline
 FEA-SpanishCk & FEA & 26 & 39.9541 & -121.0541 & 1192 & Feather\\
-\hline
 NFF-Poe & NFF & 1 & 39.736 & -121.4702 & 284 & Feather\\
-\hline
+\addlinespace
 FORD-Mossy-P1 & FORD & 1 & 39.381 & -120.4623 & 2157 & Yuba\\
-\hline
 FORD-Mossy-P2 & FORD & 3 & 39.3852 & -120.4714 & 1998 & Yuba\\
-\hline
 FORD-Mossy-P3 & FORD & 2 & 39.3765 & -120.4603 & 2158 & Yuba\\
-\hline
 FORD-MossyDS & FORD & 19 & 39.3853 & -120.4728 & 1984 & Yuba\\
-\hline
 FORD-MossyPond & FORD & 34 & 39.3781 & -120.4701 & 2106 & Yuba\\
-\hline
+\addlinespace
 FORD-NorthCkTrib & FORD & 34 & 39.3869 & -120.451 & 2090 & Yuba\\
-\hline
 MFY-OREGCk & MFY & 10 & 39.4419 & -121.0575 & 620 & Yuba\\
-\hline
 MFY-Remmington & MFY & 1 & 39.4137 & -120.9912 & 620 & Yuba\\
-\hline
 MFY-US-OH & MFY & 7 & 39.413 & -120.9903 & 624 & Yuba\\
-\hline
 NFY & NFY & 12 & 39.5119 & -120.9774 & 705 & Yuba\\
-\hline
+\addlinespace
 NFY-SLATE-CGRav & NFY & 3 & 39.6928 & -120.9258 & 1457 & Yuba\\
-\hline
 NFY-SLATE-Onion & NFY & 3 & 39.6355 & -121.0395 & 1300 & Yuba\\
-\hline
 SFY & SFY & 1 & 39.3539 & -120.7342 & 890 & Yuba\\
-\hline
 SFY-FallCk & SFY & 5 & 39.3553 & -120.7371 & 884 & Yuba\\
-\hline
 SFY-HUMBUG & SFY & 1 & 39.3637 & -120.921 & 877 & Yuba\\
-\hline
+\addlinespace
 SFY-LOGA & SFY & 3 & 39.3691 & -120.8526 & 1201 & Yuba\\
-\hline
 SFY-MCKI & SFY & 3 & 39.368 & -120.8354 & 1084 & Yuba\\
-\hline
 SFY-MISC & SFY & 7 & 39.361 & -120.8814 & 1095 & Yuba\\
-\hline
 SFY-RockCk & SFY & 3 & 39.3298 & -120.9863 & 594 & Yuba\\
-\hline
 SFY-Scotchman & SFY & 3 & 39.3293 & -120.777 & 1167 & Yuba\\
-\hline
-SFY-ShadyCk & SFY & 9 & 39.3543 & -121.059 & 675 & Yuba\\
-\hline
-\end{longtable}
-\end{landscape}
+SFY-ShadyCk & SFY & 9 & 39.3543 & -121.059 & 675 & Yuba\\*
+\end{longtable}\endgroup{}
+\clearpage
+
 The Yuba and American watersheds share a similar Mediterranean climate,
 underlying geology, watershed aspect (west-slope), and vegetative
 communities. The Feather watershed shares a similar climate but has a
@@ -1253,100 +1302,130 @@ watersheds in the Sierra Nevada. The Feather watershed lies in the
 transition zone of the northern Sierra Nevada and the Cascades/Basin and
 Range Province, and thus the landscape in the northern portion of the
 watershed is comprised largely of volcanic bedrock while the southern
-portion is largely granitic (Durrell 1988). Field sampling was conducted
-following methods in Heyer et al. (1994) under CDFW SCP Permit \#0006881
-and Federal permit TE-40087B-0 with IACUC protocol \#19327 and
-\#04718-001. Individual post-metamorphic frogs were buccal-swabbed
-following established protocols (Goldberg et al.~2003, Pidancier et
-al.~2003, Broquet et al.~2007). Each post-metamorphic individual was
-comprehensively swabbed underneath tongue and inside of both cheeks for
-approximately 30 sec to one minute. Swabs were air dried for
-approximately five minutes and placed in 1.5 mL microcentrifuge tubes
-while in the field or placed in lysis buffer (Goldberg et al.~2003).
+portion is largely granitic (Durrell
+\protect\hyperlink{ref-durrell_geologic_1988}{1988}).
+
+Field sampling was conducted following methods in Heyer et al.
+(\protect\hyperlink{ref-heyer_measuring_1994}{1994}) under CDFW SCP
+Permit \#0006881 and Federal permit TE-40087B-0 with IACUC protocol
+\#19327 and \#04718-001. Individual post-metamorphic frogs were
+buccal-swabbed following established protocols (Goldberg et al.
+\protect\hyperlink{ref-goldberg_frogs_2003}{2003}, Pidancier et al.
+\protect\hyperlink{ref-pidancier_buccal_2003}{2003}, Broquet et al.
+\protect\hyperlink{ref-broquet_buccal_2007}{2007}). Each
+post-metamorphic individual was comprehensively swabbed underneath
+tongue and inside of both cheeks for approximately 30 sec to one minute.
+Swabs were air dried for approximately five minutes and placed in 1.5 mL
+microcentrifuge tubes while in the field or placed in lysis buffer.
 Dried samples were stored in the laboratory at -80°C until DNA
 extraction. Where possible, tail clips from tadpole larvae were
-collected, and tadpoles greater than 15 mm total length were
-targeted(Wilbur and Semlitsch 1990, Parris et al.~2010). One clip was
-taken per individual tadpole and dried on Whatman filter paper (grade 1)
-and stored at room temperature or in 95\% ethanol. DNA was extracted
-from ethanol-stored samples using Qiagen DNeasy kits following
-manufacturer protocol and stored at -20°C. DNA was extracted from dried
-buccal swabs and tail clips using an Ampure magnetic bead-based protocol
-(Ali et al.~2016) and stored at -20°C.
+collected, and tadpoles greater than 15 mm total length were targeted
+(Wilbur and Semlitsch
+\protect\hyperlink{ref-wilbur_ecological_1990}{1990}, Parris et al.
+\protect\hyperlink{ref-parris_assessing_2010}{2010}). One clip was taken
+per individual tadpole and dried on Whatman filter paper (grade 1) and
+stored at room temperature or in 95\% ethanol. DNA was extracted from
+ethanol-stored samples using Qiagen DNeasy kits following manufacturer
+protocol and stored at -20°C. DNA was extracted from dried buccal swabs
+and tail clips using an Ampure magnetic bead-based protocol (Ali et al.
+\protect\hyperlink{ref-ali_rad_2016}{2016}) and stored at -20°C.
 
-\hypertarget{rapture-sequencing}{%
-\subsection{Rapture Sequencing}\label{rapture-sequencing}}
+\hypertarget{rapture2}{%
+\subsection{Rapture Sequencing}\label{rapture2}}
 
 To produce a high-quality genomic resource for frog species with large
 genome sizes, we interrogated a significant fraction of the \emph{R.
-boylii} genome using RAD sequencing with SbfI (Miller et al.~2007, Baird
-et al.~2008, Ali et al.~2016). Paired-end sequence data were generated
-using 24 \emph{R. boylii} individuals (Table S2). RAD libraries were
-constructed following the protocol described in (Ali et al.~2016). De
-novo locus discovery and contig extension were carried out as previously
-described (Miller et al.~2012) using the alignment program Novoalign and
-the genome assembler PRICE (Ruby et al.~2013). This resulted in a set of
-77,544 RAD contigs ranging from 300 to 800 bp which served as a de novo
-partial genome reference for all subsequent downstream analyses (File
-S3: de novo). We next removed loci with five or more SNPs, and randomly
-selected 10,000 loci from the remaining subset. Of these 10,000 loci,
-8,533 were successfully designed into 120 bp RAD capture baits by Arbor
-Biosciences (File S4: Baits). Sample libraries were prepared for
-sequencing following RAD Capture (Rapture) methods outlined in Ali et
-al. (2016). These samples were then then used to identify putative
-high-quality SNPs following sequencing.
+boylii} genome using RAD sequencing with SbfI (Miller et al.
+\protect\hyperlink{ref-miller_rapid_2007}{2007}, Baird et al.
+\protect\hyperlink{ref-baird_rapid_2008}{2008}, Ali et al.
+\protect\hyperlink{ref-ali_rad_2016}{2016}). Paired-end sequence data
+were generated using 24 \emph{R. boylii} individuals collected
+previously (Peek \protect\hyperlink{ref-peek_landscape_2010}{2010}) from
+coastal and Sierra Nevada populations in California, USA
+\protect\hyperlink{supptables}{(Appendix, S2)}. RAD libraries were
+constructed following the protocol described in Ali et al.
+(\protect\hyperlink{ref-ali_rad_2016}{2016}). De novo locus discovery
+and contig extension were carried out as previously described (Miller et
+al. \protect\hyperlink{ref-miller_conserved_2012}{2012}) using the
+alignment program Novoalign and the genome assembler PRICE (Ruby et al.
+\protect\hyperlink{ref-ruby_price_2013}{2013}). This resulted in a set
+of 77,544 RAD contigs ranging from 300 to 800 bp which served as a de
+novo partial genome reference for all subsequent downstream analyses
+\protect\hyperlink{supptables}{(Appendix, S3)}. We next removed loci
+with five or more SNPs, and randomly selected 10,000 loci from the
+remaining subset. Of these 10,000 loci, 8,533 were successfully designed
+into 120 bp RAD capture baits by Arbor Biosciences
+\protect\hyperlink{supptables}{(Appendix, S4)}. Sample libraries were
+prepared for sequencing following RAD Capture (Rapture) methods outlined
+in Ali et al. (\protect\hyperlink{ref-ali_rad_2016}{2016}). These
+samples were then then used to identify putative high-quality SNPs
+following sequencing.
 
 Sampled individuals were aligned against the de novo partial genome
-reference using the BWA-MEM algorithm (Li and Durbin 2010, Li 2013), and
-converted to BAM format and filtered for properly paired alignments
-using Samtools (File S1). Next, alignments from three different
-sequencing runs on an Illumina HiSeq were merged together and duplicates
-were removed using Samtools (Li et al.~2009). For all downstream
+reference using the BWA-MEM algorithm (Li and Durbin
+\protect\hyperlink{ref-li_fast_2010}{2010}, Li
+\protect\hyperlink{ref-li_aligning_2013}{2013}), and converted to BAM
+format and filtered for properly paired alignments using Samtools (Li et
+al. \protect\hyperlink{ref-li_sequence_2009}{2009}). Next, alignments
+from three different sequencing runs on an Illumina HiSeq were merged
+together and duplicates were removed using Samtools (Li et al.
+\protect\hyperlink{ref-li_sequence_2009}{2009}). For all downstream
 analysis, we selected individuals that had greater than 25,000
 alignments (n=311), which provided sufficient data to investigate
-population genetic attributes at broad and fine geographic scales (Table
-S5). To generate SNP (i.e., segregating site) data, a probabilistic
-framework was used for all population genetic analyses as it does not
-require calling genotypes and is suitable for low-coverage sequencing
-data (Korneliussen et al.~2013, Fumagalli et al.~2013). SNP discovery,
-minor allele frequencies (MAF) estimates, and genotype probabilities
-were conducted using ANGSD (Korneliussen et al.~2014). ANGSD analyses
-were conducted following methods from Prince et al. (2017), with a
-minimum mapping quality score (minMapQ) of 10, a minimum base quality
-score (minQ) of 20, the genotype likelihood model (GL 1), specifying the
-RAPTURE bait locations using the -sites flag, and only sites represented
-in at least 50\% of the included samples (minInd) were used.
-Furthermore, genomic sites were designated as polymorphic only if MAFs
-were greater than 0.05 and the probability of the site not being
-polymorphic was less than 1e-6. Using this approach, over 44,000
-polymorphic sites were identified across all \emph{R. boylii} study
-samples.
+population genetic attributes at broad and fine geographic scales
+\protect\hyperlink{supptables}{(Appendix, S5)}.
+
+To generate SNP (i.e., segregating site) data, a probabilistic framework
+was used for all population genetic analyses as it does not require
+calling genotypes and is suitable for low-coverage sequencing data
+(Korneliussen et al.
+\protect\hyperlink{ref-korneliussen_calculation_2013}{2013}, Fumagalli
+et al. \protect\hyperlink{ref-fumagalli_quantifying_2013}{2013}). SNP
+discovery, minor allele frequencies (MAF) estimates, and genotype
+probabilities were conducted using ANGSD (Korneliussen et al.
+\protect\hyperlink{ref-korneliussen_angsd_2014}{2014}). ANGSD analyses
+were conducted following methods from Prince et al.
+(\protect\hyperlink{ref-prince_evolutionary_2017}{2017}), with a minimum
+mapping quality score (\texttt{minMapQ}) of 10, a minimum base quality
+score (\texttt{minQ}) of 20, the genotype likelihood model
+(\texttt{GL\ 1}), specifying the RAPTURE bait locations using the
+\texttt{-sites} flag, and only sites represented in at least 50\% of the
+included samples (\texttt{minInd}) were used. Furthermore, genomic sites
+were designated as polymorphic only if MAFs were greater than 0.05 and
+the probability of the site not being polymorphic was less than
+1e\textsuperscript{-6}. Using this approach, over 44,000 polymorphic
+sites were identified across all \emph{R. boylii} study samples.
 
 \hypertarget{pca-admixture}{%
 \subsection{PCA \& Admixture}\label{pca-admixture}}
 
 To assess population structure and coancestry, ANGSD was used to
 generate PCA and NGSadmix was used to calculate admixture. Settings used
-in ANGSD for PCA to identify polymorphic sites included a SNP\_pval of
-1e-6, inferring major and minor alleles (doMajorMinor 1), estimating
-genotypic likelihoods (GL 1), estimating allele frequencies (doMaf 2)
-(Kim et al.~2011), retaining SNPs with a minor allele frequency of at
-least 0.05 (minMaf), specifying the RAPTURE bait locations using the
--sites flag, estimation of genotype posterior probabilities using a
-uniform prior (doPost 2), and the -doIBS 1 and -doCov 1 options.
-Principal components (PC) summarizing population structure were derived
-from classic eigenvalue decomposition and were visualized using the
-ggplot2 package in R (R Core Team 2017). To assess admixture between
-\emph{R. sierrae} and \emph{R. boylii}, genotype likelihood data (-GL 2)
-was generated in ANGSD with the same settings as above, in addition to
-retaining only SNPs that were shared in at least of 50\% of the samples,
--doPost 2, -doGLF 2, and limiting to higher quality alignment data
-(-minMapQ 10, -minQ 20). We then used NGSadmix (Skotte et al.~2013) to
-infer ancestry proportions in \emph{R. sierrae} and \emph{R. boylii}
-individuals. NGSadmix is a robust admixture method that can be applied
-to low-depth NGS data, and does not require called genotypes, thus
-reducing error associated with potential ascertainment and uncertainty
-in the data (Skotte et al.~2013).
+in ANGSD for PCA to identify polymorphic sites included a
+\texttt{SNP\_pval} of 1e\textsuperscript{-6}, inferring major and minor
+alleles (\texttt{doMajorMinor} 1), estimating genotypic likelihoods
+(\texttt{GL\ 1}), estimating allele frequencies (\texttt{doMaf\ 2}) (Kim
+et al. \protect\hyperlink{ref-kim_estimation_2011}{2011}), retaining
+SNPs with a minor allele frequency of at least 0.05 (\texttt{minMaf}),
+specifying the RAPTURE bait locations using the \texttt{sites} flag,
+estimation of genotype posterior probabilities using a uniform prior
+(\texttt{doPost\ 2}), and the \texttt{doIBS\ 1} and \texttt{doCov\ 1}
+options. Principal components (PC) summarizing population structure were
+derived from classic eigenvalue decomposition and were visualized using
+the ggplot2 package in R (R Core Team
+\protect\hyperlink{ref-r_core_team_r_2017}{2017}). To assess admixture
+between \emph{R. sierrae} and \emph{R. boylii}, genotype likelihood data
+(\texttt{GL\ 1}) was generated in ANGSD with the same settings as above,
+in addition to retaining only SNPs that were shared in at least of 50\%
+of the samples, \texttt{doPost\ 2}, \texttt{doGLF\ 2}, and limiting to
+higher quality alignment data (\texttt{minMapQ\ 10}, \texttt{minQ\ 20}).
+We then used NGSadmix (Skotte et al.
+\protect\hyperlink{ref-skotte_estimating_2013}{2013}) to infer ancestry
+proportions in \emph{R. sierrae} and \emph{R. boylii} individuals.
+NGSadmix is a robust admixture method that can be applied to low-depth
+NGS data, and does not require called genotypes, thus reducing error
+associated with potential ascertainment and uncertainty in the data
+(Skotte et al. \protect\hyperlink{ref-skotte_estimating_2013}{2013}).
 
 \hypertarget{f1-vs-f2-test-with-species-diagnostic-snps}{%
 \subsection{F1 vs F2 Test with Species Diagnostic
@@ -1358,14 +1437,17 @@ etc.), we identified differentially fixed (i.e., species-specific) SNPs
 and assessed heterozygosity at these loci in hybrid individuals as F1
 vs.~F2 hybrid individuals will have different degrees of heterozygosity
 in these species-diagnostic SNPs. We called genotypes in ANGSD using a
-uniform prior (-doPost 2) and the following settings: -GL 1, -doGeno 13,
--postCutoff 0.95, -doMaf 1, -doMajorMinor 1, -minInd 2, -SNP\_pval 1e-6,
--minMapQ 20, -minQ 20, and specifying the RAPTURE bait locations using
-the -sites. The subsequent output (*.geno.gz) was then processed in the
-program R using the dplyr package (Wickham et al.~2018) to manipulate
-and filter to homozygous diagnostic SNPs. Data were filtered to include
-only loci where over 50 non-hybrid individuals from each species had
-called genotypes at a given polymorphism.
+uniform prior (\texttt{doPost\ 2}) and the following settings:
+\texttt{GL\ 1}, \texttt{doGeno\ 13}, \texttt{postCutoff\ 0.95},
+\texttt{doMaf\ 1}, \texttt{doMajorMinor\ 1}, \texttt{minInd\ 2},
+\texttt{SNP\_pval\ 1e-6}, \texttt{minMapQ\ 20}, \texttt{minQ\ 20}, and
+specifying the Rapture bait locations using the \texttt{sites} flag. The
+subsequent output (\texttt{*.geno.gz}) was then processed in the program
+R using the dplyr package (Wickham et al.
+\protect\hyperlink{ref-wickham_dplyr_2018}{2018}) to manipulate and
+filter to homozygous diagnostic SNPs. Data were filtered to include only
+loci where over 50 non-hybrid individuals from each species had called
+genotypes at a given polymorphism.
 
 \hypertarget{demographic-modeling-with-fastsimcoal2}{%
 \subsection{Demographic Modeling with
@@ -1373,7 +1455,9 @@ fastsimcoal2}\label{demographic-modeling-with-fastsimcoal2}}
 
 To quantify divergence times and migration rates between \emph{R.
 sierrae} and \emph{R. boylii}, we used coalescent simulations in
-fastsimcoal2 (Excoffier and Foll 2011, Excoffier et al.~2013). This
+fastsimcoal2 (Excoffier and Foll
+\protect\hyperlink{ref-excoffier_fastsimcoal_2011}{2011}, Excoffier et
+al. \protect\hyperlink{ref-excoffier_robust_2013}{2013}). This
 maximum-likelihood modeling approach uses simulations to estimate the
 expected site-frequency spectra (SFS) for a demographic model of
 interest to calculate a composite likelihood, and then utilizes a
@@ -1398,9 +1482,11 @@ no migration between species.
 The basic steps taken to obtain final model estimates from fastsimcoal2
 used a set of 10 replicate models, followed by comparison of maximum
 observed and expected likelihoods to select the best-fit model (Akaike
-1973), then simulate new SFS using the best-fit model for parametric
-bootstrapping. Following Excoffier and Foll (2011), we used 1,000
-randomly drawn SNPs from each SFS to generate 100,000 coalescent
+\protect\hyperlink{ref-akaike_information_1973}{1973}), then simulate
+new SFS using the best-fit model for parametric bootstrapping. Following
+Excoffier and Foll
+(\protect\hyperlink{ref-excoffier_fastsimcoal_2011}{2011}), we used
+1,000 randomly drawn SNPs from each SFS to generate 100,000 coalescent
 simulations for likelihood calculations (estimation of the expected SFS)
 with a maximum of 40 cycles for the conditional maximization algorithm.
 To select the best-fit model we selected the model replicate that
@@ -1419,32 +1505,23 @@ for both \emph{R. sierrae} and \emph{R.
 boylii}}{Rapture produced high quality genomic data for both R. sierrae and R. boylii}}\label{rapture-produced-high-quality-genomic-data-for-both-r.-sierrae-and-r.-boylii}}
 
 Individual samples were collected across 56 different sampling
-localities in three different watersheds (Figure 1, Table S1). For
-downstream analysis, we filtered and retained 311 samples from the
-original sequencing data that contained a minimum of 25,000 alignments
-(Table S5). The final merged dataset mean alignments per sample was
-229,485 (Table S5), and the mean number of samples per site was eight.
-These frog species are cryptic, and often occur in low densities, so we
-retained all sites in our analysis, regardless of the number of samples
-(Table S1). We conclude that the sequence data we obtained should be
-appropriate for population genetic analyses across our study area.
+localities in three different watersheds (Figure \ref{fig:CH2F1map},
+Table \ref{tab:CH2T1}). For downstream analysis, we filtered and
+retained 311 samples from the original sequencing data that contained a
+minimum of 25,000 alignments \protect\hyperlink{supptables}{(Appendix,
+S5)}. The final merged dataset mean alignments per sample was 229,485
+\protect\hyperlink{supptables}{(Appendix, S5)}, and the mean number of
+samples per site was eight. These frog species are cryptic, and often
+occur in low densities, so we retained all sites in our analysis,
+regardless of the number of samples per locality (Table
+\ref{tab:CH2T1}). We conclude that the sequence data we obtained should
+be appropriate for population genetic analyses across our study area.
 
-Sampling locations and flow characteristics. A) Map of
-sampling locations spread across six rivers. B) Comparison of annual
-mean daily discharge from 1981--2016 for three flow types. C) Comparison
-of hourly discharge in three different flow regimes in April through
-July 2012, Bypass (South Yuba), Hydropeaking (Middle Fork American), and
-Unregulated (North Fork American). See Table \ref{tab:ch1TableS2} for
-USGS gaging station information. Map of sampling locations in the Feather, Yuba, and
-American watersheds. RABO=\emph{R. boylii}, RASI=\emph{R. sierrae}.
+
+
 \begin{figure}
-\includegraphics[angle=90, scale=.75]{figure/ch2/figure_01_overview_hybrid} \caption{Sampling locations and flow characteristics. A) Map of
-sampling locations spread across six rivers. B) Comparison of annual
-mean daily discharge from 1981--2016 for three flow types. C) Comparison
-of hourly discharge in three different flow regimes in April through
-July 2012, Bypass (South Yuba), Hydropeaking (Middle Fork American), and
-Unregulated (North Fork American). See Table \ref{tab:ch1TableS2} for
-USGS gaging station information.}\label{fig:fig1map}
+\includegraphics[angle=90, scale=.70]{figure/ch2/figure_01_overview_hybrid} \caption{Map of sampling locations in the Feather, Yuba, and
+American watersheds. RABO=\emph{R. boylii}, RASI=\emph{R. sierrae}.}\label{fig:CH2F1map}
 \end{figure}
 \hypertarget{rangewide}{%
 \chapter{\texorpdfstring{Refining conservation unit boundaries of a
@@ -1512,10 +1589,11 @@ alterations to flow regimes (Kupferberg
 \protect\hyperlink{ref-kupferberg_effects_2012}{2012}).
 
 As with many amphibians in California ({\textbf{???}}, {\textbf{???}},
-{\textbf{???}}), there have been significant population declines across
-the former range of this species, particularly in southern California
-and the Sierra Nevada where it has been extirpated from approximately 50
-percent of its historical range (Jennings and Hayes
+Peek \protect\hyperlink{ref-peek_landscape_2010}{2010}), there have been
+significant population declines across the former range of this species,
+particularly in southern California and the Sierra Nevada where it has
+been extirpated from approximately 50 percent of its historical range
+(Jennings and Hayes
 \protect\hyperlink{ref-jennings_amphibian_1994}{1994}, Davidson et al.
 \protect\hyperlink{ref-davidson_spatial_2002}{2002}). \emph{Rana
 boylii}, currently designated as a species of special concern (CDFW) in
@@ -1548,9 +1626,9 @@ potential for long-term persistence across this species' range.
 \hypertarget{materials-and-methods-1}{%
 \section{MATERIALS AND METHODS}\label{materials-and-methods-1}}
 
-\hypertarget{sampling-and-dna-extraction-1}{%
+\hypertarget{sampling-and-dna-extraction}{%
 \subsection{Sampling and DNA
-extraction}\label{sampling-and-dna-extraction-1}}
+extraction}\label{sampling-and-dna-extraction}}
 
 A total of 1103 individual tadpole tail clips, buccal swabs, or tissue
 samples were compiled, collected between 1992 and 2016 across the range
@@ -1610,10 +1688,11 @@ Three different sequencing runs on an Illumina HiSeq were merged
 together, filtered, and duplicates were removed using ANGSD and Samtools
 (Li et al. \protect\hyperlink{ref-li_sequence_2009}{2009}). Sampled
 individuals were aligned against the de novo partial genome reference
-using the BWA-MEM algorithm ({\textbf{???}}, Li and Durbin
-\protect\hyperlink{ref-li_fast_2010}{2010}) and saved to BAM format. To
-generate SNP (segregating site) data, a probabilistic framework was used
-for all population genetic analyses as it does not require calling
+using the BWA-MEM algorithm (Li and Durbin
+\protect\hyperlink{ref-li_fast_2010}{2010}, Li
+\protect\hyperlink{ref-li_aligning_2013}{2013}) and saved to BAM format.
+To generate SNP (segregating site) data, a probabilistic framework was
+used for all population genetic analyses as it does not require calling
 genotypes and is suitable for low-coverage sequencing data (Korneliussen
 et al. \protect\hyperlink{ref-korneliussen_calculation_2013}{2013},
 Fumagalli et al.
@@ -1734,87 +1813,63 @@ Figure 1).
 
 \appendix
 
-\hypertarget{appendix}{%
-\chapter{Appendix}\label{appendix}}
+\hypertarget{appendix-supplemental-tables-code}{%
+\chapter{Appendix: Supplemental Tables \&
+Code}\label{appendix-supplemental-tables-code}}
 
 This includes repository links to supplementary tables and code for
 analyses and figure generation.
 
-\textbf{In Chapter \ref{reg-health}:}
-\begin{Shaded}
-\begin{Highlighting}[]
-\ControlFlowTok{if}\NormalTok{(}\OperatorTok{!}\KeywordTok{require}\NormalTok{(devtools))}
-  \KeywordTok{install.packages}\NormalTok{(}\StringTok{"devtools"}\NormalTok{, }\DataTypeTok{repos =} \StringTok{"http://cran.rstudio.com"}\NormalTok{)}
-\ControlFlowTok{if}\NormalTok{(}\OperatorTok{!}\KeywordTok{require}\NormalTok{(dplyr))}
-    \KeywordTok{install.packages}\NormalTok{(}\StringTok{"dplyr"}\NormalTok{, }\DataTypeTok{repos =} \StringTok{"http://cran.rstudio.com"}\NormalTok{)}
-\ControlFlowTok{if}\NormalTok{(}\OperatorTok{!}\KeywordTok{require}\NormalTok{(ggplot2))}
-    \KeywordTok{install.packages}\NormalTok{(}\StringTok{"ggplot2"}\NormalTok{, }\DataTypeTok{repos =} \StringTok{"http://cran.rstudio.com"}\NormalTok{)}
-\ControlFlowTok{if}\NormalTok{(}\OperatorTok{!}\KeywordTok{require}\NormalTok{(ggplot2))}
-    \KeywordTok{install.packages}\NormalTok{(}\StringTok{"bookdown"}\NormalTok{, }\DataTypeTok{repos =} \StringTok{"http://cran.rstudio.com"}\NormalTok{)}
-
-\KeywordTok{library}\NormalTok{(readr)}
-\KeywordTok{library}\NormalTok{(knitr)}
-\KeywordTok{library}\NormalTok{(kableExtra)}
-\KeywordTok{library}\NormalTok{(tidyverse)}
-\KeywordTok{library}\NormalTok{(kableExtra)}
-\KeywordTok{options}\NormalTok{(}\DataTypeTok{knitr.table.format =} \StringTok{"latex"}\NormalTok{)}
-\NormalTok{ch1T1 <-}\StringTok{ }\KeywordTok{read_csv}\NormalTok{(}\StringTok{"data/ch1_T1_samplesites_samples.csv"}\NormalTok{) }
-\end{Highlighting}
-\end{Shaded}
-\begin{verbatim}
-Parsed with column specification:
-cols(
-  SiteName = col_character(),
-  SiteID = col_integer(),
-  Locality = col_character(),
-  river = col_character(),
-  watershed = col_character(),
-  regtype = col_character(),
-  lat = col_double(),
-  lon = col_double(),
-  elev_m = col_double(),
-  NHD_StO = col_integer(),
-  NHD_DA_km2 = col_double(),
-  n_initial = col_integer(),
-  n_retained = col_integer()
-)
-\end{verbatim}
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{ch1T2 <-}\StringTok{ }\KeywordTok{read_csv}\NormalTok{(}\StringTok{"data/ch1_T2_usgs_gages.csv"}\NormalTok{) }
-\end{Highlighting}
-\end{Shaded}
-\begin{verbatim}
-Parsed with column specification:
-cols(
-  study_site = col_character(),
-  USGS_Gage_number = col_character(),
-  Years_of_record = col_character(),
-  Latitude = col_double(),
-  Longitude = col_double()
-)
-\end{verbatim}
 \hypertarget{supptables}{%
 \section{Supplemental Tables}\label{supptables}}
 \begin{itemize}
 \tightlist
 \item
   Table S1: \protect\hyperlink{ch1samplecollection}{Chapter 1 Rapture
-  Samples} can be found at
-  \href{https://raw.githubusercontent.com/ryanpeek/peek_phd_supplemental_materials/master/supplemental_tables/S1_chap1_Rapture_samples.csv}{github.com/peek\_phd\_supplemental\_materials}
+  Samples} can be found at:
+  \begin{itemize}
+  \tightlist
+  \item
+    \href{https://raw.githubusercontent.com/ryanpeek/peek_phd_supplemental_materials/master/supplemental_tables/S1_chap1_Rapture_samples.csv}{github.com/peek\_phd\_supplemental\_materials}
+  \end{itemize}
 \item
   Table S2: \protect\hyperlink{denovo}{RADSeq samples} used for
-  designing baits can be found at
-  \href{https://raw.githubusercontent.com/ryanpeek/peek_phd_supplemental_materials/master/supplemental_tables/S2_RADSeq-bait-samples.csv}{github.com/peek\_phd\_supplemental\_materials}
+  designing baits can be found at:
+  \begin{itemize}
+  \tightlist
+  \item
+    \href{https://raw.githubusercontent.com/ryanpeek/peek_phd_supplemental_materials/master/supplemental_tables/S2_RADSeq-bait-samples.csv}{github.com/peek\_phd\_supplemental\_materials}
+  \end{itemize}
 \item
-  Table S3: \protect\hyperlink{rapture}{RAD Capture baits} can be found
-  at
-  \href{https://github.com/ryanpeek/peek_phd_supplemental_materials/blob/master/supplemental_tables/S3_capture_baits_120.fa.txt?raw=true}{github.com/peek\_phd\_supplemental\_materials}
+  Table S3: \protect\hyperlink{denovo}{\emph{de Novo}} alignment for
+  \emph{R. boylii}. Zipped file is 4.16 MB and can be found at:
+  \begin{itemize}
+  \tightlist
+  \item
+    \href{https://github.com/ryanpeek/peek_phd_supplemental_materials/blob/master/supplemental_tables/S3_de_novo_assembly_300.fa.zip?raw=true}{github.com/peek\_phd\_supplemental\_materials}
+  \end{itemize}
 \item
-  Table S4: \protect\hyperlink{denovo}{\emph{de Novo}} alignment for
-  \emph{R. boylii}. Zipped file is 4.16 MB and can be found at
-  \href{https://github.com/ryanpeek/peek_phd_supplemental_materials/blob/master/supplemental_tables/S4_de_novo_assembly_300.fa.zip?raw=true}{github.com/peek\_phd\_supplemental\_materials}
+  Table S4: \protect\hyperlink{rapture}{RAD Capture baits} can be found
+  at:
+  \begin{itemize}
+  \tightlist
+  \item
+    \href{https://github.com/ryanpeek/peek_phd_supplemental_materials/blob/master/supplemental_tables/S4_capture_baits_120.fa.zip?raw=true}{github.com/peek\_phd\_supplemental\_materials}
+  \end{itemize}
+\item
+  Table S5: \protect\hyperlink{ch2samplecollection}{Chapter 2 Hybrid
+  Samples} can be found at:
+  \begin{itemize}
+  \tightlist
+  \item
+    \href{https://raw.githubusercontent.com/ryanpeek/peek_phd_supplemental_materials/master/supplemental_tables/S5_chap2_selected_samples_25k.csv}{github.com/peek\_phd\_supplemental\_materials}
+  \end{itemize}
 \end{itemize}
+\hypertarget{code}{%
+\section{Code and Packages}\label{code}}
+
+\textbf{In Chapter \ref{reg-health}:}
+
 \hypertarget{colophon}{%
 \chapter*{Colophon}\label{colophon}}
 \addcontentsline{toc}{chapter}{Colophon}
@@ -1846,100 +1901,12 @@ been organised into an R package, xxx, which is available at
 \url{https://github.com/xxx/xxx}. A hard copy of the thesis can be found
 in the University of Washington library.
 
-This version of the thesis was generated on 2018-09-12 16:36:00. The
+This version of the thesis was generated on 2018-09-13 17:59:21. The
 repository is currently at this commit:
 
 The computational environment that was used to generate this version is
 as follows:
-\begin{verbatim}
-Session info -------------------------------------------------------------
-\end{verbatim}
-\begin{verbatim}
- setting  value                       
- version  R version 3.5.1 (2018-07-02)
- system   x86_64, darwin15.6.0        
- ui       X11                         
- language (EN)                        
- collate  en_US.UTF-8                 
- tz       America/Los_Angeles         
- date     2018-09-12                  
-\end{verbatim}
-\begin{verbatim}
-Packages -----------------------------------------------------------------
-\end{verbatim}
-\begin{verbatim}
- package     * version    date       source                               
- assertthat    0.2.0      2017-04-11 CRAN (R 3.5.0)                       
- backports     1.1.2      2017-12-13 CRAN (R 3.5.0)                       
- base        * 3.5.1      2018-07-05 local                                
- bindr         0.1.1      2018-03-13 CRAN (R 3.5.0)                       
- bindrcpp      0.2.2      2018-03-29 CRAN (R 3.5.0)                       
- bookdown    * 0.7        2018-02-18 CRAN (R 3.5.0)                       
- broom         0.5.0      2018-07-17 CRAN (R 3.5.0)                       
- cellranger    1.1.0      2016-07-27 CRAN (R 3.5.0)                       
- cli           1.0.0      2017-11-05 CRAN (R 3.5.0)                       
- colorspace    1.3-2      2016-12-14 CRAN (R 3.5.0)                       
- compiler      3.5.1      2018-07-05 local                                
- crayon        1.3.4      2017-09-16 CRAN (R 3.5.0)                       
- datasets    * 3.5.1      2018-07-05 local                                
- devtools    * 1.13.6     2018-06-27 CRAN (R 3.5.0)                       
- digest        0.6.16     2018-08-22 CRAN (R 3.5.1)                       
- dplyr       * 0.7.6      2018-06-29 CRAN (R 3.5.0)                       
- evaluate      0.11       2018-07-17 CRAN (R 3.5.0)                       
- forcats     * 0.3.0      2018-02-19 CRAN (R 3.5.0)                       
- gauchodown  * 0.0.5      2018-09-12 Github (danovando/gauchodown@e7ca324)
- ggplot2     * 3.0.0.9000 2018-09-12 Github (tidyverse/ggplot2@f636f34)   
- git2r         0.23.0     2018-07-17 CRAN (R 3.5.0)                       
- glue          1.3.0      2018-07-17 CRAN (R 3.5.0)                       
- graphics    * 3.5.1      2018-07-05 local                                
- grDevices   * 3.5.1      2018-07-05 local                                
- grid          3.5.1      2018-07-05 local                                
- gtable        0.2.0      2016-02-26 CRAN (R 3.5.0)                       
- haven         1.1.2      2018-06-27 CRAN (R 3.5.0)                       
- hms           0.4.2      2018-03-10 CRAN (R 3.5.0)                       
- htmltools     0.3.6      2017-04-28 CRAN (R 3.5.0)                       
- httr          1.3.1      2017-08-20 CRAN (R 3.5.0)                       
- jsonlite      1.5        2017-06-01 CRAN (R 3.5.0)                       
- kableExtra  * 0.9.0      2018-05-21 CRAN (R 3.5.0)                       
- knitr       * 1.20       2018-02-20 CRAN (R 3.5.0)                       
- lattice       0.20-35    2017-03-25 CRAN (R 3.5.1)                       
- lazyeval      0.2.1      2017-10-29 CRAN (R 3.5.0)                       
- lubridate     1.7.4      2018-04-11 CRAN (R 3.5.0)                       
- magrittr      1.5        2014-11-22 CRAN (R 3.5.0)                       
- memoise       1.1.0      2017-04-21 CRAN (R 3.5.0)                       
- methods     * 3.5.1      2018-07-05 local                                
- modelr        0.1.2      2018-05-11 CRAN (R 3.5.0)                       
- munsell       0.5.0      2018-06-12 CRAN (R 3.5.0)                       
- nlme          3.1-137    2018-04-07 CRAN (R 3.5.1)                       
- pillar        1.3.0      2018-07-14 CRAN (R 3.5.0)                       
- pkgconfig     2.0.2      2018-08-16 CRAN (R 3.5.0)                       
- plyr          1.8.4      2016-06-08 CRAN (R 3.5.0)                       
- purrr       * 0.2.5      2018-05-29 CRAN (R 3.5.0)                       
- R6            2.2.2      2017-06-17 CRAN (R 3.5.0)                       
- Rcpp          0.12.18    2018-07-23 CRAN (R 3.5.1)                       
- readr       * 1.1.1      2017-05-16 CRAN (R 3.5.0)                       
- readxl        1.1.0      2018-04-20 CRAN (R 3.5.0)                       
- rlang         0.2.2      2018-08-16 CRAN (R 3.5.0)                       
- rmarkdown     1.10       2018-06-11 cran (@1.10)                         
- rprojroot     1.3-2      2018-01-03 CRAN (R 3.5.0)                       
- rstudioapi    0.7        2017-09-07 CRAN (R 3.5.0)                       
- rvest         0.3.2      2016-06-17 CRAN (R 3.5.0)                       
- scales        1.0.0.9000 2018-09-12 Github (hadley/scales@2ccb2fb)       
- stats       * 3.5.1      2018-07-05 local                                
- stringi       1.2.4      2018-07-20 CRAN (R 3.5.0)                       
- stringr     * 1.3.1      2018-05-10 CRAN (R 3.5.0)                       
- tibble      * 1.4.2      2018-01-22 CRAN (R 3.5.0)                       
- tidyr       * 0.8.1      2018-05-18 CRAN (R 3.5.0)                       
- tidyselect    0.2.4      2018-02-26 CRAN (R 3.5.0)                       
- tidyverse   * 1.2.1      2017-11-14 CRAN (R 3.5.0)                       
- tools         3.5.1      2018-07-05 local                                
- utils       * 3.5.1      2018-07-05 local                                
- viridisLite   0.3.0      2018-02-01 CRAN (R 3.5.0)                       
- withr         2.1.2      2018-08-29 Github (jimhester/withr@8b9cee2)     
- xfun          0.3        2018-07-06 CRAN (R 3.5.0)                       
- xml2          1.2.0      2018-01-24 CRAN (R 3.5.0)                       
- yaml          2.2.0      2018-07-25 CRAN (R 3.5.0)                       
-\end{verbatim}
+
 \backmatter
 
 \hypertarget{references}{%
@@ -1965,6 +1932,12 @@ Nichols, A. W. Nolte, C. Parisod, K. Pfennig, A. M. Rice, M. G. Ritchie,
 B. Seifert, C. M. Smadja, R. Stelkens, J. M. Szymura, R. Väinölä, J. B.
 W. Wolf, and D. Zinner. 2013. Hybridization and speciation. Journal of
 evolutionary biology 26:229--246.
+
+\leavevmode\hypertarget{ref-akaike_information_1973}{}%
+Akaike, H. 1973. Information theory and an extension of the maximum
+likelihood principle. Pages 267--281 \emph{in} B. N. Petrov and F.
+Csaki, editors. Proceedings of the Second International Symposium on
+Information Theory.
 
 \leavevmode\hypertarget{ref-ali_rad_2016}{}%
 Ali, O. A., S. M. O'Rourke, S. J. Amish, M. H. Meek, G. Luikart, C.
@@ -2000,6 +1973,17 @@ Bondi, C. A., S. M. Yarnell, A. J. Lind, and A. Lind. 2013.
 Transferability of habitat suitability criteria for a stream breeding
 frog (\emph{Rana} \emph{Boylii}) in the Sierra Nevada, California.
 Conservation and Biology 8:88--103.
+
+\leavevmode\hypertarget{ref-botero_evolutionary_2015}{}%
+Botero, C. A., F. J. Weissing, J. Wright, and D. R. Rubenstein. 2015.
+Evolutionary tipping points in the capacity to adapt to environmental
+change. Proceedings of the National Academy of Sciences of the United
+States of America 112:184--189.
+
+\leavevmode\hypertarget{ref-bourque_spatial_2008}{}%
+Bourque, R. M. 2008, December. Spatial ecology of an inland population
+of the Foothill yellow-legged frog (Rana boylii) in Tehama County,
+California. PhD Thesis, Humboldt State University.
 
 \leavevmode\hypertarget{ref-broquet_buccal_2007}{}%
 Broquet, T., L. Berset-Braendli, G. Emaresi, and L. Fumagalli. 2007.
@@ -2052,6 +2036,28 @@ J. Stiassny, and C. A. Sullivan. 2006. Freshwater biodiversity:
 Importance, threats, status and conservation challenges. Biological
 reviews of the Cambridge Philosophical Society 81:163--182.
 
+\leavevmode\hypertarget{ref-durrell_geologic_1988}{}%
+Durrell, C. 1988. Geologic History of the Feather River Country,
+California. University of California Press.
+
+\leavevmode\hypertarget{ref-excoffier_robust_2013}{}%
+Excoffier, L., I. Dupanloup, E. Huerta-Sánchez, V. C. Sousa, and M.
+Foll. 2013. Robust demographic inference from genomic and SNP data. PLoS
+genetics 9:e1003905.
+
+\leavevmode\hypertarget{ref-excoffier_fastsimcoal_2011}{}%
+Excoffier, L., and M. Foll. 2011. Fastsimcoal: A continuous-time
+coalescent simulator of genomic diversity under arbitrarily complex
+evolutionary scenarios. Bioinformatics 27:1332--1334.
+
+\leavevmode\hypertarget{ref-fahrig_habitat_1985}{}%
+Fahrig, L., and G. Merriam. 1985. Habitat Patch Connectivity and
+Population Survival. Ecology 66:1762--1768.
+
+\leavevmode\hypertarget{ref-frankham_introduction_2002}{}%
+Frankham, R. 2002. Introduction to Conservation Genetics. Cambridge
+University Press, Cambridge, UK ; New York.
+
 \leavevmode\hypertarget{ref-fuller_linking_2011}{}%
 Fuller, T. E., K. L. Pope, D. T. Ashton, and H. H. Welsh. 2011. Linking
 the Distribution of an Invasive Amphibian (Rana catesbeiana) to Habitat
@@ -2097,6 +2103,19 @@ Guzy, J. C., E. A. Eskew, B. J. Halstead, and S. J. Price. 2018.
 Influence of damming on anuran species richness in riparian areas: A
 test of the serial discontinuity concept. Ecology and evolution.
 
+\leavevmode\hypertarget{ref-hellsten_genome_2010}{}%
+Hellsten, U., R. M. Harland, M. J. Gilchrist, D. Hendrix, J. Jurka, V.
+Kapitonov, I. Ovcharenko, N. H. Putnam, S. Shu, L. Taher, I. L. Blitz,
+B. Blumberg, D. S. Dichmann, I. Dubchak, E. Amaya, J. C. Detter, R.
+Fletcher, D. S. Gerhard, D. Goodstein, T. Graves, I. V. Grigoriev, J.
+Grimwood, T. Kawashima, E. Lindquist, S. M. Lucas, P. E. Mead, T.
+Mitros, H. Ogino, Y. Ohta, A. V. Poliakov, N. Pollet, J. Robert, A.
+Salamov, A. K. Sater, J. Schmutz, A. Terry, P. D. Vize, W. C. Warren, D.
+Wells, A. Wills, R. K. Wilson, L. B. Zimmerman, A. M. Zorn, R. Grainger,
+T. Grammer, M. K. Khokha, P. M. Richardson, and D. S. Rokhsar. 2010. The
+genome of the Western clawed frog Xenopus tropicalis. Science
+328:633--636.
+
 \leavevmode\hypertarget{ref-heyer_measuring_1994}{}%
 Heyer, W. R., M. A. Donnelly, R. W. McDiarmid, L.-A. C. Hayek, and M. S.
 Foster. 1994. Measuring and monitoring biological diversity. Standard
@@ -2106,6 +2125,10 @@ methods for amphibians. Smithsonian Institution Press, Washington DC.
 Hijmans, R. J., S. Phillips, J. Leathwick, and J. Elith. 2017. Dismo:
 Species Distribution Modeling. R package.
 
+\leavevmode\hypertarget{ref-hoffmann_climate_2011}{}%
+Hoffmann, A. A., and C. M. Sgrò. 2011. Climate change and evolutionary
+adaptation. Nature 470:479--485.
+
 \leavevmode\hypertarget{ref-hotaling_demographic_2018}{}%
 Hotaling, S., C. C. Muhlfeld, J. J. Giersch, O. A. Ali, S. Jordan, M. R.
 Miller, G. Luikart, and D. W. Weisrock. 2018. Demographic modelling
@@ -2113,10 +2136,21 @@ reveals a history of divergence with gene flow for a glacially tied
 stonefly in a changing post-Pleistocene landscape. Journal of
 biogeography 45:304--317.
 
+\leavevmode\hypertarget{ref-ishiyama_differential_2015}{}%
+Ishiyama, N., I. Koizumi, T. Yuta, and F. Nakamura. 2015. Differential
+effects of spatial network structure and scale on population size and
+genetic diversity of the ninespine stickleback in a remnant wetland
+system. Freshwater biology 60:733--744.
+
 \leavevmode\hypertarget{ref-jennings_amphibian_1994}{}%
 Jennings, M. R., and M. P. Hayes. 1994. Amphibian and reptile species of
 special concern in California. Final Report. California Department of
 Fish and Game Inland Fisheries Division, Rancho Cordova.
+
+\leavevmode\hypertarget{ref-kahilainen_conservation_2014}{}%
+Kahilainen, A., M. Puurtinen, and J. S. Kotiaho. 2014. Conservation
+implications of speciesGenetic diversity correlations. Global Ecology
+and Conservation 2:315--323.
 
 \leavevmode\hypertarget{ref-kim_estimation_2011}{}%
 Kim, S. Y., K. E. Lohmueller, A. Albrechtsen, Y. Li, T. Korneliussen, G.
@@ -2133,6 +2167,13 @@ Analysis of Next Generation Sequencing Data. BMC bioinformatics 15:356.
 Korneliussen, T. S., I. Moltke, A. Albrechtsen, and R. Nielsen. 2013.
 Calculation of Tajima's D and other neutrality test statistics from low
 depth next-generation sequencing data. BMC bioinformatics 14:289.
+
+\leavevmode\hypertarget{ref-krohn_conservation_2018}{}%
+Krohn, A. R., C. J. Conroy, R. Pesapane, K. Bi, J. E. Foley, and E. B.
+Rosenblum. 2018. Conservation genomics of desert dwelling California
+voles (Microtus californicus) and implications for management of
+endangered Amargosa voles (Microtus californicus scirpensis).
+Conservation genetics 19:383--395.
 
 \leavevmode\hypertarget{ref-kupferberg_hydrologic_1996}{}%
 Kupferberg, S. J. 1996. Hydrologic and geomorphic factors affecting
@@ -2151,6 +2192,15 @@ for Conservation Biology 26:513--524.
 Lande, R., and S. Shannon. 1996. The Role of Genetic Variation in
 Adaptation and Population Persistence in a Changing Environment.
 Evolution; International Journal of Organic Evolution 50:434--437.
+
+\leavevmode\hypertarget{ref-li_statistical_2011}{}%
+Li, H. 2011. A statistical framework for SNP calling, mutation
+discovery, association mapping and population genetical parameter
+estimation from sequencing data. Bioinformatics 27:2987--2993.
+
+\leavevmode\hypertarget{ref-li_aligning_2013}{}%
+Li, H. 2013. Aligning sequence reads, clone sequences and assembly
+contigs with BWA-MEM.
 
 \leavevmode\hypertarget{ref-li_fast_2010}{}%
 Li, H., and R. Durbin. 2010. Fast and accurate long-read alignment with
@@ -2228,6 +2278,11 @@ species. Molecular ecology 26:1060--1074.
 Parris, K. M., S. C. McCall, M. A. McCarthy, B. A. Minteer, K. Steele,
 S. Bekessy, and F. Medvecky. 2010. Assessing ethical trade-offs in
 ecological field studies. The Journal of applied ecology 47:227--234.
+
+\leavevmode\hypertarget{ref-peek_landscape_2010}{}%
+Peek, R. 2010. Landscape Genetics of Foothill Yellow-Legged Frogs (Rana
+boylii) in regulated and unregulated rivers: Assessing connectivity and
+genetic fragmentation. Master's Thesis, University of San Francisco.
 
 \leavevmode\hypertarget{ref-phillips_maximum_2006}{}%
 Phillips, S. J., R. P. Anderson, and R. E. Schapire. 2006. Maximum
@@ -2321,6 +2376,10 @@ Skotte, L., T. S. Korneliussen, and A. Albrechtsen. 2013. Estimating
 individual admixture proportions from next generation sequencing data.
 Genetics 195:693--702.
 
+\leavevmode\hypertarget{ref-slatkin_gene_1987}{}%
+Slatkin, M. 1987. Gene flow and the geographic structure of natural
+populations. Science 236:787--792.
+
 \leavevmode\hypertarget{ref-stebbins_field_2003}{}%
 Stebbins, R. C. 2003. A Field Guide to Western Reptiles and Amphibians.
 3rd editions. Houghton Mifflin Harcourt, Boston.
@@ -2331,9 +2390,22 @@ Associating metrics of hydrologic variability with benthic
 macroinvertebrate communities in regulated and unregulated
 snowmelt-dominated rivers. Freshwater biology.
 
+\leavevmode\hypertarget{ref-sun_whole-genome_2015}{}%
+Sun, Y.-B., Z.-J. Xiong, X.-Y. Xiang, S.-P. Liu, W.-W. Zhou, X.-L. Tu,
+L. Zhong, L. Wang, D.-D. Wu, B.-L. Zhang, C.-L. Zhu, M.-M. Yang, H.-M.
+Chen, F. Li, L. Zhou, S.-H. Feng, C. Huang, G.-J. Zhang, D. Irwin, D. M.
+Hillis, R. W. Murphy, H.-M. Yang, J. Che, J. Wang, and Y.-P. Zhang.
+2015. Whole-genome sequence of the Tibetan frog Nanorana parkeri and the
+comparative evolution of tetrapod genomes. Proceedings of the National
+Academy of Sciences of the United States of America 112:E1257--62.
+
 \leavevmode\hypertarget{ref-tajima_evolutionary_1983}{}%
 Tajima, F. 1983. Evolutionary relationship of DNA sequences in finite
 populations. Genetics 105:437--60.
+
+\leavevmode\hypertarget{ref-taylor_connectivity_1993}{}%
+Taylor, P. D., L. Fahrig, K. Henein, and G. Merriam. 1993. Connectivity
+Is a Vital Element of Landscape Structure. Oikos 68:571--573.
 
 \leavevmode\hypertarget{ref-tonkin_seasonality_2017}{}%
 Tonkin, J. D., M. T. Bogan, N. Bonada, B. Rios-Touma, and D. A. Lytle.
@@ -2363,6 +2435,11 @@ Prusevich, P. Green, S. Glidden, S. E. Bunn, C. A. Sullivan, C. R.
 Liermann, and P. M. Davies. 2010. Global threats to human water security
 and river biodiversity. Nature 467:555--61.
 
+\leavevmode\hypertarget{ref-vredenburg_reversing_2004}{}%
+Vredenburg, V. 2004. Reversing introduced species effects: Experimental
+removal of introduced fish leads to rapid recovery of a declining frog.
+Proceedings of the National Academy of Sciences 101:7646--7650.
+
 \leavevmode\hypertarget{ref-watterson_number_1975}{}%
 Watterson, G. A. 1975. Number of Segregating Sites in Genetic Models
 without Recombination. Theoretical Population Biology 7:256--276.
@@ -2371,6 +2448,16 @@ without Recombination. Theoretical Population Biology 7:256--276.
 Werth, S., M. Schödl, and C. Scheidegger. 2014. Dams and canyons disrupt
 gene flow among populations of a threatened riparian plant. Freshwater
 biology 59:2502--2515.
+
+\leavevmode\hypertarget{ref-whiteley_genetic_2010}{}%
+Whiteley, A. R., K. Hastings, J. K. Wenburg, C. A. Frissell, J. C.
+Martin, and F. W. Allendorf. 2010. Genetic variation and effective
+population size in isolated populations of coastal cutthroat trout.
+Conservation genetics 11:1929--1943.
+
+\leavevmode\hypertarget{ref-wickham_dplyr_2018}{}%
+Wickham, H., R. François, L. Henry, and K. Müller. 2018. Dplyr: A
+Grammar of Data Manipulation.
 
 \leavevmode\hypertarget{ref-wiens_riverine_2002}{}%
 Wiens, J. A. 2002. Riverine landscapes: Taking landscape ecology into

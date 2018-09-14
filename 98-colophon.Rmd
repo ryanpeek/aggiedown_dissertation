@@ -10,7 +10,7 @@ The source files for this thesis, along with all the data files, have been organ
 
 This version of the thesis was generated on `r Sys.time()`. The repository is currently at this commit:
 
-```{r echo = FALSE, eval = FALSE}
+```{r echo = FALSE, eval = FALSE, include=FALSE}
 # I've set eval=FALSE to ensure Travis-CI can run
 # if you're not using Travis-CI, then eval=TRUE will be fine
 library(git2r)
@@ -23,7 +23,7 @@ if ( in_repository() ) {
 
 The computational environment that was used to generate this version is as follows:
 
-```{r echo = FALSE}
+```{r echo = FALSE, include=FALSE}
 devtools::session_info()
 ```
 

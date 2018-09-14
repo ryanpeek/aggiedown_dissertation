@@ -1,8 +1,5 @@
 ```{r include_packages_ch3, include = FALSE}
-# This chunk ensures that the huskydown package is
-# installed and loaded. This huskydown package includes
-# the template files for the thesis and also two functions
-# used for labeling and referencing
+
 if(!require(devtools))
   install.packages("devtools", repos = "http://cran.rstudio.com")
 if(!require(dplyr))
@@ -30,14 +27,9 @@ library(kableExtra)
 One thing that may be annoying is the way _R Markdown_ handles "floats" like tables and figures (it's really \LaTeX's fault). \LaTeX\ will try to find the best place to put your object based on the text around it and until you're really, truly done writing you should just leave it where it lies. There are some optional arguments specified in the options parameter of the `label` function.  If you need to shift your figure around, it might be good to look here on tweaking the options argument:  <https://en.wikibooks.org/wiki/LaTeX/Floats,_Figures_and_Captions>
 
 If you need a graphic or tabular material to be part of the text, you can just put it inline. If you need it to appear in the list of figures or tables, it should be placed in a code chunk.
--->
-
-```{r uwlogo, fig.cap="UW logo", eval=FALSE, echo=F}
-#include_graphics(path = "figure/uw.png")
-
 # Here is a reference to the UW logo: Figure \@ref(fig:uwlogo).  Note the use of the `fig:` code here.
 
-```
+-->
 
 ## INTRODUCTION
 
