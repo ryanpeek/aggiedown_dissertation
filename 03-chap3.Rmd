@@ -65,5 +65,68 @@ We summarized patterns of genetic variation using two two estimators of $\theta$
 A total of 1,103 individual samples were sequenced using Rapture (see Methods). For principal components analysis (PCA) and admixture, we selected samples that had greater than 100,000 alignments and had 1 or more individuals per sampling locality. For localities with greater than ten individuals, we randomly sampled a maximum of 10 samples, yielding 480 total samples from 89 distinct localities across the range of the species (Figure 1, Table 1). These localities overlap many of the localities used in @mccartney-melstad_population_2018, with a few notable differences. There were more individuals available for analyses at most of the localities (Table 1), there was higher resolution sampling in certain areas (i.e., the northern coast of California, the Feather watershed), and a two additional localities fall outside of the clades delineated by @mccartney-melstad_population_2018 (i.e., Locality 1 in the SF American basin in El Dorado County, and Locality 4 in the Honey-Eagle Lakes basin in Lassen County; Figure 1).
 
 
+(ref:ch3f1map) Map comparing sampling localities between recent *R. boylii* study [@mccartney-melstad_population_2018] and the current study with a simplified historical range of *R. boylii* (adapted from USFS 2011 and @thomson_california_2016). Map is annotated with the clades identified by @mccartney-melstad_population_2018.
+
+```{r CH3F1map, results="asis", warnings=FALSE, messages=FALSE, fig.cap='(ref:ch3f1map)', out.width = "85%", echo=FALSE}
+
+include_graphics("figure/ch3/fig_01_maps_all_rabo_filt10_1_100k_revrange_localities_annotated.png")
+
+```
+
+\clearpage
+
+### PCA and Admixture shows strong separation between California ecoregions
+
+To compare and assess population structure patterns across the range of *R. boylii*, PCA were used to provide a dimensionless comparison of genetic variation. The patterns of genetic differentiation largely conformed to the clades described by @mccartney-melstad_population_2018 (North-West [NW], South-West [SW], West [W], North-East[NE], and East [E]), but some notable differences were observed. We used regional names for clades, thus the North Coast=NW, the Central Coast=SW, the South Coast=W, the Northern Sierra=NE, the Southern Sierra=E (Figure 2). The main difference evident in the PCA was the presence of a distinct group previously part of the Northern Sierra, comprised of samples from the Feather basin. Additional subdivision was evident in the Central/Southern coastal region (two groups which match SW and W clades), and the Sierra Nevada (two groups, matching the NE and E clades), yielding seven total distinct structured groups. Interestingly, a small cluster of individuals from the North Fork (NF) Feather River consistently clustered along intermediate axes between the North Coast and Northern Sierra/Southern Sierra groups. These individuals were consistently intergrades between the larger Feather group and the Northern Coastal group, regardless of the PC axes.
+
+A single sampling locality from Lassen National Forest near Eagle Lake (Locality 4, Table 1) clustered with the Northern Sierra group, suggesting the geographic boundary for this genetic group should be extended (Figure 2). Furthermore, individuals from the South Fork (SF) American basin clustered with the Southern Sierra (East) group, which would extend the boundary delineated by @mccartney-melstad_population_2018.
+
+To assess how strongly the Feather and Southern/Central coastal samples may have affected PCA structure, we ran several additional separate post-hoc PCA analyses where all Feather samples were excluded, and all Southern/Central coastal samples were excluded. Significant genetic structure was evident, and patterns remained consistent with those observed when all samples were used, regardless of which samples were excluded or retained. We conclude there is significant congruence with the @mccartney-melstad_population_2018 genetic clades, but an additional group appears distinct from the original five delineated, the Feather watershed, and boundaries should be expanded to include the SF American basin in the Southern Sierra, and the Honey-Eagle Lakes basin in the Northern Sierra.
 
 
+(ref:ch3f2pca) Principal component analysis of Rapture data colored by genetic groups (in parentheses) from @mccartney-melstad_population_2018. A) PC1 vs. PC2; B) PC3 vs. PC4. Note, samples from South Fork American River and Lassen County (gray) were not previously studied and thus had no assigned clade. *Rana boylii* in the Feather basin were assigned as part of the Northern Sierra (NE) clade by @mccartney-melstad_population_2018.
+
+```{r CH3F2pca, results="asis", warnings=FALSE, messages=FALSE, fig.cap='(ref:ch3f2pca)', out.width = '95%', fig.align='center', echo=FALSE}
+
+include_graphics("figure/ch3/fig_02_pca_12_34_all_rabo_filt10_1_100k_thresh_annot.png")
+
+```
+
+\clearpage
+
+
+To further evaluate population structure across the range of *R. boylii*, we used NGSAdmix estimate the proportion of coancestry among individuals (admixture) from genome-wide SNPs. We used a range of k-values to evaluate the number of potential groups based on genetic ancestry and found strong patterns of divergence which largely matched the patterns observed in the PCA. While the northern and central coastal (SW and W) groups showed strong divergence from all other groups, they did not separate into distinct groups until k=9 (Figure 3). At k=3 through k=8, the N. Sierra and N. Coast groups continued to show patterns of subdivision, while other groups like the N. Sierra-Feather remained strongly distinct with little or no admixture observed.  At k=9, the Central Coast and South Coast split into distinct groups, with additional patterns of substructure and admixture observed in the N. Sierrae (NE) and the N. Coast (NW) groups (Figure 3). While the Central/Southern Coastal populations are clearly distinct from all other clades, our NGSadmix analysis of our data shows weaker support for delineating Central (SW) and Southern (W) groups as distinct. 
+
+(ref:ch3f3admix) NGSAdmixture for k=3 through k=9 for *R. boylii* across major geographic groupings (adapted from @mccartney-melstad_population_2018). The two Central/Southern Coastal groups did not differentiate until a k=9.
+
+```{r CH3F3admix, results="asis", warnings=FALSE, messages=FALSE, fig.cap='(ref:ch3f3admix)', out.width = '95%', fig.align='center', echo=FALSE}
+
+include_graphics("figure/ch3/fig_03_admix_stacked_combined_rabo_filt_100k.jpeg")
+
+```
+
+Sampling localities were then updated with genetic groups identified from admixture and PCA analyses to delineate geographic boundaries for these clades, building on @mccartney-melstad_population_2018 (**Figure ??**). In summary, we identified *R. boylii* from the Feather Basin as a unique genetic group, the Southern Sierra (East) clade should extend to include the South Fork American basin in El Dorado County (Locality 1), and the Northern Sierra (North-East) clade should be expanded to include Honey-Eagle Lakes basin in Lassen County (Locality 4, see Figure 1 and Figure 4).
+
+\clearpage
+
+
+(ref:ch3f5fst) Plots of F~ST~ for all localities sampled, A) comparison of pairwise F~ST~ for all localities grouped by *R. boylii* clades;  and B) pairwise F~ST~ comparisons between and within clades vs. geographic distance between localities.
+
+```{r CH3F5fst, results="asis", warnings=FALSE, messages=FALSE, fig.cap='(ref:ch3f5fst)', out.width = '95%', fig.align='center', echo=FALSE}
+
+include_graphics("figure/ch3/fig_05_combined_fst_cowplot_annotated.png")
+
+```
+
+\clearpage
+
+
+(ref:ch3f6thetas) Tajima’s $\theta_\pi$ and Watterson’ $\theta_S$  diversity estimates for *R. boylii* by clade groups (adapted from @mccartney-melstad_population_2018) with 95% CI. A) Tajima’s $\theta_\pi$) by clade, B) Watterson’ $\theta_S$ by clade; and $\theta_\pi - \theta_S$ aggregated by clade C) and for each locality within clades D).
+
+```{r CH3F6thetas, results="asis", warnings=FALSE, messages=FALSE, fig.cap='(ref:ch3f6thetas)', out.width = '95%', fig.align='center', echo=FALSE}
+
+include_graphics("figure/ch3/fig_06_thetas_taj_watt_tdiff_95CI_fig06.png")
+
+```
+
+\clearpage
