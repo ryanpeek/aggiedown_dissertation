@@ -370,7 +370,7 @@
 
 % DEDICATION
 \newenvironment{dedication}{
-  \setcounter{page}{3} % important to add page number on first page
+  %\setcounter{page}{3} % important to add page number on first page
   \if@openright\cleardoublepage \else\clearpage \fi
 }
 
