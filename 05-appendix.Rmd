@@ -27,6 +27,14 @@ This includes repository links to supplementary tables and code for analyses and
     - [github.com/peek_phd_supplemental_materials](https://raw.githubusercontent.com/ryanpeek/peek_phd_supplemental_materials/master/supplemental_tables/S5_chap2_selected_samples_25k.csv)
 
 
+### Code
+
+The pipeline for analyses and associated code can be found at: 
+
+ - **Miller Lab**: https://github.com/miller-genetics-lab
+ - https://ryanpeek.github.io/radseq/
+ 
+
 <!-- ## Code and Packages {#code} -->
 
 <!-- **In Chapter \@ref(reg-health):** -->
