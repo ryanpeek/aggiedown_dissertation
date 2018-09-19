@@ -3,7 +3,7 @@
 title: "Population genetics of a sentinel stream-breeding frog (*Rana boylii*)"
 author: "Ryan A Peek"
 year: "2018"
-month: "September"
+month: "December"
 program: "Ecology"
 uccampus: "Davis"
 report: "DISSERTATION"

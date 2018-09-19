@@ -209,8 +209,8 @@
 
 % changes for UCDavis
 % All previous degrees: one per line in chronological order
-\def\prevdegreeA#1{\gdef\@prevdegreeA{#1}}
-\def\prevdegreeB#1{\gdef\@prevdegreeB{#1}}
+% \def\prevdegreeA#1{\gdef\@prevdegreeA{#1}}
+% \def\prevdegreeB#1{\gdef\@prevdegreeB{#1}}
 
 % front matter font
 \def\fmfont{\fontsize\@xiipt{14.5}\selectfont} % Set the font for frontmatter
@@ -247,8 +247,8 @@
     \smallskip \vspace{2ex}
     By \par
     \medskip \MakeUppercase{\@author} \par
-    {\@prevdegreeA} \\
-    {\@prevdegreeB} \par
+    % {\@prevdegreeA} \\
+    % {\@prevdegreeB} \par
     \vspace*{\fill}
     \MakeUppercase{\@report} \par
     \smallskip
