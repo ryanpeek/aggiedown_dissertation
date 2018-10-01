@@ -27,6 +27,8 @@ ch1T2 <- read_csv("data/ch1_T2_usgs_gages.csv")
 
 # Flow regulation associated with decreased genetic health of a river-breeding frog species {#reg-health}
 
+\chaptermark {Flow Regulation}
+
 ## Introduction
 
 Rivers simultaneously connect and carve the landscapes through which they flow. Rivers provide corridors of connectivity for riparian and aquatic organisms such as fish, amphibians, and macroinvertebrates [@pringle_what_2003; @wiens_riverine_2002], while also acting as physical barriers on the landscape for many terrestrial organisms [@caze_could_2016; @voelker_river_2013]. Hydrologic connectivity [@pringle_what_2003] transfers energy, organisms and ultimately genetic variation and thus is a critical component for population persistence in dynamic systems where populations must constantly adapt to temporal and spatial changes. In Mediterranean climates, rivers have strong seasonal patterns associated with cold, wet winters and warm, dry summers. Native aquatic organisms have evolved life histories well adapted to these natural patterns, which are both predictable and seasonal [@tonkin_seasonality_2017; @yarnell_ecology_2010]. 
